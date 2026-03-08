@@ -1,10 +1,11 @@
 export const NEW_PERIOD_DAYS = 21
 
-export const SCHEMA_VERSION = 1
+export const SCHEMA_VERSION = 2
 
 export const STORAGE_KEYS = {
   ENTRIES: 'quran-memorization-entries',
   REVISIONS: 'quran-revision-entries',
+  VERSE_STATES: 'quran-verse-fsrs-state',
   SCHEMA: 'quran-tracker-schema-version',
 }
 

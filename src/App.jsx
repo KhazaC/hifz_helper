@@ -1,5 +1,5 @@
-import { useState, useMemo, useCallback } from 'react'
-import { computeSuggestions } from './fsrs'
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
+import { computeSuggestions, applyRevisionToSnapshot, rebuildSnapshot } from './fsrs'
 import { mergeByPage, resolvePartialVerses, getPagesForEntry, getPageBounds } from './pageMerge'
 import { useQuranData } from './hooks/useQuranData'
 import { useDebouncedWrite } from './hooks/useDebounce'
@@ -19,6 +19,17 @@ function safeParse(raw, fallback = []) {
     return Array.isArray(parsed) ? parsed : fallback
   } catch {
     console.warn('Corrupt localStorage data, resetting to default')
+    return fallback
+  }
+}
+
+/** Crash-safe JSON parse for objects with fallback */
+function safeParseObject(raw, fallback = {}) {
+  if (!raw) return fallback
+  try {
+    const parsed = JSON.parse(raw)
+    return (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) ? parsed : fallback
+  } catch {
     return fallback
   }
 }
@@ -45,6 +56,9 @@ function App() {
 
   const [editingEntry, setEditingEntry] = useState(null)
   const [editingRevision, setEditingRevision] = useState(null)
+  const [verseSnapshot, setVerseSnapshot] = useState(() =>
+    safeParseObject(localStorage.getItem(STORAGE_KEYS.VERSE_STATES))
+  )
 
   // Debounced localStorage persistence (300ms)
   const writeEntries = useCallback((val) => {
@@ -55,6 +69,20 @@ function App() {
   }, [])
   useDebouncedWrite(entries, writeEntries)
   useDebouncedWrite(revisions, writeRevisions)
+  const writeVerseSnapshot = useCallback((val) => {
+    localStorage.setItem(STORAGE_KEYS.VERSE_STATES, JSON.stringify(val))
+  }, [])
+  useDebouncedWrite(verseSnapshot, writeVerseSnapshot)
+
+  // Build snapshot on first load if migrating from schema v1 (no snapshot yet)
+  const snapshotInitRef = useRef(false)
+  useEffect(() => {
+    if (!verseData || snapshotInitRef.current) return
+    snapshotInitRef.current = true
+    if (Object.keys(verseSnapshot).length === 0 && revisions.length > 0) {
+      setVerseSnapshot(rebuildSnapshot(revisions, verseData))
+    }
+  }, [verseData]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // --- Derived data (all memoized) ---
 
@@ -88,8 +116,8 @@ function App() {
   }, [entries, verseData, pageMap])
 
   const fsrsSuggestions = useMemo(
-    () => computeSuggestions(mergedOldEntries, revisions, verseData),
-    [mergedOldEntries, revisions, verseData]
+    () => computeSuggestions(mergedOldEntries, verseSnapshot, verseData),
+    [mergedOldEntries, verseSnapshot, verseData]
   )
 
   const dueFsrs = useMemo(
@@ -155,20 +183,33 @@ function App() {
 
   const handleRevisionSubmit = useCallback((revision) => {
     if (editingRevision) {
-      setRevisions(prev => prev.map(r => r.id === revision.id ? revision : r))
+      // Edit: full snapshot rebuild needed
+      const updated = revisions.map(r => r.id === revision.id ? revision : r)
+      setRevisions(updated)
+      if (verseData) setVerseSnapshot(rebuildSnapshot(updated, verseData))
       setEditingRevision(null)
     } else {
+      // Add: incremental snapshot update
       setRevisions(prev => [...prev, revision])
+      if (verseData) {
+        setVerseSnapshot(prev => {
+          const next = { ...prev }
+          applyRevisionToSnapshot(next, revision, verseData)
+          return next
+        })
+      }
     }
-  }, [editingRevision])
+  }, [editingRevision, revisions, verseData])
 
   const handleRevisionEdit = useCallback((rev) => {
     setEditingRevision(rev)
   }, [])
 
   const handleRevisionDelete = useCallback((id) => {
-    setRevisions(prev => prev.filter(r => r.id !== id))
-  }, [])
+    const updated = revisions.filter(r => r.id !== id)
+    setRevisions(updated)
+    if (verseData) setVerseSnapshot(rebuildSnapshot(updated, verseData))
+  }, [revisions, verseData])
 
   const handleRevisionCancel = useCallback(() => {
     setEditingRevision(null)
@@ -177,7 +218,14 @@ function App() {
   /** Quick-log a revision directly from the suggestions panel */
   const handleQuickRevision = useCallback((revision) => {
     setRevisions(prev => [...prev, revision])
-  }, [])
+    if (verseData) {
+      setVerseSnapshot(prev => {
+        const next = { ...prev }
+        applyRevisionToSnapshot(next, revision, verseData)
+        return next
+      })
+    }
+  }, [verseData])
 
   // --- Test data ---
 
@@ -189,7 +237,9 @@ function App() {
       })
       .then(data => {
         setEntries(data['quran-memorization-entries'])
-        setRevisions(data['quran-revision-entries'])
+        const newRevisions = data['quran-revision-entries']
+        setRevisions(newRevisions)
+        if (verseData) setVerseSnapshot(rebuildSnapshot(newRevisions, verseData))
       })
       .catch(err => console.error('Failed to load test data:', err))
   }
@@ -198,6 +248,7 @@ function App() {
     if (window.confirm('Clear all memorization and revision data?')) {
       setEntries([])
       setRevisions([])
+      setVerseSnapshot({})
     }
   }
 
@@ -238,6 +289,7 @@ function App() {
           if (window.confirm(`Import ${importedEntries.length} entries and ${importedRevisions.length} revisions? This will replace current data.`)) {
             setEntries(importedEntries)
             setRevisions(importedRevisions)
+            if (verseData) setVerseSnapshot(rebuildSnapshot(importedRevisions, verseData))
           }
         } catch (err) {
           alert('Failed to import: ' + err.message)

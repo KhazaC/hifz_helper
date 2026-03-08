@@ -164,90 +164,110 @@ function comparePositions(surahA, verseA, surahB, verseB) {
 }
 
 /**
- * Check if two verse ranges overlap.
- * Range A: [startSurahA:startVerseA, endSurahA:endVerseA]
- * Range B: [startSurahB:startVerseB, endSurahB:endVerseB]
- * Overlap iff startA <= endB AND startB <= endA
- */
-function rangesOverlap(a, b) {
-  return (
-    comparePositions(a.startSurah, a.startVerse, b.endSurah, b.endVerse) <= 0 &&
-    comparePositions(b.startSurah, b.startVerse, a.endSurah, a.endVerse) <= 0
-  )
-}
-
-/**
- * Check if a specific verse (surahNum, verseNum) falls within a revision's range.
- * Uses Math.floor on fractional verse strings so "5.2" covers verse 5.
- */
-function revisionCoversVerse(rev, surahNum, verseNum) {
-  const s0 = Number(rev.startSurah)
-  const v0 = Math.floor(Number(rev.startVerse))
-  const s1 = Number(rev.endSurah)
-  const v1 = Math.floor(Number(rev.endVerse))
-  return (
-    comparePositions(s0, v0, surahNum, verseNum) <= 0 &&
-    comparePositions(surahNum, verseNum, s1, v1) <= 0
-  )
-}
-
-/**
- * Get the list of individual verses for an entry from verseData.
- * For full-page entries (with pageNum), returns all verses on that page.
- * For partial entries (no pageNum), enumerates verses in their range.
+ * Get all verses in a surah:verse range by scanning verseData pages.
  * Returns an array of { surahNum, verseNum }.
  */
-function getEntryVerses(entry, verseData) {
+function getVersesInRange(startSurah, startVerse, endSurah, endVerse, verseData) {
   if (!verseData || !verseData.pages) return []
-
-  // Full-page entry — return all verses on that page
-  if (entry.pageNum) {
-    const page = verseData.pages[String(entry.pageNum)]
-    if (!page || !page.verses) return []
-    return page.verses
-  }
-
-  // Partial entry — scan pages for verses that fall within this entry's range
-  const s0 = Number(entry.startSurah)
-  const v0 = Math.floor(Number(entry.startVerse))
-  const s1 = Number(entry.endSurah)
-  const v1 = Math.floor(Number(entry.endVerse))
+  const s0 = Number(startSurah)
+  const v0 = Math.floor(Number(startVerse))
+  const s1 = Number(endSurah)
+  const v1 = Math.floor(Number(endVerse))
   const result = []
-
   for (const page of Object.values(verseData.pages)) {
     if (!page.verses) continue
     for (const v of page.verses) {
-      const inRange = (
+      if (
         comparePositions(s0, v0, v.surahNum, v.verseNum) <= 0 &&
         comparePositions(v.surahNum, v.verseNum, s1, v1) <= 0
-      )
-      if (inRange) result.push(v)
+      ) {
+        result.push(v)
+      }
     }
   }
   return result
 }
 
 /**
- * Given all memorization entries, revision logs, and verse data,
- * compute FSRS state **per-verse** and aggregate to page-level suggestions.
+ * Get individual verses for a memorized entry from verseData.
+ * Full-page entries use the page's verse list; partial entries scan by range.
+ * Returns an array of { surahNum, verseNum }.
+ */
+function getEntryVerses(entry, verseData) {
+  if (!verseData || !verseData.pages) return []
+  if (entry.pageNum) {
+    const page = verseData.pages[String(entry.pageNum)]
+    if (!page || !page.verses) return []
+    return page.verses
+  }
+  return getVersesInRange(entry.startSurah, entry.startVerse, entry.endSurah, entry.endVerse, verseData)
+}
+
+// === Per-verse FSRS snapshot management ===
+
+/**
+ * Apply a single revision to the verse FSRS snapshot (mutates snapshot).
+ * Updates the FSRS card state for each verse in the revision's range.
  *
- * Each verse on a page is tracked independently.  A page is only "not due"
- * when every one of its verses has dueIn > 0.  The page-level retention and
- * review count shown in the UI are averages across all verses on the page.
+ * @param {object} snapshot - Map of "surahNum:verseNum" → { stability, difficulty, lastReview, reps }
+ * @param {object} revision - Revision with startSurah, startVerse, endSurah, endVerse, quality, createdAt
+ * @param {object} verseData - verse_data.json
+ */
+export function applyRevisionToSnapshot(snapshot, revision, verseData) {
+  if (!verseData || !verseData.pages) return
+  const grade = qualityToGrade(revision.quality)
+  const verses = getVersesInRange(
+    revision.startSurah, revision.startVerse,
+    revision.endSurah, revision.endVerse, verseData
+  )
+  for (const v of verses) {
+    const key = `${v.surahNum}:${v.verseNum}`
+    const card = snapshot[key] || null
+    snapshot[key] = processReview(card, grade, revision.createdAt)
+  }
+}
+
+/**
+ * Rebuild the entire verse FSRS snapshot from scratch by replaying all
+ * revisions in chronological order. Use after edit/delete of past revisions
+ * or data import.
  *
- * @param {Array} memorized  - Page-level memorization entries (from mergeByPage)
- * @param {Array} revisions  - Revision log entries (with quality 1-5)
+ * @param {Array} revisions - All revision entries
+ * @param {object} verseData - verse_data.json
+ * @returns {object} Fresh snapshot: "surahNum:verseNum" → card state
+ */
+export function rebuildSnapshot(revisions, verseData) {
+  if (!verseData || !verseData.pages) return {}
+  const snapshot = {}
+  const sorted = [...revisions].sort(
+    (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+  )
+  for (const rev of sorted) {
+    applyRevisionToSnapshot(snapshot, rev, verseData)
+  }
+  return snapshot
+}
+
+// === Suggestion computation (reads from snapshot) ===
+
+/**
+ * Compute FSRS suggestions from the pre-built per-verse snapshot.
+ * Reads card states directly — no revision replay needed.
+ *
+ * Each verse on a page is tracked independently. A page is "due" when any
+ * of its verses has dueIn ≤ 0. Displayed retention and review counts are
+ * averages across all verses on the page.
+ *
+ * @param {Array} memorized - Page-level memorization entries (from mergeByPage)
+ * @param {object} verseSnapshot - Pre-built snapshot: "surahNum:verseNum" → card state
  * @param {object|null} verseData - verse_data.json (pages → verses)
  * @returns {Array} Suggestions sorted by most urgent first
  */
-export function computeSuggestions(memorized, revisions, verseData) {
+export function computeSuggestions(memorized, verseSnapshot, verseData) {
   const now = new Date()
   const MAX_INTERVAL_DAYS = 14
   const DAY_MS = 1000 * 60 * 60 * 24
-
-  const sortedRevisions = [...revisions].sort(
-    (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
-  )
+  if (!verseSnapshot) verseSnapshot = {}
 
   const suggestions = []
 
@@ -255,13 +275,10 @@ export function computeSuggestions(memorized, revisions, verseData) {
     const key = sectionKey(entry)
     const verses = getEntryVerses(entry, verseData)
 
-    // ---- Fallback: no verse data → treat as single unit (old behaviour) ----
+    // ---- Fallback: no verse data → look up start verse in snapshot ----
     if (verses.length === 0) {
-      const sectionRevs = sortedRevisions.filter(rev => rangesOverlap(rev, entry))
-      let card = null
-      for (const rev of sectionRevs) {
-        card = processReview(card, qualityToGrade(rev.quality), rev.createdAt)
-      }
+      const vKey = `${entry.startSurah}:${Math.floor(Number(entry.startVerse))}`
+      const card = verseSnapshot[vKey]
       if (!card) {
         suggestions.push({
           ...entry, key, stability: 0, difficulty: 5, retrievability: 0,
@@ -272,33 +289,23 @@ export function computeSuggestions(memorized, revisions, verseData) {
         const d = (now - new Date(card.lastReview)) / DAY_MS
         const R = retrievability(d, card.stability)
         const interval = Math.min(nextInterval(card.stability), MAX_INTERVAL_DAYS)
-        const lastRev = sectionRevs[sectionRevs.length - 1]
         suggestions.push({
           ...entry, key,
           stability: card.stability, difficulty: card.difficulty, retrievability: R,
           daysSinceReview: Math.round(d * 10) / 10,
           dueIn: Math.round((interval - d) * 10) / 10,
           overdueDays: Math.round(-(interval - d) * 10) / 10,
-          totalReviews: card.reps, lastQuality: lastRev?.quality ?? null,
+          totalReviews: card.reps, lastQuality: null,
           reviewedVerses: 1, totalVerses: 1,
         })
       }
       continue
     }
 
-    // ---- Per-verse FSRS computation ----
-
-    // Pre-filter: only revisions whose range overlaps this page
-    const pageRevs = sortedRevisions.filter(rev => rangesOverlap(rev, entry))
-
+    // ---- Per-verse: look up card states from snapshot (O(1) per verse) ----
     const verseStates = verses.map(v => {
-      const verseRevs = pageRevs.filter(rev =>
-        revisionCoversVerse(rev, v.surahNum, v.verseNum)
-      )
-      let card = null
-      for (const rev of verseRevs) {
-        card = processReview(card, qualityToGrade(rev.quality), rev.createdAt)
-      }
+      const vKey = `${v.surahNum}:${v.verseNum}`
+      const card = verseSnapshot[vKey]
       if (!card) {
         return { reviewed: false, retrievability: 0, dueIn: 0, totalReviews: 0, lastReviewDate: null, stability: 0 }
       }
@@ -328,8 +335,6 @@ export function computeSuggestions(memorized, revisions, verseData) {
       ? Math.max(...reviewedOnly.map(vs => (now - new Date(vs.lastReviewDate)) / DAY_MS))
       : null
 
-    const lastRev = pageRevs.length > 0 ? pageRevs[pageRevs.length - 1] : null
-
     suggestions.push({
       ...entry,
       key,
@@ -340,7 +345,7 @@ export function computeSuggestions(memorized, revisions, verseData) {
       dueIn: Math.round(minDueIn * 10) / 10,
       overdueDays: Math.round(-minDueIn * 10) / 10,
       totalReviews: Math.round(avgReviews * 10) / 10,
-      lastQuality: lastRev?.quality ?? null,
+      lastQuality: null,
       reviewedVerses,
       totalVerses,
     })
