@@ -14,11 +14,82 @@ function verseInt(verseStr) {
   return Math.floor(Number(verseStr))
 }
 
+/** Check if a verse string is fractional (e.g. "5.2" but not "5" or "5.0"). */
+function isFractional(verseStr) {
+  const n = Number(verseStr)
+  return n !== Math.floor(n)
+}
+
+/**
+ * Resolve partial-verse overlaps between memorization entries.
+ *
+ * When Entry A ends at a fractional verse (e.g. "5.2") and a later Entry B
+ * begins at the same integer verse (e.g. "5", "5.2", "5.5"), the partial
+ * verse is attributed to the later entry (when memorization was completed).
+ *
+ * - A's endVerse is trimmed to the previous whole verse ("4")
+ * - B's startVerse becomes the whole verse ("5")
+ * - If trimming A makes it empty (start > end), A is dropped entirely.
+ *
+ * Also handles the reverse: B starts with a fractional verse that matches
+ * A's integer endVerse.
+ *
+ * This returns NEW entry objects — originals are not mutated.
+ */
+export function resolvePartialVerses(entries) {
+  if (entries.length <= 1) return entries
+
+  // Work on copies sorted by Quran position then by date
+  let items = entries.map(e => ({ ...e }))
+  items.sort((a, b) => {
+    const sd = Number(a.startSurah) - Number(b.startSurah)
+    if (sd !== 0) return sd
+    const vd = Number(a.startVerse) - Number(b.startVerse)
+    if (vd !== 0) return vd
+    return new Date(a.createdAt) - new Date(b.createdAt)
+  })
+
+  // For each pair of adjacent-in-order entries, resolve fractional overlaps
+  for (let i = 0; i < items.length; i++) {
+    const a = items[i]
+    if (!isFractional(a.endVerse)) continue
+
+    const aEndInt = verseInt(a.endVerse)
+    const aEndSurah = Number(a.endSurah)
+
+    // Find the next entry that starts at the same integer verse in the same surah
+    for (let j = i + 1; j < items.length; j++) {
+      const b = items[j]
+      const bStartInt = verseInt(b.startVerse)
+      const bStartSurah = Number(b.startSurah)
+
+      if (bStartSurah !== aEndSurah || bStartInt !== aEndInt) continue
+
+      // Found a match — attribute the partial verse to the later entry
+      // Trim A's end to the previous whole verse
+      const prevVerse = aEndInt - 1
+      if (prevVerse < verseInt(a.startVerse) ||
+          (Number(a.startSurah) === aEndSurah && prevVerse < verseInt(a.startVerse))) {
+        // A becomes empty — mark for removal
+        a._remove = true
+      } else {
+        a.endVerse = String(prevVerse)
+      }
+
+      // Extend B's start to the full verse
+      b.startVerse = String(aEndInt)
+      break
+    }
+  }
+
+  return items.filter(e => !e._remove)
+}
+
 /**
  * Get all pages that an entry spans.
  * Returns a sorted array of page numbers.
  */
-function getPagesForEntry(entry, verseToPage) {
+export function getPagesForEntry(entry, verseToPage) {
   const pages = new Set()
 
   const startVerse = verseInt(entry.startVerse)
@@ -49,7 +120,7 @@ function getPagesForEntry(entry, verseToPage) {
  * Given a page number and the verse data, return the first and last verse on that page.
  * Returns { startSurah, startVerse, endSurah, endVerse }
  */
-function getPageBounds(pageNum, verseData) {
+export function getPageBounds(pageNum, verseData) {
   const page = verseData.pages[String(pageNum)]
   if (!page || page.verses.length === 0) return null
   const first = page.verses[0]
@@ -63,17 +134,49 @@ function getPageBounds(pageNum, verseData) {
 }
 
 /**
- * Merge old entries that share the same page into combined page-level entries.
+ * Check whether a specific verse (surahNum, verseNum) is covered by at
+ * least one entry in a list.  Uses Math.floor so "5.2" covers verse 5.
+ */
+function entryCoversVerse(entry, surahNum, verseNum) {
+  const s0 = Number(entry.startSurah)
+  const v0 = verseInt(entry.startVerse)
+  const s1 = Number(entry.endSurah)
+  const v1 = verseInt(entry.endVerse)
+  if (s0 === s1) {
+    return surahNum === s0 && verseNum >= v0 && verseNum <= v1
+  }
+  // Multi-surah range
+  if (surahNum < s0 || surahNum > s1) return false
+  if (surahNum === s0) return verseNum >= v0
+  if (surahNum === s1) return verseNum <= v1
+  return true // surah is strictly between start and end
+}
+
+/**
+ * Check if a set of entries collectively covers every verse on a page.
+ */
+function pageFullyCovered(pageNum, entries, verseData) {
+  const page = verseData.pages[String(pageNum)]
+  if (!page || page.verses.length === 0) return false
+  return page.verses.every(v =>
+    entries.some(e => entryCoversVerse(e, v.surahNum, v.verseNum))
+  )
+}
+
+/**
+ * Merge old entries that share the same page into combined page-level entries,
+ * but only when the entries fully cover every verse on that page.
+ * Partial-page entries are returned as-is.
  *
  * @param {Array} oldEntries - Entries that are >= 21 days old
  * @param {object} verseData - The verse_data.json object
  * @param {object} pageMap - Pre-built "surah:verse" → pageNum map (from pageMap.json)
- * @returns {Array} Merged entries grouped by page
+ * @returns {Array} Mix of merged page entries and unmerged partial entries
  */
 export function mergeByPage(oldEntries, verseData, pageMap) {
   if (!verseData || !verseData.pages || !pageMap || oldEntries.length === 0) return oldEntries
 
-  // Map page → list of entries on that page
+  // Map page → list of entries touching that page
   const pageGroups = {} // pageNum → { entries: [] }
 
   for (const entry of oldEntries) {
@@ -86,7 +189,8 @@ export function mergeByPage(oldEntries, verseData, pageMap) {
     }
   }
 
-  // Build merged entries
+  // Track which original entry IDs have been absorbed into a full-page merge
+  const consumedIds = new Set()
   const merged = []
   const sortedPages = Object.keys(pageGroups).map(Number).sort((a, b) => a - b)
 
@@ -95,13 +199,17 @@ export function mergeByPage(oldEntries, verseData, pageMap) {
     const bounds = getPageBounds(pageNum, verseData)
     if (!bounds) continue
 
-    // Use the earliest createdAt from source entries
+    if (!pageFullyCovered(pageNum, group.entries, verseData)) {
+      // Page not fully covered — do NOT merge; entries stay as-is
+      continue
+    }
+
+    // Fully covered — create merged page entry
     const earliestCreated = group.entries.reduce((min, e) => {
       const d = new Date(e.createdAt)
       return d < min ? d : min
     }, new Date(group.entries[0].createdAt))
 
-    // Use the latest updatedAt
     const latestUpdated = group.entries.reduce((max, e) => {
       const d = new Date(e.updatedAt || e.createdAt)
       return d > max ? d : max
@@ -119,6 +227,15 @@ export function mergeByPage(oldEntries, verseData, pageMap) {
       sourceIds: group.entries.map(e => e.id),
       sourceCount: group.entries.length,
     })
+
+    for (const e of group.entries) consumedIds.add(e.id)
+  }
+
+  // Add back any entries that were NOT fully consumed by a page merge
+  for (const entry of oldEntries) {
+    if (!consumedIds.has(entry.id)) {
+      merged.push(entry)
+    }
   }
 
   return merged

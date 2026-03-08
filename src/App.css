@@ -202,6 +202,19 @@ h2 {
 .quality-badge.q5 { color: #2563eb; }
 
 /* === Suggestions Panel === */
+
+.page-badge {
+  display: inline-block;
+  background: #6366f1;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
 .suggestions-panel {
   border: 2px solid #bfdbfe;
   border-radius: 8px;
@@ -261,6 +274,116 @@ h2 {
   border-radius: 6px;
   margin-bottom: 0.4rem;
   border-left: 4px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.suggestion-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.revise-btn {
+  flex-shrink: 0;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #4f46e5;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.revise-btn:hover {
+  background: #4f46e5;
+  color: #fff;
+}
+
+/* Inline quick-log revision menu */
+.inline-revision-menu {
+  width: 100%;
+  padding: 0.5rem 0.2rem 0.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  margin-top: 0.2rem;
+}
+
+.inline-quality-row {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.inline-quality-row .quality-chip {
+  padding: 0.2rem 0.55rem;
+  font-size: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  cursor: pointer;
+  background: white;
+}
+
+.inline-quality-row .quality-chip.selected {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.inline-date-toggle {
+  font-size: 0.72rem;
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.inline-date-row input[type="date"] {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.3rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+}
+
+.inline-actions {
+  display: flex;
+  gap: 0.3rem;
+  margin-left: auto;
+}
+
+.inline-submit {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.inline-submit:hover {
+  background: #15803d;
+}
+
+.inline-cancel {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  background: none;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #6b7280;
+}
+.inline-cancel:hover {
+  background: #f3f4f6;
 }
 
 .suggestion-card.never-reviewed {
@@ -365,6 +488,54 @@ h2 {
 
 .surah-group-entries {
   padding: 0.3rem 0;
+}
+
+/* Page group (new memorization by page) */
+.page-group {
+  margin-bottom: 0.35rem;
+  background: #f5f3ff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.page-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.8rem;
+  background: #ddd6fe;
+  border-radius: 6px;
+}
+
+.page-group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  cursor: pointer;
+  user-select: none;
+}
+
+.page-group-title:hover {
+  opacity: 0.85;
+}
+
+.page-group-meta {
+  font-size: 0.78rem;
+  color: #6b21a8;
+}
+
+.page-group-range {
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.page-group-entries {
+  padding: 0.3rem 0.5rem;
+}
+
+.page-group .inline-revision-menu {
+  margin: 0 0.8rem 0.5rem;
 }
 
 .bucket-label {

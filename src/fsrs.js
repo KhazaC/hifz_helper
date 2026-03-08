@@ -145,90 +145,212 @@ export function sectionKey(entry) {
 }
 
 /**
- * Given all memorization entries and all revision logs,
- * compute FSRS state for each memorized section and return
- * suggestions sorted by urgency.
- *
- * @param {Array} memorized - Memorization entries
- * @param {Array} revisions - Revision log entries (with quality 1-5)
- * @returns {Array} Suggestions sorted by most overdue first
+ * Parse a verse string like "5" or "5.2" into a comparable number.
+ * "5.2" → 5.2 so fractional positions sort correctly.
  */
-export function computeSuggestions(memorized, revisions) {
-  const now = new Date()
-  const MAX_INTERVAL_DAYS = 14 // all old memorization must be revised at least every 14 days
+function verseNum(v) {
+  return Number(v)
+}
 
-  // Group revisions by section key, sorted by date
-  const revsBySection = {}
-  for (const rev of revisions) {
-    const key = sectionKey(rev)
-    if (!revsBySection[key]) revsBySection[key] = []
-    revsBySection[key].push(rev)
+/**
+ * Compare two (surah, verse) positions.
+ * Returns negative if a < b, 0 if equal, positive if a > b.
+ */
+function comparePositions(surahA, verseA, surahB, verseB) {
+  const sA = Number(surahA)
+  const sB = Number(surahB)
+  if (sA !== sB) return sA - sB
+  return verseNum(verseA) - verseNum(verseB)
+}
+
+/**
+ * Check if two verse ranges overlap.
+ * Range A: [startSurahA:startVerseA, endSurahA:endVerseA]
+ * Range B: [startSurahB:startVerseB, endSurahB:endVerseB]
+ * Overlap iff startA <= endB AND startB <= endA
+ */
+function rangesOverlap(a, b) {
+  return (
+    comparePositions(a.startSurah, a.startVerse, b.endSurah, b.endVerse) <= 0 &&
+    comparePositions(b.startSurah, b.startVerse, a.endSurah, a.endVerse) <= 0
+  )
+}
+
+/**
+ * Check if a specific verse (surahNum, verseNum) falls within a revision's range.
+ * Uses Math.floor on fractional verse strings so "5.2" covers verse 5.
+ */
+function revisionCoversVerse(rev, surahNum, verseNum) {
+  const s0 = Number(rev.startSurah)
+  const v0 = Math.floor(Number(rev.startVerse))
+  const s1 = Number(rev.endSurah)
+  const v1 = Math.floor(Number(rev.endVerse))
+  return (
+    comparePositions(s0, v0, surahNum, verseNum) <= 0 &&
+    comparePositions(surahNum, verseNum, s1, v1) <= 0
+  )
+}
+
+/**
+ * Get the list of individual verses for an entry from verseData.
+ * For full-page entries (with pageNum), returns all verses on that page.
+ * For partial entries (no pageNum), enumerates verses in their range.
+ * Returns an array of { surahNum, verseNum }.
+ */
+function getEntryVerses(entry, verseData) {
+  if (!verseData || !verseData.pages) return []
+
+  // Full-page entry — return all verses on that page
+  if (entry.pageNum) {
+    const page = verseData.pages[String(entry.pageNum)]
+    if (!page || !page.verses) return []
+    return page.verses
   }
-  // Sort each section's revisions chronologically
-  for (const key of Object.keys(revsBySection)) {
-    revsBySection[key].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+
+  // Partial entry — scan pages for verses that fall within this entry's range
+  const s0 = Number(entry.startSurah)
+  const v0 = Math.floor(Number(entry.startVerse))
+  const s1 = Number(entry.endSurah)
+  const v1 = Math.floor(Number(entry.endVerse))
+  const result = []
+
+  for (const page of Object.values(verseData.pages)) {
+    if (!page.verses) continue
+    for (const v of page.verses) {
+      const inRange = (
+        comparePositions(s0, v0, v.surahNum, v.verseNum) <= 0 &&
+        comparePositions(v.surahNum, v.verseNum, s1, v1) <= 0
+      )
+      if (inRange) result.push(v)
+    }
   }
+  return result
+}
+
+/**
+ * Given all memorization entries, revision logs, and verse data,
+ * compute FSRS state **per-verse** and aggregate to page-level suggestions.
+ *
+ * Each verse on a page is tracked independently.  A page is only "not due"
+ * when every one of its verses has dueIn > 0.  The page-level retention and
+ * review count shown in the UI are averages across all verses on the page.
+ *
+ * @param {Array} memorized  - Page-level memorization entries (from mergeByPage)
+ * @param {Array} revisions  - Revision log entries (with quality 1-5)
+ * @param {object|null} verseData - verse_data.json (pages → verses)
+ * @returns {Array} Suggestions sorted by most urgent first
+ */
+export function computeSuggestions(memorized, revisions, verseData) {
+  const now = new Date()
+  const MAX_INTERVAL_DAYS = 14
+  const DAY_MS = 1000 * 60 * 60 * 24
+
+  const sortedRevisions = [...revisions].sort(
+    (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+  )
 
   const suggestions = []
 
   for (const entry of memorized) {
     const key = sectionKey(entry)
-    const sectionRevs = revsBySection[key] || []
+    const verses = getEntryVerses(entry, verseData)
 
-    // Replay all reviews through FSRS
-    let card = null
-    for (const rev of sectionRevs) {
-      const grade = qualityToGrade(rev.quality)
-      card = processReview(card, grade, rev.createdAt)
-    }
-
-    if (!card) {
-      // Never revised → treat as brand new, due immediately
-      suggestions.push({
-        ...entry,
-        key,
-        stability: 0,
-        difficulty: 5,
-        retrievability: 0,
-        daysSinceReview: null,
-        dueIn: 0, // due now
-        overdueDays: Infinity,
-        totalReviews: 0,
-        lastQuality: null,
-      })
+    // ---- Fallback: no verse data → treat as single unit (old behaviour) ----
+    if (verses.length === 0) {
+      const sectionRevs = sortedRevisions.filter(rev => rangesOverlap(rev, entry))
+      let card = null
+      for (const rev of sectionRevs) {
+        card = processReview(card, qualityToGrade(rev.quality), rev.createdAt)
+      }
+      if (!card) {
+        suggestions.push({
+          ...entry, key, stability: 0, difficulty: 5, retrievability: 0,
+          daysSinceReview: null, dueIn: 0, overdueDays: Infinity,
+          totalReviews: 0, lastQuality: null, reviewedVerses: 0, totalVerses: 1,
+        })
+      } else {
+        const d = (now - new Date(card.lastReview)) / DAY_MS
+        const R = retrievability(d, card.stability)
+        const interval = Math.min(nextInterval(card.stability), MAX_INTERVAL_DAYS)
+        const lastRev = sectionRevs[sectionRevs.length - 1]
+        suggestions.push({
+          ...entry, key,
+          stability: card.stability, difficulty: card.difficulty, retrievability: R,
+          daysSinceReview: Math.round(d * 10) / 10,
+          dueIn: Math.round((interval - d) * 10) / 10,
+          overdueDays: Math.round(-(interval - d) * 10) / 10,
+          totalReviews: card.reps, lastQuality: lastRev?.quality ?? null,
+          reviewedVerses: 1, totalVerses: 1,
+        })
+      }
       continue
     }
 
-    const daysSinceReview = (now - new Date(card.lastReview)) / (1000 * 60 * 60 * 24)
-    const R = retrievability(daysSinceReview, card.stability)
-    const fsrsInterval = nextInterval(card.stability)
-    // Hard cap: every section must be revised at least every 14 days
-    const interval = Math.min(fsrsInterval, MAX_INTERVAL_DAYS)
-    const daysUntilDue = interval - daysSinceReview
-    const lastRev = sectionRevs[sectionRevs.length - 1]
+    // ---- Per-verse FSRS computation ----
+
+    // Pre-filter: only revisions whose range overlaps this page
+    const pageRevs = sortedRevisions.filter(rev => rangesOverlap(rev, entry))
+
+    const verseStates = verses.map(v => {
+      const verseRevs = pageRevs.filter(rev =>
+        revisionCoversVerse(rev, v.surahNum, v.verseNum)
+      )
+      let card = null
+      for (const rev of verseRevs) {
+        card = processReview(card, qualityToGrade(rev.quality), rev.createdAt)
+      }
+      if (!card) {
+        return { reviewed: false, retrievability: 0, dueIn: 0, totalReviews: 0, lastReviewDate: null, stability: 0 }
+      }
+      const d = (now - new Date(card.lastReview)) / DAY_MS
+      const R = retrievability(d, card.stability)
+      const interval = Math.min(nextInterval(card.stability), MAX_INTERVAL_DAYS)
+      return {
+        reviewed: true, retrievability: R,
+        dueIn: interval - d,
+        totalReviews: card.reps,
+        lastReviewDate: card.lastReview,
+        stability: card.stability,
+      }
+    })
+
+    // ---- Aggregate to page level ----
+    const totalVerses   = verseStates.length
+    const reviewedVerses = verseStates.filter(vs => vs.reviewed).length
+    const avgRetention   = verseStates.reduce((s, vs) => s + vs.retrievability, 0) / totalVerses
+    const avgReviews     = verseStates.reduce((s, vs) => s + vs.totalReviews, 0) / totalVerses
+    const avgStability   = verseStates.reduce((s, vs) => s + vs.stability, 0) / totalVerses
+    const minDueIn       = Math.min(...verseStates.map(vs => vs.dueIn))
+
+    // daysSinceReview = time since the most-stale reviewed verse
+    const reviewedOnly = verseStates.filter(vs => vs.reviewed)
+    const daysSinceReview = reviewedOnly.length > 0
+      ? Math.max(...reviewedOnly.map(vs => (now - new Date(vs.lastReviewDate)) / DAY_MS))
+      : null
+
+    const lastRev = pageRevs.length > 0 ? pageRevs[pageRevs.length - 1] : null
 
     suggestions.push({
       ...entry,
       key,
-      stability: card.stability,
-      difficulty: card.difficulty,
-      retrievability: R,
-      daysSinceReview: Math.round(daysSinceReview * 10) / 10,
-      dueIn: Math.round(daysUntilDue * 10) / 10,
-      overdueDays: -daysUntilDue, // positive = overdue
-      totalReviews: card.reps,
+      stability: avgStability,
+      difficulty: 5,
+      retrievability: avgRetention,
+      daysSinceReview: daysSinceReview !== null ? Math.round(daysSinceReview * 10) / 10 : null,
+      dueIn: Math.round(minDueIn * 10) / 10,
+      overdueDays: Math.round(-minDueIn * 10) / 10,
+      totalReviews: Math.round(avgReviews * 10) / 10,
       lastQuality: lastRev?.quality ?? null,
+      reviewedVerses,
+      totalVerses,
     })
   }
 
-  // Sort: retention ASC, then overdue DESC, never-reviewed first
+  // Sort: never-reviewed first, then lowest retention, then most overdue
   suggestions.sort((a, b) => {
-    // Never-reviewed items first
-    if (a.totalReviews === 0 && b.totalReviews > 0) return -1
-    if (b.totalReviews === 0 && a.totalReviews > 0) return 1
-    // Lowest retention first
+    if (a.reviewedVerses === 0 && b.reviewedVerses > 0) return -1
+    if (b.reviewedVerses === 0 && a.reviewedVerses > 0) return 1
     if (a.retrievability !== b.retrievability) return a.retrievability - b.retrievability
-    // Then most overdue first
     return b.overdueDays - a.overdueDays
   })
 

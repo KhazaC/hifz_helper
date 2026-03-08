@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback } from 'react'
 import { computeSuggestions } from './fsrs'
-import { mergeByPage } from './pageMerge'
+import { mergeByPage, resolvePartialVerses, getPagesForEntry, getPageBounds } from './pageMerge'
 import { useQuranData } from './hooks/useQuranData'
 import { useDebouncedWrite } from './hooks/useDebounce'
 import { NEW_PERIOD_DAYS, SCHEMA_VERSION, STORAGE_KEYS } from './constants'
@@ -68,10 +68,12 @@ function App() {
   }, [getSurahName])
 
   const { newEntries, oldEntries, mergedOldEntries } = useMemo(() => {
+    // Resolve fractional-verse overlaps before splitting into new/old
+    const resolved = resolvePartialVerses(entries)
     const now = new Date()
     const newE = []
     const oldE = []
-    for (const entry of entries) {
+    for (const entry of resolved) {
       const ageDays = (now - new Date(entry.createdAt)) / (1000 * 60 * 60 * 24)
       if (ageDays < NEW_PERIOD_DAYS) {
         newE.push({ ...entry, ageDays, daysRemaining: Math.ceil(NEW_PERIOD_DAYS - ageDays) })
@@ -86,8 +88,8 @@ function App() {
   }, [entries, verseData, pageMap])
 
   const fsrsSuggestions = useMemo(
-    () => computeSuggestions(mergedOldEntries, revisions),
-    [mergedOldEntries, revisions]
+    () => computeSuggestions(mergedOldEntries, revisions, verseData),
+    [mergedOldEntries, revisions, verseData]
   )
 
   const dueFsrs = useMemo(
@@ -105,17 +107,26 @@ function App() {
     [revisions]
   )
 
-  const newEntriesBySurah = useMemo(() => {
-    const groups = {}
+  const newEntriesByPage = useMemo(() => {
+    if (!pageMap || !verseData) return []
+    const groups = {} // pageNum → { pageNum, entries: [], bounds }
     for (const entry of newEntries) {
-      const surahNum = entry.startSurah
-      if (!groups[surahNum]) {
-        groups[surahNum] = { surahNum, name: getSurahName(surahNum), entries: [] }
+      const pages = getPagesForEntry(entry, pageMap)
+      // Attribute entry to its start page
+      const pg = pages[0]
+      if (!pg) continue
+      if (!groups[pg]) {
+        const bounds = getPageBounds(pg, verseData)
+        groups[pg] = {
+          pageNum: pg,
+          bounds,
+          entries: [],
+        }
       }
-      groups[surahNum].entries.push(entry)
+      groups[pg].entries.push(entry)
     }
-    return Object.values(groups).sort((a, b) => a.surahNum - b.surahNum)
-  }, [newEntries, getSurahName])
+    return Object.values(groups).sort((a, b) => a.pageNum - b.pageNum)
+  }, [newEntries, pageMap, verseData, getSurahName])
 
   // --- Memorization handlers ---
 
@@ -161,6 +172,11 @@ function App() {
 
   const handleRevisionCancel = useCallback(() => {
     setEditingRevision(null)
+  }, [])
+
+  /** Quick-log a revision directly from the suggestions panel */
+  const handleQuickRevision = useCallback((revision) => {
+    setRevisions(prev => [...prev, revision])
   }, [])
 
   // --- Test data ---
@@ -253,7 +269,9 @@ function App() {
         dueFsrs={dueFsrs}
         upcomingFsrs={upcomingFsrs}
         formatEntry={formatEntry}
-        newEntriesBySurah={newEntriesBySurah}
+        newEntriesByPage={newEntriesByPage}
+        pageMap={pageMap}
+        onLogRevision={handleQuickRevision}
       />
 
       <hr className="section-divider" />

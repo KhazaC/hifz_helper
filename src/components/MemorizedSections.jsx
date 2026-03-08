@@ -109,7 +109,7 @@ const MemorizedSections = memo(function MemorizedSections({
                 onKeyDown={handleKeyActivate(() => toggle('oldMem'))}
               >
                 <span className="toggle-icon">{sectionOpen.oldMem ? '▾' : '▸'}</span>
-                Old — by page ({mergedOldEntries.length} pages from {oldEntries.length} entries)
+                Old ({mergedOldEntries.length} items from {oldEntries.length} entries)
               </h3>
               {sectionOpen.oldMem && (
                 <>
