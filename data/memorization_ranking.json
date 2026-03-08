@@ -1,0 +1,1142 @@
+[
+  {
+    "rank": 1,
+    "surah_num": 101,
+    "name": "Al-Qaari'a",
+    "num_verses": 11,
+    "num_pages": 1,
+    "total_words": 40,
+    "avg_words_per_verse": 3.6,
+    "ease_score": 0.9908
+  },
+  {
+    "rank": 2,
+    "surah_num": 80,
+    "name": "Abasa",
+    "num_verses": 42,
+    "num_pages": 1,
+    "total_words": 137,
+    "avg_words_per_verse": 3.3,
+    "ease_score": 0.9907
+  },
+  {
+    "rank": 3,
+    "surah_num": 92,
+    "name": "Al-Lail",
+    "num_verses": 21,
+    "num_pages": 2,
+    "total_words": 75,
+    "avg_words_per_verse": 3.6,
+    "ease_score": 0.9894
+  },
+  {
+    "rank": 4,
+    "surah_num": 94,
+    "name": "Ash-Sharh",
+    "num_verses": 8,
+    "num_pages": 1,
+    "total_words": 31,
+    "avg_words_per_verse": 3.9,
+    "ease_score": 0.9868
+  },
+  {
+    "rank": 5,
+    "surah_num": 88,
+    "name": "Al-Ghaashiya",
+    "num_verses": 26,
+    "num_pages": 1,
+    "total_words": 96,
+    "avg_words_per_verse": 3.7,
+    "ease_score": 0.9854
+  },
+  {
+    "rank": 6,
+    "surah_num": 86,
+    "name": "At-Taariq",
+    "num_verses": 17,
+    "num_pages": 1,
+    "total_words": 65,
+    "avg_words_per_verse": 3.8,
+    "ease_score": 0.9852
+  },
+  {
+    "rank": 7,
+    "surah_num": 91,
+    "name": "Ash-Shams",
+    "num_verses": 15,
+    "num_pages": 1,
+    "total_words": 58,
+    "avg_words_per_verse": 3.9,
+    "ease_score": 0.9849
+  },
+  {
+    "rank": 8,
+    "surah_num": 114,
+    "name": "An-Naas",
+    "num_verses": 6,
+    "num_pages": 1,
+    "total_words": 24,
+    "avg_words_per_verse": 4.0,
+    "ease_score": 0.9849
+  },
+  {
+    "rank": 9,
+    "surah_num": 102,
+    "name": "At-Takaathur",
+    "num_verses": 8,
+    "num_pages": 1,
+    "total_words": 32,
+    "avg_words_per_verse": 4.0,
+    "ease_score": 0.9843
+  },
+  {
+    "rank": 10,
+    "surah_num": 81,
+    "name": "At-Takwir",
+    "num_verses": 29,
+    "num_pages": 1,
+    "total_words": 108,
+    "avg_words_per_verse": 3.7,
+    "ease_score": 0.9839
+  },
+  {
+    "rank": 11,
+    "surah_num": 93,
+    "name": "Ad-Dhuhaa",
+    "num_verses": 11,
+    "num_pages": 1,
+    "total_words": 44,
+    "avg_words_per_verse": 4.0,
+    "ease_score": 0.9834
+  },
+  {
+    "rank": 12,
+    "surah_num": 1,
+    "name": "Al-Faatiha",
+    "num_verses": 7,
+    "num_pages": 1,
+    "total_words": 29,
+    "avg_words_per_verse": 4.1,
+    "ease_score": 0.9817
+  },
+  {
+    "rank": 13,
+    "surah_num": 107,
+    "name": "Al-Maa'un",
+    "num_verses": 7,
+    "num_pages": 1,
+    "total_words": 29,
+    "avg_words_per_verse": 4.1,
+    "ease_score": 0.9817
+  },
+  {
+    "rank": 14,
+    "surah_num": 100,
+    "name": "Al-Aadiyaat",
+    "num_verses": 11,
+    "num_pages": 2,
+    "total_words": 45,
+    "avg_words_per_verse": 4.1,
+    "ease_score": 0.9815
+  },
+  {
+    "rank": 15,
+    "surah_num": 87,
+    "name": "Al-A'laa",
+    "num_verses": 19,
+    "num_pages": 2,
+    "total_words": 77,
+    "avg_words_per_verse": 4.1,
+    "ease_score": 0.9799
+  },
+  {
+    "rank": 16,
+    "surah_num": 96,
+    "name": "Al-Alaq",
+    "num_verses": 19,
+    "num_pages": 1,
+    "total_words": 77,
+    "avg_words_per_verse": 4.1,
+    "ease_score": 0.9799
+  },
+  {
+    "rank": 17,
+    "surah_num": 104,
+    "name": "Al-Humaza",
+    "num_verses": 9,
+    "num_pages": 1,
+    "total_words": 38,
+    "avg_words_per_verse": 4.2,
+    "ease_score": 0.9795
+  },
+  {
+    "rank": 18,
+    "surah_num": 77,
+    "name": "Al-Mursalaat",
+    "num_verses": 50,
+    "num_pages": 2,
+    "total_words": 186,
+    "avg_words_per_verse": 3.7,
+    "ease_score": 0.9781
+  },
+  {
+    "rank": 19,
+    "surah_num": 90,
+    "name": "Al-Balad",
+    "num_verses": 20,
+    "num_pages": 1,
+    "total_words": 86,
+    "avg_words_per_verse": 4.3,
+    "ease_score": 0.9744
+  },
+  {
+    "rank": 20,
+    "surah_num": 79,
+    "name": "An-Naazi'aat",
+    "num_verses": 46,
+    "num_pages": 2,
+    "total_words": 184,
+    "avg_words_per_verse": 4.0,
+    "ease_score": 0.9728
+  },
+  {
+    "rank": 21,
+    "surah_num": 108,
+    "name": "Al-Kawthar",
+    "num_verses": 3,
+    "num_pages": 1,
+    "total_words": 14,
+    "avg_words_per_verse": 4.7,
+    "ease_score": 0.9727
+  },
+  {
+    "rank": 22,
+    "surah_num": 82,
+    "name": "Al-Infitaar",
+    "num_verses": 19,
+    "num_pages": 1,
+    "total_words": 85,
+    "avg_words_per_verse": 4.5,
+    "ease_score": 0.9711
+  },
+  {
+    "rank": 23,
+    "surah_num": 112,
+    "name": "Al-Ikhlaas",
+    "num_verses": 4,
+    "num_pages": 1,
+    "total_words": 19,
+    "avg_words_per_verse": 4.8,
+    "ease_score": 0.9707
+  },
+  {
+    "rank": 24,
+    "surah_num": 75,
+    "name": "Al-Qiyaama",
+    "num_verses": 40,
+    "num_pages": 2,
+    "total_words": 169,
+    "avg_words_per_verse": 4.2,
+    "ease_score": 0.9695
+  },
+  {
+    "rank": 25,
+    "surah_num": 95,
+    "name": "At-Tin",
+    "num_verses": 8,
+    "num_pages": 1,
+    "total_words": 38,
+    "avg_words_per_verse": 4.8,
+    "ease_score": 0.9693
+  },
+  {
+    "rank": 26,
+    "surah_num": 84,
+    "name": "Al-Inshiqaaq",
+    "num_verses": 25,
+    "num_pages": 1,
+    "total_words": 112,
+    "avg_words_per_verse": 4.5,
+    "ease_score": 0.9689
+  },
+  {
+    "rank": 27,
+    "surah_num": 109,
+    "name": "Al-Kaafiroon",
+    "num_verses": 6,
+    "num_pages": 1,
+    "total_words": 30,
+    "avg_words_per_verse": 5.0,
+    "ease_score": 0.965
+  },
+  {
+    "rank": 28,
+    "surah_num": 99,
+    "name": "Az-Zalzala",
+    "num_verses": 8,
+    "num_pages": 1,
+    "total_words": 40,
+    "avg_words_per_verse": 5.0,
+    "ease_score": 0.9643
+  },
+  {
+    "rank": 29,
+    "surah_num": 78,
+    "name": "An-Naba",
+    "num_verses": 40,
+    "num_pages": 2,
+    "total_words": 180,
+    "avg_words_per_verse": 4.5,
+    "ease_score": 0.9634
+  },
+  {
+    "rank": 30,
+    "surah_num": 89,
+    "name": "Al-Fajr",
+    "num_verses": 30,
+    "num_pages": 2,
+    "total_words": 143,
+    "avg_words_per_verse": 4.8,
+    "ease_score": 0.961
+  },
+  {
+    "rank": 31,
+    "surah_num": 106,
+    "name": "Quraish",
+    "num_verses": 4,
+    "num_pages": 1,
+    "total_words": 21,
+    "avg_words_per_verse": 5.2,
+    "ease_score": 0.9608
+  },
+  {
+    "rank": 32,
+    "surah_num": 56,
+    "name": "Al-Waaqia",
+    "num_verses": 96,
+    "num_pages": 4,
+    "total_words": 384,
+    "avg_words_per_verse": 4.0,
+    "ease_score": 0.9576
+  },
+  {
+    "rank": 33,
+    "surah_num": 105,
+    "name": "Al-Fil",
+    "num_verses": 5,
+    "num_pages": 1,
+    "total_words": 27,
+    "avg_words_per_verse": 5.4,
+    "ease_score": 0.9575
+  },
+  {
+    "rank": 34,
+    "surah_num": 111,
+    "name": "Al-Masad",
+    "num_verses": 5,
+    "num_pages": 1,
+    "total_words": 27,
+    "avg_words_per_verse": 5.4,
+    "ease_score": 0.9575
+  },
+  {
+    "rank": 35,
+    "surah_num": 113,
+    "name": "Al-Falaq",
+    "num_verses": 5,
+    "num_pages": 1,
+    "total_words": 27,
+    "avg_words_per_verse": 5.4,
+    "ease_score": 0.9575
+  },
+  {
+    "rank": 36,
+    "surah_num": 83,
+    "name": "Al-Mutaffifin",
+    "num_verses": 36,
+    "num_pages": 3,
+    "total_words": 176,
+    "avg_words_per_verse": 4.9,
+    "ease_score": 0.9561
+  },
+  {
+    "rank": 37,
+    "surah_num": 85,
+    "name": "Al-Burooj",
+    "num_verses": 22,
+    "num_pages": 1,
+    "total_words": 115,
+    "avg_words_per_verse": 5.2,
+    "ease_score": 0.9542
+  },
+  {
+    "rank": 38,
+    "surah_num": 74,
+    "name": "Al-Muddaththir",
+    "num_verses": 56,
+    "num_pages": 3,
+    "total_words": 268,
+    "avg_words_per_verse": 4.8,
+    "ease_score": 0.9511
+  },
+  {
+    "rank": 39,
+    "surah_num": 55,
+    "name": "Ar-Rahmaan",
+    "num_verses": 78,
+    "num_pages": 4,
+    "total_words": 358,
+    "avg_words_per_verse": 4.6,
+    "ease_score": 0.9481
+  },
+  {
+    "rank": 40,
+    "surah_num": 70,
+    "name": "Al-Ma'aarij",
+    "num_verses": 44,
+    "num_pages": 3,
+    "total_words": 226,
+    "avg_words_per_verse": 5.1,
+    "ease_score": 0.9475
+  },
+  {
+    "rank": 41,
+    "surah_num": 103,
+    "name": "Al-Asr",
+    "num_verses": 3,
+    "num_pages": 1,
+    "total_words": 18,
+    "avg_words_per_verse": 6.0,
+    "ease_score": 0.9465
+  },
+  {
+    "rank": 42,
+    "surah_num": 69,
+    "name": "Al-Haaqqa",
+    "num_verses": 52,
+    "num_pages": 3,
+    "total_words": 266,
+    "avg_words_per_verse": 5.1,
+    "ease_score": 0.9449
+  },
+  {
+    "rank": 43,
+    "surah_num": 97,
+    "name": "Al-Qadr",
+    "num_verses": 5,
+    "num_pages": 1,
+    "total_words": 34,
+    "avg_words_per_verse": 6.8,
+    "ease_score": 0.9298
+  },
+  {
+    "rank": 44,
+    "surah_num": 68,
+    "name": "Al-Qalam",
+    "num_verses": 52,
+    "num_pages": 3,
+    "total_words": 311,
+    "avg_words_per_verse": 6.0,
+    "ease_score": 0.9247
+  },
+  {
+    "rank": 45,
+    "surah_num": 53,
+    "name": "An-Najm",
+    "num_verses": 62,
+    "num_pages": 3,
+    "total_words": 376,
+    "avg_words_per_verse": 6.1,
+    "ease_score": 0.9181
+  },
+  {
+    "rank": 46,
+    "surah_num": 44,
+    "name": "Ad-Dukhaan",
+    "num_verses": 59,
+    "num_pages": 3,
+    "total_words": 368,
+    "avg_words_per_verse": 6.2,
+    "ease_score": 0.9154
+  },
+  {
+    "rank": 47,
+    "surah_num": 51,
+    "name": "Adh-Dhaariyat",
+    "num_verses": 60,
+    "num_pages": 4,
+    "total_words": 375,
+    "avg_words_per_verse": 6.2,
+    "ease_score": 0.9146
+  },
+  {
+    "rank": 48,
+    "surah_num": 54,
+    "name": "Al-Qamar",
+    "num_verses": 55,
+    "num_pages": 4,
+    "total_words": 354,
+    "avg_words_per_verse": 6.4,
+    "ease_score": 0.9126
+  },
+  {
+    "rank": 49,
+    "surah_num": 52,
+    "name": "At-Tur",
+    "num_verses": 49,
+    "num_pages": 3,
+    "total_words": 328,
+    "avg_words_per_verse": 6.7,
+    "ease_score": 0.9095
+  },
+  {
+    "rank": 50,
+    "surah_num": 110,
+    "name": "An-Nasr",
+    "num_verses": 3,
+    "num_pages": 1,
+    "total_words": 24,
+    "avg_words_per_verse": 8.0,
+    "ease_score": 0.9072
+  },
+  {
+    "rank": 51,
+    "surah_num": 37,
+    "name": "As-Saaffaat",
+    "num_verses": 182,
+    "num_pages": 7,
+    "total_words": 881,
+    "avg_words_per_verse": 4.8,
+    "ease_score": 0.9036
+  },
+  {
+    "rank": 52,
+    "surah_num": 76,
+    "name": "Al-Insaan",
+    "num_verses": 31,
+    "num_pages": 3,
+    "total_words": 254,
+    "avg_words_per_verse": 8.2,
+    "ease_score": 0.886
+  },
+  {
+    "rank": 53,
+    "surah_num": 71,
+    "name": "Nooh",
+    "num_verses": 28,
+    "num_pages": 2,
+    "total_words": 233,
+    "avg_words_per_verse": 8.3,
+    "ease_score": 0.8851
+  },
+  {
+    "rank": 54,
+    "surah_num": 15,
+    "name": "Al-Hijr",
+    "num_verses": 99,
+    "num_pages": 6,
+    "total_words": 668,
+    "avg_words_per_verse": 6.7,
+    "ease_score": 0.8827
+  },
+  {
+    "rank": 55,
+    "surah_num": 50,
+    "name": "Qaaf",
+    "num_verses": 45,
+    "num_pages": 3,
+    "total_words": 393,
+    "avg_words_per_verse": 8.7,
+    "ease_score": 0.865
+  },
+  {
+    "rank": 56,
+    "surah_num": 26,
+    "name": "Ash-Shu'araa",
+    "num_verses": 227,
+    "num_pages": 10,
+    "total_words": 1355,
+    "avg_words_per_verse": 6.0,
+    "ease_score": 0.8458
+  },
+  {
+    "rank": 57,
+    "surah_num": 73,
+    "name": "Al-Muzzammil",
+    "num_verses": 20,
+    "num_pages": 2,
+    "total_words": 217,
+    "avg_words_per_verse": 10.8,
+    "ease_score": 0.8372
+  },
+  {
+    "rank": 58,
+    "surah_num": 72,
+    "name": "Al-Jinn",
+    "num_verses": 28,
+    "num_pages": 2,
+    "total_words": 296,
+    "avg_words_per_verse": 10.6,
+    "ease_score": 0.8366
+  },
+  {
+    "rank": 59,
+    "surah_num": 38,
+    "name": "Saad",
+    "num_verses": 88,
+    "num_pages": 6,
+    "total_words": 776,
+    "avg_words_per_verse": 8.8,
+    "ease_score": 0.8343
+  },
+  {
+    "rank": 60,
+    "surah_num": 36,
+    "name": "Yaseen",
+    "num_verses": 83,
+    "num_pages": 6,
+    "total_words": 753,
+    "avg_words_per_verse": 9.1,
+    "ease_score": 0.8311
+  },
+  {
+    "rank": 61,
+    "surah_num": 67,
+    "name": "Al-Mulk",
+    "num_verses": 30,
+    "num_pages": 3,
+    "total_words": 352,
+    "avg_words_per_verse": 11.7,
+    "ease_score": 0.8098
+  },
+  {
+    "rank": 62,
+    "surah_num": 43,
+    "name": "Az-Zukhruf",
+    "num_verses": 89,
+    "num_pages": 7,
+    "total_words": 868,
+    "avg_words_per_verse": 9.8,
+    "ease_score": 0.8092
+  },
+  {
+    "rank": 63,
+    "surah_num": 98,
+    "name": "Al-Bayyina",
+    "num_verses": 8,
+    "num_pages": 2,
+    "total_words": 102,
+    "avg_words_per_verse": 12.8,
+    "ease_score": 0.809
+  },
+  {
+    "rank": 64,
+    "surah_num": 23,
+    "name": "Al-Muminoon",
+    "num_verses": 118,
+    "num_pages": 8,
+    "total_words": 1091,
+    "avg_words_per_verse": 9.2,
+    "ease_score": 0.8021
+  },
+  {
+    "rank": 65,
+    "surah_num": 19,
+    "name": "Maryam",
+    "num_verses": 98,
+    "num_pages": 8,
+    "total_words": 1006,
+    "avg_words_per_verse": 10.3,
+    "ease_score": 0.7888
+  },
+  {
+    "rank": 66,
+    "surah_num": 32,
+    "name": "As-Sajda",
+    "num_verses": 30,
+    "num_pages": 3,
+    "total_words": 394,
+    "avg_words_per_verse": 13.1,
+    "ease_score": 0.7794
+  },
+  {
+    "rank": 67,
+    "surah_num": 25,
+    "name": "Al-Furqaan",
+    "num_verses": 77,
+    "num_pages": 8,
+    "total_words": 933,
+    "avg_words_per_verse": 12.1,
+    "ease_score": 0.7583
+  },
+  {
+    "rank": 68,
+    "surah_num": 20,
+    "name": "Taa-Haa",
+    "num_verses": 135,
+    "num_pages": 10,
+    "total_words": 1395,
+    "avg_words_per_verse": 10.3,
+    "ease_score": 0.7579
+  },
+  {
+    "rank": 69,
+    "surah_num": 21,
+    "name": "Al-Anbiyaa",
+    "num_verses": 112,
+    "num_pages": 10,
+    "total_words": 1235,
+    "avg_words_per_verse": 11.0,
+    "ease_score": 0.7566
+  },
+  {
+    "rank": 70,
+    "surah_num": 64,
+    "name": "At-Taghaabun",
+    "num_verses": 18,
+    "num_pages": 2,
+    "total_words": 267,
+    "avg_words_per_verse": 14.8,
+    "ease_score": 0.756
+  },
+  {
+    "rank": 71,
+    "surah_num": 45,
+    "name": "Al-Jaathiya",
+    "num_verses": 37,
+    "num_pages": 4,
+    "total_words": 516,
+    "avg_words_per_verse": 13.9,
+    "ease_score": 0.7544
+  },
+  {
+    "rank": 72,
+    "surah_num": 47,
+    "name": "Muhammad",
+    "num_verses": 38,
+    "num_pages": 4,
+    "total_words": 571,
+    "avg_words_per_verse": 15.0,
+    "ease_score": 0.7292
+  },
+  {
+    "rank": 73,
+    "surah_num": 27,
+    "name": "An-Naml",
+    "num_verses": 93,
+    "num_pages": 9,
+    "total_words": 1211,
+    "avg_words_per_verse": 13.0,
+    "ease_score": 0.7197
+  },
+  {
+    "rank": 74,
+    "surah_num": 62,
+    "name": "Al-Jumu'a",
+    "num_verses": 11,
+    "num_pages": 2,
+    "total_words": 188,
+    "avg_words_per_verse": 17.1,
+    "ease_score": 0.7182
+  },
+  {
+    "rank": 75,
+    "surah_num": 61,
+    "name": "As-Saff",
+    "num_verses": 14,
+    "num_pages": 2,
+    "total_words": 237,
+    "avg_words_per_verse": 16.9,
+    "ease_score": 0.7176
+  },
+  {
+    "rank": 76,
+    "surah_num": 30,
+    "name": "Ar-Room",
+    "num_verses": 60,
+    "num_pages": 7,
+    "total_words": 872,
+    "avg_words_per_verse": 14.5,
+    "ease_score": 0.716
+  },
+  {
+    "rank": 77,
+    "surah_num": 63,
+    "name": "Al-Munaafiqoon",
+    "num_verses": 11,
+    "num_pages": 2,
+    "total_words": 198,
+    "avg_words_per_verse": 18.0,
+    "ease_score": 0.6997
+  },
+  {
+    "rank": 78,
+    "surah_num": 41,
+    "name": "Fussilat",
+    "num_verses": 54,
+    "num_pages": 6,
+    "total_words": 842,
+    "avg_words_per_verse": 15.6,
+    "ease_score": 0.6977
+  },
+  {
+    "rank": 79,
+    "surah_num": 29,
+    "name": "Al-Ankaboot",
+    "num_verses": 69,
+    "num_pages": 9,
+    "total_words": 1046,
+    "avg_words_per_verse": 15.2,
+    "ease_score": 0.6906
+  },
+  {
+    "rank": 80,
+    "surah_num": 31,
+    "name": "Luqman",
+    "num_verses": 34,
+    "num_pages": 4,
+    "total_words": 586,
+    "avg_words_per_verse": 17.2,
+    "ease_score": 0.6852
+  },
+  {
+    "rank": 81,
+    "surah_num": 40,
+    "name": "Ghafir",
+    "num_verses": 85,
+    "num_pages": 10,
+    "total_words": 1293,
+    "avg_words_per_verse": 15.2,
+    "ease_score": 0.6709
+  },
+  {
+    "rank": 82,
+    "surah_num": 14,
+    "name": "Ibrahim",
+    "num_verses": 52,
+    "num_pages": 7,
+    "total_words": 889,
+    "avg_words_per_verse": 17.1,
+    "ease_score": 0.6649
+  },
+  {
+    "rank": 83,
+    "surah_num": 34,
+    "name": "Saba",
+    "num_verses": 54,
+    "num_pages": 7,
+    "total_words": 943,
+    "avg_words_per_verse": 17.5,
+    "ease_score": 0.6537
+  },
+  {
+    "rank": 84,
+    "surah_num": 17,
+    "name": "Al-Israa",
+    "num_verses": 111,
+    "num_pages": 12,
+    "total_words": 1646,
+    "avg_words_per_verse": 14.8,
+    "ease_score": 0.6516
+  },
+  {
+    "rank": 85,
+    "surah_num": 42,
+    "name": "Ash-Shura",
+    "num_verses": 53,
+    "num_pages": 7,
+    "total_words": 936,
+    "avg_words_per_verse": 17.7,
+    "ease_score": 0.6504
+  },
+  {
+    "rank": 86,
+    "surah_num": 18,
+    "name": "Al-Kahf",
+    "num_verses": 110,
+    "num_pages": 12,
+    "total_words": 1657,
+    "avg_words_per_verse": 15.1,
+    "ease_score": 0.6462
+  },
+  {
+    "rank": 87,
+    "surah_num": 39,
+    "name": "Az-Zumar",
+    "num_verses": 75,
+    "num_pages": 10,
+    "total_words": 1258,
+    "avg_words_per_verse": 16.8,
+    "ease_score": 0.6432
+  },
+  {
+    "rank": 88,
+    "surah_num": 59,
+    "name": "Al-Hashr",
+    "num_verses": 24,
+    "num_pages": 4,
+    "total_words": 480,
+    "avg_words_per_verse": 20.0,
+    "ease_score": 0.6395
+  },
+  {
+    "rank": 89,
+    "surah_num": 46,
+    "name": "Al-Ahqaf",
+    "num_verses": 35,
+    "num_pages": 5,
+    "total_words": 678,
+    "avg_words_per_verse": 19.4,
+    "ease_score": 0.6367
+  },
+  {
+    "rank": 90,
+    "surah_num": 35,
+    "name": "Faatir",
+    "num_verses": 45,
+    "num_pages": 7,
+    "total_words": 845,
+    "avg_words_per_verse": 18.8,
+    "ease_score": 0.6356
+  },
+  {
+    "rank": 91,
+    "surah_num": 49,
+    "name": "Al-Hujuraat",
+    "num_verses": 18,
+    "num_pages": 3,
+    "total_words": 380,
+    "avg_words_per_verse": 21.1,
+    "ease_score": 0.6255
+  },
+  {
+    "rank": 92,
+    "surah_num": 22,
+    "name": "Al-Hajj",
+    "num_verses": 78,
+    "num_pages": 10,
+    "total_words": 1355,
+    "avg_words_per_verse": 17.4,
+    "ease_score": 0.6242
+  },
+  {
+    "rank": 93,
+    "surah_num": 8,
+    "name": "Al-Anfaal",
+    "num_verses": 75,
+    "num_pages": 10,
+    "total_words": 1315,
+    "avg_words_per_verse": 17.5,
+    "ease_score": 0.6241
+  },
+  {
+    "rank": 94,
+    "surah_num": 16,
+    "name": "An-Nahl",
+    "num_verses": 128,
+    "num_pages": 15,
+    "total_words": 1967,
+    "avg_words_per_verse": 15.4,
+    "ease_score": 0.6168
+  },
+  {
+    "rank": 95,
+    "surah_num": 28,
+    "name": "Al-Qasas",
+    "num_verses": 88,
+    "num_pages": 12,
+    "total_words": 1516,
+    "avg_words_per_verse": 17.2,
+    "ease_score": 0.6148
+  },
+  {
+    "rank": 96,
+    "surah_num": 48,
+    "name": "Al-Fath",
+    "num_verses": 29,
+    "num_pages": 5,
+    "total_words": 604,
+    "avg_words_per_verse": 20.8,
+    "ease_score": 0.614
+  },
+  {
+    "rank": 97,
+    "surah_num": 66,
+    "name": "At-Tahrim",
+    "num_verses": 12,
+    "num_pages": 2,
+    "total_words": 267,
+    "avg_words_per_verse": 22.2,
+    "ease_score": 0.612
+  },
+  {
+    "rank": 98,
+    "surah_num": 57,
+    "name": "Al-Hadid",
+    "num_verses": 29,
+    "num_pages": 5,
+    "total_words": 621,
+    "avg_words_per_verse": 21.4,
+    "ease_score": 0.6014
+  },
+  {
+    "rank": 99,
+    "surah_num": 33,
+    "name": "Al-Ahzaab",
+    "num_verses": 73,
+    "num_pages": 10,
+    "total_words": 1372,
+    "avg_words_per_verse": 18.8,
+    "ease_score": 0.5953
+  },
+  {
+    "rank": 100,
+    "surah_num": 12,
+    "name": "Yusuf",
+    "num_verses": 111,
+    "num_pages": 14,
+    "total_words": 1898,
+    "avg_words_per_verse": 17.1,
+    "ease_score": 0.5884
+  },
+  {
+    "rank": 101,
+    "surah_num": 11,
+    "name": "Hud",
+    "num_verses": 123,
+    "num_pages": 15,
+    "total_words": 2058,
+    "avg_words_per_verse": 16.7,
+    "ease_score": 0.5834
+  },
+  {
+    "rank": 102,
+    "surah_num": 13,
+    "name": "Ar-Ra'd",
+    "num_verses": 43,
+    "num_pages": 7,
+    "total_words": 932,
+    "avg_words_per_verse": 21.7,
+    "ease_score": 0.5727
+  },
+  {
+    "rank": 103,
+    "surah_num": 58,
+    "name": "Al-Mujaadila",
+    "num_verses": 22,
+    "num_pages": 4,
+    "total_words": 517,
+    "avg_words_per_verse": 23.5,
+    "ease_score": 0.5687
+  },
+  {
+    "rank": 104,
+    "surah_num": 10,
+    "name": "Yunus",
+    "num_verses": 109,
+    "num_pages": 14,
+    "total_words": 1962,
+    "avg_words_per_verse": 18.0,
+    "ease_score": 0.566
+  },
+  {
+    "rank": 105,
+    "surah_num": 65,
+    "name": "At-Talaaq",
+    "num_verses": 12,
+    "num_pages": 2,
+    "total_words": 315,
+    "avg_words_per_verse": 26.2,
+    "ease_score": 0.5306
+  },
+  {
+    "rank": 106,
+    "surah_num": 24,
+    "name": "An-Noor",
+    "num_verses": 64,
+    "num_pages": 10,
+    "total_words": 1416,
+    "avg_words_per_verse": 22.1,
+    "ease_score": 0.5273
+  },
+  {
+    "rank": 107,
+    "surah_num": 60,
+    "name": "Al-Mumtahana",
+    "num_verses": 13,
+    "num_pages": 3,
+    "total_words": 377,
+    "avg_words_per_verse": 29.0,
+    "ease_score": 0.4725
+  },
+  {
+    "rank": 108,
+    "surah_num": 7,
+    "name": "Al-A'raaf",
+    "num_verses": 206,
+    "num_pages": 26,
+    "total_words": 3534,
+    "avg_words_per_verse": 17.2,
+    "ease_score": 0.4633
+  },
+  {
+    "rank": 109,
+    "surah_num": 9,
+    "name": "At-Tawba",
+    "num_verses": 129,
+    "num_pages": 21,
+    "total_words": 2667,
+    "avg_words_per_verse": 20.7,
+    "ease_score": 0.4606
+  },
+  {
+    "rank": 110,
+    "surah_num": 6,
+    "name": "Al-An'aam",
+    "num_verses": 165,
+    "num_pages": 23,
+    "total_words": 3302,
+    "avg_words_per_verse": 20.0,
+    "ease_score": 0.4254
+  },
+  {
+    "rank": 111,
+    "surah_num": 3,
+    "name": "Aal-i-Imraan",
+    "num_verses": 200,
+    "num_pages": 27,
+    "total_words": 3701,
+    "avg_words_per_verse": 18.5,
+    "ease_score": 0.4244
+  },
+  {
+    "rank": 112,
+    "surah_num": 5,
+    "name": "Al-Maaida",
+    "num_verses": 120,
+    "num_pages": 22,
+    "total_words": 3018,
+    "avg_words_per_verse": 25.1,
+    "ease_score": 0.3471
+  },
+  {
+    "rank": 113,
+    "surah_num": 4,
+    "name": "An-Nisaa",
+    "num_verses": 176,
+    "num_pages": 30,
+    "total_words": 4017,
+    "avg_words_per_verse": 22.8,
+    "ease_score": 0.3165
+  },
+  {
+    "rank": 114,
+    "surah_num": 2,
+    "name": "Al-Baqara",
+    "num_verses": 286,
+    "num_pages": 48,
+    "total_words": 6610,
+    "avg_words_per_verse": 23.1,
+    "ease_score": 0.1144
+  }
+]

@@ -1,0 +1,6210 @@
+{
+  "Al-Faatiha": {
+    "startPage": 1,
+    "endPage": 1,
+    "numVerses": 7,
+    "numSurah": 1,
+    "pages": [
+      {
+        "pageNum": 1,
+        "versesOnPage": 7,
+        "startVerseSurah": 1,
+        "endVerseSurah": 7,
+        "startVerseGlobal": 1,
+        "endVerseGlobal": 7
+      }
+    ]
+  },
+  "Al-Baqara": {
+    "startPage": 2,
+    "endPage": 49,
+    "numVerses": 286,
+    "numSurah": 2,
+    "pages": [
+      {
+        "pageNum": 2,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 8,
+        "endVerseGlobal": 12
+      },
+      {
+        "pageNum": 3,
+        "versesOnPage": 11,
+        "startVerseSurah": 6,
+        "endVerseSurah": 16,
+        "startVerseGlobal": 13,
+        "endVerseGlobal": 23
+      },
+      {
+        "pageNum": 4,
+        "versesOnPage": 8,
+        "startVerseSurah": 17,
+        "endVerseSurah": 24,
+        "startVerseGlobal": 24,
+        "endVerseGlobal": 31
+      },
+      {
+        "pageNum": 5,
+        "versesOnPage": 5,
+        "startVerseSurah": 25,
+        "endVerseSurah": 29,
+        "startVerseGlobal": 32,
+        "endVerseGlobal": 36
+      },
+      {
+        "pageNum": 6,
+        "versesOnPage": 8,
+        "startVerseSurah": 30,
+        "endVerseSurah": 37,
+        "startVerseGlobal": 37,
+        "endVerseGlobal": 44
+      },
+      {
+        "pageNum": 7,
+        "versesOnPage": 11,
+        "startVerseSurah": 38,
+        "endVerseSurah": 48,
+        "startVerseGlobal": 45,
+        "endVerseGlobal": 55
+      },
+      {
+        "pageNum": 8,
+        "versesOnPage": 9,
+        "startVerseSurah": 49,
+        "endVerseSurah": 57,
+        "startVerseGlobal": 56,
+        "endVerseGlobal": 64
+      },
+      {
+        "pageNum": 9,
+        "versesOnPage": 4,
+        "startVerseSurah": 58,
+        "endVerseSurah": 61,
+        "startVerseGlobal": 65,
+        "endVerseGlobal": 68
+      },
+      {
+        "pageNum": 10,
+        "versesOnPage": 8,
+        "startVerseSurah": 62,
+        "endVerseSurah": 69,
+        "startVerseGlobal": 69,
+        "endVerseGlobal": 76
+      },
+      {
+        "pageNum": 11,
+        "versesOnPage": 7,
+        "startVerseSurah": 70,
+        "endVerseSurah": 76,
+        "startVerseGlobal": 77,
+        "endVerseGlobal": 83
+      },
+      {
+        "pageNum": 12,
+        "versesOnPage": 7,
+        "startVerseSurah": 77,
+        "endVerseSurah": 83,
+        "startVerseGlobal": 84,
+        "endVerseGlobal": 90
+      },
+      {
+        "pageNum": 13,
+        "versesOnPage": 5,
+        "startVerseSurah": 84,
+        "endVerseSurah": 88,
+        "startVerseGlobal": 91,
+        "endVerseGlobal": 95
+      },
+      {
+        "pageNum": 14,
+        "versesOnPage": 5,
+        "startVerseSurah": 89,
+        "endVerseSurah": 93,
+        "startVerseGlobal": 96,
+        "endVerseGlobal": 100
+      },
+      {
+        "pageNum": 15,
+        "versesOnPage": 8,
+        "startVerseSurah": 94,
+        "endVerseSurah": 101,
+        "startVerseGlobal": 101,
+        "endVerseGlobal": 108
+      },
+      {
+        "pageNum": 16,
+        "versesOnPage": 4,
+        "startVerseSurah": 102,
+        "endVerseSurah": 105,
+        "startVerseGlobal": 109,
+        "endVerseGlobal": 112
+      },
+      {
+        "pageNum": 17,
+        "versesOnPage": 7,
+        "startVerseSurah": 106,
+        "endVerseSurah": 112,
+        "startVerseGlobal": 113,
+        "endVerseGlobal": 119
+      },
+      {
+        "pageNum": 18,
+        "versesOnPage": 7,
+        "startVerseSurah": 113,
+        "endVerseSurah": 119,
+        "startVerseGlobal": 120,
+        "endVerseGlobal": 126
+      },
+      {
+        "pageNum": 19,
+        "versesOnPage": 7,
+        "startVerseSurah": 120,
+        "endVerseSurah": 126,
+        "startVerseGlobal": 127,
+        "endVerseGlobal": 133
+      },
+      {
+        "pageNum": 20,
+        "versesOnPage": 8,
+        "startVerseSurah": 127,
+        "endVerseSurah": 134,
+        "startVerseGlobal": 134,
+        "endVerseGlobal": 141
+      },
+      {
+        "pageNum": 21,
+        "versesOnPage": 7,
+        "startVerseSurah": 135,
+        "endVerseSurah": 141,
+        "startVerseGlobal": 142,
+        "endVerseGlobal": 148
+      },
+      {
+        "pageNum": 22,
+        "versesOnPage": 4,
+        "startVerseSurah": 142,
+        "endVerseSurah": 145,
+        "startVerseGlobal": 149,
+        "endVerseGlobal": 152
+      },
+      {
+        "pageNum": 23,
+        "versesOnPage": 8,
+        "startVerseSurah": 146,
+        "endVerseSurah": 153,
+        "startVerseGlobal": 153,
+        "endVerseGlobal": 160
+      },
+      {
+        "pageNum": 24,
+        "versesOnPage": 10,
+        "startVerseSurah": 154,
+        "endVerseSurah": 163,
+        "startVerseGlobal": 161,
+        "endVerseGlobal": 170
+      },
+      {
+        "pageNum": 25,
+        "versesOnPage": 6,
+        "startVerseSurah": 164,
+        "endVerseSurah": 169,
+        "startVerseGlobal": 171,
+        "endVerseGlobal": 176
+      },
+      {
+        "pageNum": 26,
+        "versesOnPage": 7,
+        "startVerseSurah": 170,
+        "endVerseSurah": 176,
+        "startVerseGlobal": 177,
+        "endVerseGlobal": 183
+      },
+      {
+        "pageNum": 27,
+        "versesOnPage": 5,
+        "startVerseSurah": 177,
+        "endVerseSurah": 181,
+        "startVerseGlobal": 184,
+        "endVerseGlobal": 188
+      },
+      {
+        "pageNum": 28,
+        "versesOnPage": 5,
+        "startVerseSurah": 182,
+        "endVerseSurah": 186,
+        "startVerseGlobal": 189,
+        "endVerseGlobal": 193
+      },
+      {
+        "pageNum": 29,
+        "versesOnPage": 4,
+        "startVerseSurah": 187,
+        "endVerseSurah": 190,
+        "startVerseGlobal": 194,
+        "endVerseGlobal": 197
+      },
+      {
+        "pageNum": 30,
+        "versesOnPage": 6,
+        "startVerseSurah": 191,
+        "endVerseSurah": 196,
+        "startVerseGlobal": 198,
+        "endVerseGlobal": 203
+      },
+      {
+        "pageNum": 31,
+        "versesOnPage": 6,
+        "startVerseSurah": 197,
+        "endVerseSurah": 202,
+        "startVerseGlobal": 204,
+        "endVerseGlobal": 209
+      },
+      {
+        "pageNum": 32,
+        "versesOnPage": 8,
+        "startVerseSurah": 203,
+        "endVerseSurah": 210,
+        "startVerseGlobal": 210,
+        "endVerseGlobal": 217
+      },
+      {
+        "pageNum": 33,
+        "versesOnPage": 5,
+        "startVerseSurah": 211,
+        "endVerseSurah": 215,
+        "startVerseGlobal": 218,
+        "endVerseGlobal": 222
+      },
+      {
+        "pageNum": 34,
+        "versesOnPage": 4,
+        "startVerseSurah": 216,
+        "endVerseSurah": 219,
+        "startVerseGlobal": 223,
+        "endVerseGlobal": 226
+      },
+      {
+        "pageNum": 35,
+        "versesOnPage": 5,
+        "startVerseSurah": 220,
+        "endVerseSurah": 224,
+        "startVerseGlobal": 227,
+        "endVerseGlobal": 231
+      },
+      {
+        "pageNum": 36,
+        "versesOnPage": 6,
+        "startVerseSurah": 225,
+        "endVerseSurah": 230,
+        "startVerseGlobal": 232,
+        "endVerseGlobal": 237
+      },
+      {
+        "pageNum": 37,
+        "versesOnPage": 3,
+        "startVerseSurah": 231,
+        "endVerseSurah": 233,
+        "startVerseGlobal": 238,
+        "endVerseGlobal": 240
+      },
+      {
+        "pageNum": 38,
+        "versesOnPage": 4,
+        "startVerseSurah": 234,
+        "endVerseSurah": 237,
+        "startVerseGlobal": 241,
+        "endVerseGlobal": 244
+      },
+      {
+        "pageNum": 39,
+        "versesOnPage": 8,
+        "startVerseSurah": 238,
+        "endVerseSurah": 245,
+        "startVerseGlobal": 245,
+        "endVerseGlobal": 252
+      },
+      {
+        "pageNum": 40,
+        "versesOnPage": 3,
+        "startVerseSurah": 246,
+        "endVerseSurah": 248,
+        "startVerseGlobal": 253,
+        "endVerseGlobal": 255
+      },
+      {
+        "pageNum": 41,
+        "versesOnPage": 4,
+        "startVerseSurah": 249,
+        "endVerseSurah": 252,
+        "startVerseGlobal": 256,
+        "endVerseGlobal": 259
+      },
+      {
+        "pageNum": 42,
+        "versesOnPage": 4,
+        "startVerseSurah": 253,
+        "endVerseSurah": 256,
+        "startVerseGlobal": 260,
+        "endVerseGlobal": 263
+      },
+      {
+        "pageNum": 43,
+        "versesOnPage": 3,
+        "startVerseSurah": 257,
+        "endVerseSurah": 259,
+        "startVerseGlobal": 264,
+        "endVerseGlobal": 266
+      },
+      {
+        "pageNum": 44,
+        "versesOnPage": 5,
+        "startVerseSurah": 260,
+        "endVerseSurah": 264,
+        "startVerseGlobal": 267,
+        "endVerseGlobal": 271
+      },
+      {
+        "pageNum": 45,
+        "versesOnPage": 5,
+        "startVerseSurah": 265,
+        "endVerseSurah": 269,
+        "startVerseGlobal": 272,
+        "endVerseGlobal": 276
+      },
+      {
+        "pageNum": 46,
+        "versesOnPage": 5,
+        "startVerseSurah": 270,
+        "endVerseSurah": 274,
+        "startVerseGlobal": 277,
+        "endVerseGlobal": 281
+      },
+      {
+        "pageNum": 47,
+        "versesOnPage": 7,
+        "startVerseSurah": 275,
+        "endVerseSurah": 281,
+        "startVerseGlobal": 282,
+        "endVerseGlobal": 288
+      },
+      {
+        "pageNum": 48,
+        "versesOnPage": 1,
+        "startVerseSurah": 282,
+        "endVerseSurah": 282,
+        "startVerseGlobal": 289,
+        "endVerseGlobal": 289
+      },
+      {
+        "pageNum": 49,
+        "versesOnPage": 4,
+        "startVerseSurah": 283,
+        "endVerseSurah": 286,
+        "startVerseGlobal": 290,
+        "endVerseGlobal": 293
+      }
+    ]
+  },
+  "Aal-i-Imraan": {
+    "startPage": 50,
+    "endPage": 76,
+    "numVerses": 200,
+    "numSurah": 3,
+    "pages": [
+      {
+        "pageNum": 50,
+        "versesOnPage": 9,
+        "startVerseSurah": 1,
+        "endVerseSurah": 9,
+        "startVerseGlobal": 294,
+        "endVerseGlobal": 302
+      },
+      {
+        "pageNum": 51,
+        "versesOnPage": 6,
+        "startVerseSurah": 10,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 303,
+        "endVerseGlobal": 308
+      },
+      {
+        "pageNum": 52,
+        "versesOnPage": 7,
+        "startVerseSurah": 16,
+        "endVerseSurah": 22,
+        "startVerseGlobal": 309,
+        "endVerseGlobal": 315
+      },
+      {
+        "pageNum": 53,
+        "versesOnPage": 7,
+        "startVerseSurah": 23,
+        "endVerseSurah": 29,
+        "startVerseGlobal": 316,
+        "endVerseGlobal": 322
+      },
+      {
+        "pageNum": 54,
+        "versesOnPage": 8,
+        "startVerseSurah": 30,
+        "endVerseSurah": 37,
+        "startVerseGlobal": 323,
+        "endVerseGlobal": 330
+      },
+      {
+        "pageNum": 55,
+        "versesOnPage": 8,
+        "startVerseSurah": 38,
+        "endVerseSurah": 45,
+        "startVerseGlobal": 331,
+        "endVerseGlobal": 338
+      },
+      {
+        "pageNum": 56,
+        "versesOnPage": 7,
+        "startVerseSurah": 46,
+        "endVerseSurah": 52,
+        "startVerseGlobal": 339,
+        "endVerseGlobal": 345
+      },
+      {
+        "pageNum": 57,
+        "versesOnPage": 9,
+        "startVerseSurah": 53,
+        "endVerseSurah": 61,
+        "startVerseGlobal": 346,
+        "endVerseGlobal": 354
+      },
+      {
+        "pageNum": 58,
+        "versesOnPage": 9,
+        "startVerseSurah": 62,
+        "endVerseSurah": 70,
+        "startVerseGlobal": 355,
+        "endVerseGlobal": 363
+      },
+      {
+        "pageNum": 59,
+        "versesOnPage": 7,
+        "startVerseSurah": 71,
+        "endVerseSurah": 77,
+        "startVerseGlobal": 364,
+        "endVerseGlobal": 370
+      },
+      {
+        "pageNum": 60,
+        "versesOnPage": 6,
+        "startVerseSurah": 78,
+        "endVerseSurah": 83,
+        "startVerseGlobal": 371,
+        "endVerseGlobal": 376
+      },
+      {
+        "pageNum": 61,
+        "versesOnPage": 8,
+        "startVerseSurah": 84,
+        "endVerseSurah": 91,
+        "startVerseGlobal": 377,
+        "endVerseGlobal": 384
+      },
+      {
+        "pageNum": 62,
+        "versesOnPage": 9,
+        "startVerseSurah": 92,
+        "endVerseSurah": 100,
+        "startVerseGlobal": 385,
+        "endVerseGlobal": 393
+      },
+      {
+        "pageNum": 63,
+        "versesOnPage": 8,
+        "startVerseSurah": 101,
+        "endVerseSurah": 108,
+        "startVerseGlobal": 394,
+        "endVerseGlobal": 401
+      },
+      {
+        "pageNum": 64,
+        "versesOnPage": 7,
+        "startVerseSurah": 109,
+        "endVerseSurah": 115,
+        "startVerseGlobal": 402,
+        "endVerseGlobal": 408
+      },
+      {
+        "pageNum": 65,
+        "versesOnPage": 6,
+        "startVerseSurah": 116,
+        "endVerseSurah": 121,
+        "startVerseGlobal": 409,
+        "endVerseGlobal": 414
+      },
+      {
+        "pageNum": 66,
+        "versesOnPage": 11,
+        "startVerseSurah": 122,
+        "endVerseSurah": 132,
+        "startVerseGlobal": 415,
+        "endVerseGlobal": 425
+      },
+      {
+        "pageNum": 67,
+        "versesOnPage": 8,
+        "startVerseSurah": 133,
+        "endVerseSurah": 140,
+        "startVerseGlobal": 426,
+        "endVerseGlobal": 433
+      },
+      {
+        "pageNum": 68,
+        "versesOnPage": 8,
+        "startVerseSurah": 141,
+        "endVerseSurah": 148,
+        "startVerseGlobal": 434,
+        "endVerseGlobal": 441
+      },
+      {
+        "pageNum": 69,
+        "versesOnPage": 5,
+        "startVerseSurah": 149,
+        "endVerseSurah": 153,
+        "startVerseGlobal": 442,
+        "endVerseGlobal": 446
+      },
+      {
+        "pageNum": 70,
+        "versesOnPage": 4,
+        "startVerseSurah": 154,
+        "endVerseSurah": 157,
+        "startVerseGlobal": 447,
+        "endVerseGlobal": 450
+      },
+      {
+        "pageNum": 71,
+        "versesOnPage": 8,
+        "startVerseSurah": 158,
+        "endVerseSurah": 165,
+        "startVerseGlobal": 451,
+        "endVerseGlobal": 458
+      },
+      {
+        "pageNum": 72,
+        "versesOnPage": 8,
+        "startVerseSurah": 166,
+        "endVerseSurah": 173,
+        "startVerseGlobal": 459,
+        "endVerseGlobal": 466
+      },
+      {
+        "pageNum": 73,
+        "versesOnPage": 7,
+        "startVerseSurah": 174,
+        "endVerseSurah": 180,
+        "startVerseGlobal": 467,
+        "endVerseGlobal": 473
+      },
+      {
+        "pageNum": 74,
+        "versesOnPage": 6,
+        "startVerseSurah": 181,
+        "endVerseSurah": 186,
+        "startVerseGlobal": 474,
+        "endVerseGlobal": 479
+      },
+      {
+        "pageNum": 75,
+        "versesOnPage": 8,
+        "startVerseSurah": 187,
+        "endVerseSurah": 194,
+        "startVerseGlobal": 480,
+        "endVerseGlobal": 487
+      },
+      {
+        "pageNum": 76,
+        "versesOnPage": 6,
+        "startVerseSurah": 195,
+        "endVerseSurah": 200,
+        "startVerseGlobal": 488,
+        "endVerseGlobal": 493
+      }
+    ]
+  },
+  "An-Nisaa": {
+    "startPage": 77,
+    "endPage": 106,
+    "numVerses": 176,
+    "numSurah": 4,
+    "pages": [
+      {
+        "pageNum": 77,
+        "versesOnPage": 6,
+        "startVerseSurah": 1,
+        "endVerseSurah": 6,
+        "startVerseGlobal": 494,
+        "endVerseGlobal": 499
+      },
+      {
+        "pageNum": 78,
+        "versesOnPage": 5,
+        "startVerseSurah": 7,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 500,
+        "endVerseGlobal": 504
+      },
+      {
+        "pageNum": 79,
+        "versesOnPage": 3,
+        "startVerseSurah": 12,
+        "endVerseSurah": 14,
+        "startVerseGlobal": 505,
+        "endVerseGlobal": 507
+      },
+      {
+        "pageNum": 80,
+        "versesOnPage": 5,
+        "startVerseSurah": 15,
+        "endVerseSurah": 19,
+        "startVerseGlobal": 508,
+        "endVerseGlobal": 512
+      },
+      {
+        "pageNum": 81,
+        "versesOnPage": 4,
+        "startVerseSurah": 20,
+        "endVerseSurah": 23,
+        "startVerseGlobal": 513,
+        "endVerseGlobal": 516
+      },
+      {
+        "pageNum": 82,
+        "versesOnPage": 3,
+        "startVerseSurah": 24,
+        "endVerseSurah": 26,
+        "startVerseGlobal": 517,
+        "endVerseGlobal": 519
+      },
+      {
+        "pageNum": 83,
+        "versesOnPage": 7,
+        "startVerseSurah": 27,
+        "endVerseSurah": 33,
+        "startVerseGlobal": 520,
+        "endVerseGlobal": 526
+      },
+      {
+        "pageNum": 84,
+        "versesOnPage": 4,
+        "startVerseSurah": 34,
+        "endVerseSurah": 37,
+        "startVerseGlobal": 527,
+        "endVerseGlobal": 530
+      },
+      {
+        "pageNum": 85,
+        "versesOnPage": 7,
+        "startVerseSurah": 38,
+        "endVerseSurah": 44,
+        "startVerseGlobal": 531,
+        "endVerseGlobal": 537
+      },
+      {
+        "pageNum": 86,
+        "versesOnPage": 7,
+        "startVerseSurah": 45,
+        "endVerseSurah": 51,
+        "startVerseGlobal": 538,
+        "endVerseGlobal": 544
+      },
+      {
+        "pageNum": 87,
+        "versesOnPage": 8,
+        "startVerseSurah": 52,
+        "endVerseSurah": 59,
+        "startVerseGlobal": 545,
+        "endVerseGlobal": 552
+      },
+      {
+        "pageNum": 88,
+        "versesOnPage": 6,
+        "startVerseSurah": 60,
+        "endVerseSurah": 65,
+        "startVerseGlobal": 553,
+        "endVerseGlobal": 558
+      },
+      {
+        "pageNum": 89,
+        "versesOnPage": 9,
+        "startVerseSurah": 66,
+        "endVerseSurah": 74,
+        "startVerseGlobal": 559,
+        "endVerseGlobal": 567
+      },
+      {
+        "pageNum": 90,
+        "versesOnPage": 5,
+        "startVerseSurah": 75,
+        "endVerseSurah": 79,
+        "startVerseGlobal": 568,
+        "endVerseGlobal": 572
+      },
+      {
+        "pageNum": 91,
+        "versesOnPage": 7,
+        "startVerseSurah": 80,
+        "endVerseSurah": 86,
+        "startVerseGlobal": 573,
+        "endVerseGlobal": 579
+      },
+      {
+        "pageNum": 92,
+        "versesOnPage": 5,
+        "startVerseSurah": 87,
+        "endVerseSurah": 91,
+        "startVerseGlobal": 580,
+        "endVerseGlobal": 584
+      },
+      {
+        "pageNum": 93,
+        "versesOnPage": 3,
+        "startVerseSurah": 92,
+        "endVerseSurah": 94,
+        "startVerseGlobal": 585,
+        "endVerseGlobal": 587
+      },
+      {
+        "pageNum": 94,
+        "versesOnPage": 7,
+        "startVerseSurah": 95,
+        "endVerseSurah": 101,
+        "startVerseGlobal": 588,
+        "endVerseGlobal": 594
+      },
+      {
+        "pageNum": 95,
+        "versesOnPage": 4,
+        "startVerseSurah": 102,
+        "endVerseSurah": 105,
+        "startVerseGlobal": 595,
+        "endVerseGlobal": 598
+      },
+      {
+        "pageNum": 96,
+        "versesOnPage": 8,
+        "startVerseSurah": 106,
+        "endVerseSurah": 113,
+        "startVerseGlobal": 599,
+        "endVerseGlobal": 606
+      },
+      {
+        "pageNum": 97,
+        "versesOnPage": 8,
+        "startVerseSurah": 114,
+        "endVerseSurah": 121,
+        "startVerseGlobal": 607,
+        "endVerseGlobal": 614
+      },
+      {
+        "pageNum": 98,
+        "versesOnPage": 6,
+        "startVerseSurah": 122,
+        "endVerseSurah": 127,
+        "startVerseGlobal": 615,
+        "endVerseGlobal": 620
+      },
+      {
+        "pageNum": 99,
+        "versesOnPage": 7,
+        "startVerseSurah": 128,
+        "endVerseSurah": 134,
+        "startVerseGlobal": 621,
+        "endVerseGlobal": 627
+      },
+      {
+        "pageNum": 100,
+        "versesOnPage": 6,
+        "startVerseSurah": 135,
+        "endVerseSurah": 140,
+        "startVerseGlobal": 628,
+        "endVerseGlobal": 633
+      },
+      {
+        "pageNum": 101,
+        "versesOnPage": 7,
+        "startVerseSurah": 141,
+        "endVerseSurah": 147,
+        "startVerseGlobal": 634,
+        "endVerseGlobal": 640
+      },
+      {
+        "pageNum": 102,
+        "versesOnPage": 7,
+        "startVerseSurah": 148,
+        "endVerseSurah": 154,
+        "startVerseGlobal": 641,
+        "endVerseGlobal": 647
+      },
+      {
+        "pageNum": 103,
+        "versesOnPage": 8,
+        "startVerseSurah": 155,
+        "endVerseSurah": 162,
+        "startVerseGlobal": 648,
+        "endVerseGlobal": 655
+      },
+      {
+        "pageNum": 104,
+        "versesOnPage": 8,
+        "startVerseSurah": 163,
+        "endVerseSurah": 170,
+        "startVerseGlobal": 656,
+        "endVerseGlobal": 663
+      },
+      {
+        "pageNum": 105,
+        "versesOnPage": 5,
+        "startVerseSurah": 171,
+        "endVerseSurah": 175,
+        "startVerseGlobal": 664,
+        "endVerseGlobal": 668
+      },
+      {
+        "pageNum": 106,
+        "versesOnPage": 1,
+        "startVerseSurah": 176,
+        "endVerseSurah": 176,
+        "startVerseGlobal": 669,
+        "endVerseGlobal": 669
+      }
+    ]
+  },
+  "Al-Maaida": {
+    "startPage": 106,
+    "endPage": 127,
+    "numVerses": 120,
+    "numSurah": 5,
+    "pages": [
+      {
+        "pageNum": 106,
+        "versesOnPage": 2,
+        "startVerseSurah": 1,
+        "endVerseSurah": 2,
+        "startVerseGlobal": 670,
+        "endVerseGlobal": 671
+      },
+      {
+        "pageNum": 107,
+        "versesOnPage": 3,
+        "startVerseSurah": 3,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 672,
+        "endVerseGlobal": 674
+      },
+      {
+        "pageNum": 108,
+        "versesOnPage": 4,
+        "startVerseSurah": 6,
+        "endVerseSurah": 9,
+        "startVerseGlobal": 675,
+        "endVerseGlobal": 678
+      },
+      {
+        "pageNum": 109,
+        "versesOnPage": 4,
+        "startVerseSurah": 10,
+        "endVerseSurah": 13,
+        "startVerseGlobal": 679,
+        "endVerseGlobal": 682
+      },
+      {
+        "pageNum": 110,
+        "versesOnPage": 4,
+        "startVerseSurah": 14,
+        "endVerseSurah": 17,
+        "startVerseGlobal": 683,
+        "endVerseGlobal": 686
+      },
+      {
+        "pageNum": 111,
+        "versesOnPage": 6,
+        "startVerseSurah": 18,
+        "endVerseSurah": 23,
+        "startVerseGlobal": 687,
+        "endVerseGlobal": 692
+      },
+      {
+        "pageNum": 112,
+        "versesOnPage": 8,
+        "startVerseSurah": 24,
+        "endVerseSurah": 31,
+        "startVerseGlobal": 693,
+        "endVerseGlobal": 700
+      },
+      {
+        "pageNum": 113,
+        "versesOnPage": 5,
+        "startVerseSurah": 32,
+        "endVerseSurah": 36,
+        "startVerseGlobal": 701,
+        "endVerseGlobal": 705
+      },
+      {
+        "pageNum": 114,
+        "versesOnPage": 5,
+        "startVerseSurah": 37,
+        "endVerseSurah": 41,
+        "startVerseGlobal": 706,
+        "endVerseGlobal": 710
+      },
+      {
+        "pageNum": 115,
+        "versesOnPage": 4,
+        "startVerseSurah": 42,
+        "endVerseSurah": 45,
+        "startVerseGlobal": 711,
+        "endVerseGlobal": 714
+      },
+      {
+        "pageNum": 116,
+        "versesOnPage": 5,
+        "startVerseSurah": 46,
+        "endVerseSurah": 50,
+        "startVerseGlobal": 715,
+        "endVerseGlobal": 719
+      },
+      {
+        "pageNum": 117,
+        "versesOnPage": 7,
+        "startVerseSurah": 51,
+        "endVerseSurah": 57,
+        "startVerseGlobal": 720,
+        "endVerseGlobal": 726
+      },
+      {
+        "pageNum": 118,
+        "versesOnPage": 7,
+        "startVerseSurah": 58,
+        "endVerseSurah": 64,
+        "startVerseGlobal": 727,
+        "endVerseGlobal": 733
+      },
+      {
+        "pageNum": 119,
+        "versesOnPage": 6,
+        "startVerseSurah": 65,
+        "endVerseSurah": 70,
+        "startVerseGlobal": 734,
+        "endVerseGlobal": 739
+      },
+      {
+        "pageNum": 120,
+        "versesOnPage": 6,
+        "startVerseSurah": 71,
+        "endVerseSurah": 76,
+        "startVerseGlobal": 740,
+        "endVerseGlobal": 745
+      },
+      {
+        "pageNum": 121,
+        "versesOnPage": 6,
+        "startVerseSurah": 77,
+        "endVerseSurah": 82,
+        "startVerseGlobal": 746,
+        "endVerseGlobal": 751
+      },
+      {
+        "pageNum": 122,
+        "versesOnPage": 7,
+        "startVerseSurah": 83,
+        "endVerseSurah": 89,
+        "startVerseGlobal": 752,
+        "endVerseGlobal": 758
+      },
+      {
+        "pageNum": 123,
+        "versesOnPage": 6,
+        "startVerseSurah": 90,
+        "endVerseSurah": 95,
+        "startVerseGlobal": 759,
+        "endVerseGlobal": 764
+      },
+      {
+        "pageNum": 124,
+        "versesOnPage": 8,
+        "startVerseSurah": 96,
+        "endVerseSurah": 103,
+        "startVerseGlobal": 765,
+        "endVerseGlobal": 772
+      },
+      {
+        "pageNum": 125,
+        "versesOnPage": 5,
+        "startVerseSurah": 104,
+        "endVerseSurah": 108,
+        "startVerseGlobal": 773,
+        "endVerseGlobal": 777
+      },
+      {
+        "pageNum": 126,
+        "versesOnPage": 5,
+        "startVerseSurah": 109,
+        "endVerseSurah": 113,
+        "startVerseGlobal": 778,
+        "endVerseGlobal": 782
+      },
+      {
+        "pageNum": 127,
+        "versesOnPage": 7,
+        "startVerseSurah": 114,
+        "endVerseSurah": 120,
+        "startVerseGlobal": 783,
+        "endVerseGlobal": 789
+      }
+    ]
+  },
+  "Al-An'aam": {
+    "startPage": 128,
+    "endPage": 150,
+    "numVerses": 165,
+    "numSurah": 6,
+    "pages": [
+      {
+        "pageNum": 128,
+        "versesOnPage": 8,
+        "startVerseSurah": 1,
+        "endVerseSurah": 8,
+        "startVerseGlobal": 790,
+        "endVerseGlobal": 797
+      },
+      {
+        "pageNum": 129,
+        "versesOnPage": 10,
+        "startVerseSurah": 9,
+        "endVerseSurah": 18,
+        "startVerseGlobal": 798,
+        "endVerseGlobal": 807
+      },
+      {
+        "pageNum": 130,
+        "versesOnPage": 9,
+        "startVerseSurah": 19,
+        "endVerseSurah": 27,
+        "startVerseGlobal": 808,
+        "endVerseGlobal": 816
+      },
+      {
+        "pageNum": 131,
+        "versesOnPage": 8,
+        "startVerseSurah": 28,
+        "endVerseSurah": 35,
+        "startVerseGlobal": 817,
+        "endVerseGlobal": 824
+      },
+      {
+        "pageNum": 132,
+        "versesOnPage": 9,
+        "startVerseSurah": 36,
+        "endVerseSurah": 44,
+        "startVerseGlobal": 825,
+        "endVerseGlobal": 833
+      },
+      {
+        "pageNum": 133,
+        "versesOnPage": 8,
+        "startVerseSurah": 45,
+        "endVerseSurah": 52,
+        "startVerseGlobal": 834,
+        "endVerseGlobal": 841
+      },
+      {
+        "pageNum": 134,
+        "versesOnPage": 7,
+        "startVerseSurah": 53,
+        "endVerseSurah": 59,
+        "startVerseGlobal": 842,
+        "endVerseGlobal": 848
+      },
+      {
+        "pageNum": 135,
+        "versesOnPage": 9,
+        "startVerseSurah": 60,
+        "endVerseSurah": 68,
+        "startVerseGlobal": 849,
+        "endVerseGlobal": 857
+      },
+      {
+        "pageNum": 136,
+        "versesOnPage": 5,
+        "startVerseSurah": 69,
+        "endVerseSurah": 73,
+        "startVerseGlobal": 858,
+        "endVerseGlobal": 862
+      },
+      {
+        "pageNum": 137,
+        "versesOnPage": 8,
+        "startVerseSurah": 74,
+        "endVerseSurah": 81,
+        "startVerseGlobal": 863,
+        "endVerseGlobal": 870
+      },
+      {
+        "pageNum": 138,
+        "versesOnPage": 9,
+        "startVerseSurah": 82,
+        "endVerseSurah": 90,
+        "startVerseGlobal": 871,
+        "endVerseGlobal": 879
+      },
+      {
+        "pageNum": 139,
+        "versesOnPage": 4,
+        "startVerseSurah": 91,
+        "endVerseSurah": 94,
+        "startVerseGlobal": 880,
+        "endVerseGlobal": 883
+      },
+      {
+        "pageNum": 140,
+        "versesOnPage": 7,
+        "startVerseSurah": 95,
+        "endVerseSurah": 101,
+        "startVerseGlobal": 884,
+        "endVerseGlobal": 890
+      },
+      {
+        "pageNum": 141,
+        "versesOnPage": 9,
+        "startVerseSurah": 102,
+        "endVerseSurah": 110,
+        "startVerseGlobal": 891,
+        "endVerseGlobal": 899
+      },
+      {
+        "pageNum": 142,
+        "versesOnPage": 8,
+        "startVerseSurah": 111,
+        "endVerseSurah": 118,
+        "startVerseGlobal": 900,
+        "endVerseGlobal": 907
+      },
+      {
+        "pageNum": 143,
+        "versesOnPage": 6,
+        "startVerseSurah": 119,
+        "endVerseSurah": 124,
+        "startVerseGlobal": 908,
+        "endVerseGlobal": 913
+      },
+      {
+        "pageNum": 144,
+        "versesOnPage": 7,
+        "startVerseSurah": 125,
+        "endVerseSurah": 131,
+        "startVerseGlobal": 914,
+        "endVerseGlobal": 920
+      },
+      {
+        "pageNum": 145,
+        "versesOnPage": 6,
+        "startVerseSurah": 132,
+        "endVerseSurah": 137,
+        "startVerseGlobal": 921,
+        "endVerseGlobal": 926
+      },
+      {
+        "pageNum": 146,
+        "versesOnPage": 5,
+        "startVerseSurah": 138,
+        "endVerseSurah": 142,
+        "startVerseGlobal": 927,
+        "endVerseGlobal": 931
+      },
+      {
+        "pageNum": 147,
+        "versesOnPage": 4,
+        "startVerseSurah": 143,
+        "endVerseSurah": 146,
+        "startVerseGlobal": 932,
+        "endVerseGlobal": 935
+      },
+      {
+        "pageNum": 148,
+        "versesOnPage": 5,
+        "startVerseSurah": 147,
+        "endVerseSurah": 151,
+        "startVerseGlobal": 936,
+        "endVerseGlobal": 940
+      },
+      {
+        "pageNum": 149,
+        "versesOnPage": 6,
+        "startVerseSurah": 152,
+        "endVerseSurah": 157,
+        "startVerseGlobal": 941,
+        "endVerseGlobal": 946
+      },
+      {
+        "pageNum": 150,
+        "versesOnPage": 8,
+        "startVerseSurah": 158,
+        "endVerseSurah": 165,
+        "startVerseGlobal": 947,
+        "endVerseGlobal": 954
+      }
+    ]
+  },
+  "Al-A'raaf": {
+    "startPage": 151,
+    "endPage": 176,
+    "numVerses": 206,
+    "numSurah": 7,
+    "pages": [
+      {
+        "pageNum": 151,
+        "versesOnPage": 11,
+        "startVerseSurah": 1,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 955,
+        "endVerseGlobal": 965
+      },
+      {
+        "pageNum": 152,
+        "versesOnPage": 11,
+        "startVerseSurah": 12,
+        "endVerseSurah": 22,
+        "startVerseGlobal": 966,
+        "endVerseGlobal": 976
+      },
+      {
+        "pageNum": 153,
+        "versesOnPage": 8,
+        "startVerseSurah": 23,
+        "endVerseSurah": 30,
+        "startVerseGlobal": 977,
+        "endVerseGlobal": 984
+      },
+      {
+        "pageNum": 154,
+        "versesOnPage": 7,
+        "startVerseSurah": 31,
+        "endVerseSurah": 37,
+        "startVerseGlobal": 985,
+        "endVerseGlobal": 991
+      },
+      {
+        "pageNum": 155,
+        "versesOnPage": 6,
+        "startVerseSurah": 38,
+        "endVerseSurah": 43,
+        "startVerseGlobal": 992,
+        "endVerseGlobal": 997
+      },
+      {
+        "pageNum": 156,
+        "versesOnPage": 8,
+        "startVerseSurah": 44,
+        "endVerseSurah": 51,
+        "startVerseGlobal": 998,
+        "endVerseGlobal": 1005
+      },
+      {
+        "pageNum": 157,
+        "versesOnPage": 6,
+        "startVerseSurah": 52,
+        "endVerseSurah": 57,
+        "startVerseGlobal": 1006,
+        "endVerseGlobal": 1011
+      },
+      {
+        "pageNum": 158,
+        "versesOnPage": 10,
+        "startVerseSurah": 58,
+        "endVerseSurah": 67,
+        "startVerseGlobal": 1012,
+        "endVerseGlobal": 1021
+      },
+      {
+        "pageNum": 159,
+        "versesOnPage": 6,
+        "startVerseSurah": 68,
+        "endVerseSurah": 73,
+        "startVerseGlobal": 1022,
+        "endVerseGlobal": 1027
+      },
+      {
+        "pageNum": 160,
+        "versesOnPage": 8,
+        "startVerseSurah": 74,
+        "endVerseSurah": 81,
+        "startVerseGlobal": 1028,
+        "endVerseGlobal": 1035
+      },
+      {
+        "pageNum": 161,
+        "versesOnPage": 6,
+        "startVerseSurah": 82,
+        "endVerseSurah": 87,
+        "startVerseGlobal": 1036,
+        "endVerseGlobal": 1041
+      },
+      {
+        "pageNum": 162,
+        "versesOnPage": 8,
+        "startVerseSurah": 88,
+        "endVerseSurah": 95,
+        "startVerseGlobal": 1042,
+        "endVerseGlobal": 1049
+      },
+      {
+        "pageNum": 163,
+        "versesOnPage": 9,
+        "startVerseSurah": 96,
+        "endVerseSurah": 104,
+        "startVerseGlobal": 1050,
+        "endVerseGlobal": 1058
+      },
+      {
+        "pageNum": 164,
+        "versesOnPage": 16,
+        "startVerseSurah": 105,
+        "endVerseSurah": 120,
+        "startVerseGlobal": 1059,
+        "endVerseGlobal": 1074
+      },
+      {
+        "pageNum": 165,
+        "versesOnPage": 10,
+        "startVerseSurah": 121,
+        "endVerseSurah": 130,
+        "startVerseGlobal": 1075,
+        "endVerseGlobal": 1084
+      },
+      {
+        "pageNum": 166,
+        "versesOnPage": 7,
+        "startVerseSurah": 131,
+        "endVerseSurah": 137,
+        "startVerseGlobal": 1085,
+        "endVerseGlobal": 1091
+      },
+      {
+        "pageNum": 167,
+        "versesOnPage": 6,
+        "startVerseSurah": 138,
+        "endVerseSurah": 143,
+        "startVerseGlobal": 1092,
+        "endVerseGlobal": 1097
+      },
+      {
+        "pageNum": 168,
+        "versesOnPage": 6,
+        "startVerseSurah": 144,
+        "endVerseSurah": 149,
+        "startVerseGlobal": 1098,
+        "endVerseGlobal": 1103
+      },
+      {
+        "pageNum": 169,
+        "versesOnPage": 6,
+        "startVerseSurah": 150,
+        "endVerseSurah": 155,
+        "startVerseGlobal": 1104,
+        "endVerseGlobal": 1109
+      },
+      {
+        "pageNum": 170,
+        "versesOnPage": 4,
+        "startVerseSurah": 156,
+        "endVerseSurah": 159,
+        "startVerseGlobal": 1110,
+        "endVerseGlobal": 1113
+      },
+      {
+        "pageNum": 171,
+        "versesOnPage": 4,
+        "startVerseSurah": 160,
+        "endVerseSurah": 163,
+        "startVerseGlobal": 1114,
+        "endVerseGlobal": 1117
+      },
+      {
+        "pageNum": 172,
+        "versesOnPage": 7,
+        "startVerseSurah": 164,
+        "endVerseSurah": 170,
+        "startVerseGlobal": 1118,
+        "endVerseGlobal": 1124
+      },
+      {
+        "pageNum": 173,
+        "versesOnPage": 8,
+        "startVerseSurah": 171,
+        "endVerseSurah": 178,
+        "startVerseGlobal": 1125,
+        "endVerseGlobal": 1132
+      },
+      {
+        "pageNum": 174,
+        "versesOnPage": 9,
+        "startVerseSurah": 179,
+        "endVerseSurah": 187,
+        "startVerseGlobal": 1133,
+        "endVerseGlobal": 1141
+      },
+      {
+        "pageNum": 175,
+        "versesOnPage": 8,
+        "startVerseSurah": 188,
+        "endVerseSurah": 195,
+        "startVerseGlobal": 1142,
+        "endVerseGlobal": 1149
+      },
+      {
+        "pageNum": 176,
+        "versesOnPage": 11,
+        "startVerseSurah": 196,
+        "endVerseSurah": 206,
+        "startVerseGlobal": 1150,
+        "endVerseGlobal": 1160
+      }
+    ]
+  },
+  "Al-Anfaal": {
+    "startPage": 177,
+    "endPage": 186,
+    "numVerses": 75,
+    "numSurah": 8,
+    "pages": [
+      {
+        "pageNum": 177,
+        "versesOnPage": 8,
+        "startVerseSurah": 1,
+        "endVerseSurah": 8,
+        "startVerseGlobal": 1161,
+        "endVerseGlobal": 1168
+      },
+      {
+        "pageNum": 178,
+        "versesOnPage": 8,
+        "startVerseSurah": 9,
+        "endVerseSurah": 16,
+        "startVerseGlobal": 1169,
+        "endVerseGlobal": 1176
+      },
+      {
+        "pageNum": 179,
+        "versesOnPage": 9,
+        "startVerseSurah": 17,
+        "endVerseSurah": 25,
+        "startVerseGlobal": 1177,
+        "endVerseGlobal": 1185
+      },
+      {
+        "pageNum": 180,
+        "versesOnPage": 8,
+        "startVerseSurah": 26,
+        "endVerseSurah": 33,
+        "startVerseGlobal": 1186,
+        "endVerseGlobal": 1193
+      },
+      {
+        "pageNum": 181,
+        "versesOnPage": 7,
+        "startVerseSurah": 34,
+        "endVerseSurah": 40,
+        "startVerseGlobal": 1194,
+        "endVerseGlobal": 1200
+      },
+      {
+        "pageNum": 182,
+        "versesOnPage": 5,
+        "startVerseSurah": 41,
+        "endVerseSurah": 45,
+        "startVerseGlobal": 1201,
+        "endVerseGlobal": 1205
+      },
+      {
+        "pageNum": 183,
+        "versesOnPage": 7,
+        "startVerseSurah": 46,
+        "endVerseSurah": 52,
+        "startVerseGlobal": 1206,
+        "endVerseGlobal": 1212
+      },
+      {
+        "pageNum": 184,
+        "versesOnPage": 9,
+        "startVerseSurah": 53,
+        "endVerseSurah": 61,
+        "startVerseGlobal": 1213,
+        "endVerseGlobal": 1221
+      },
+      {
+        "pageNum": 185,
+        "versesOnPage": 8,
+        "startVerseSurah": 62,
+        "endVerseSurah": 69,
+        "startVerseGlobal": 1222,
+        "endVerseGlobal": 1229
+      },
+      {
+        "pageNum": 186,
+        "versesOnPage": 6,
+        "startVerseSurah": 70,
+        "endVerseSurah": 75,
+        "startVerseGlobal": 1230,
+        "endVerseGlobal": 1235
+      }
+    ]
+  },
+  "At-Tawba": {
+    "startPage": 187,
+    "endPage": 207,
+    "numVerses": 129,
+    "numSurah": 9,
+    "pages": [
+      {
+        "pageNum": 187,
+        "versesOnPage": 6,
+        "startVerseSurah": 1,
+        "endVerseSurah": 6,
+        "startVerseGlobal": 1236,
+        "endVerseGlobal": 1241
+      },
+      {
+        "pageNum": 188,
+        "versesOnPage": 7,
+        "startVerseSurah": 7,
+        "endVerseSurah": 13,
+        "startVerseGlobal": 1242,
+        "endVerseGlobal": 1248
+      },
+      {
+        "pageNum": 189,
+        "versesOnPage": 7,
+        "startVerseSurah": 14,
+        "endVerseSurah": 20,
+        "startVerseGlobal": 1249,
+        "endVerseGlobal": 1255
+      },
+      {
+        "pageNum": 190,
+        "versesOnPage": 6,
+        "startVerseSurah": 21,
+        "endVerseSurah": 26,
+        "startVerseGlobal": 1256,
+        "endVerseGlobal": 1261
+      },
+      {
+        "pageNum": 191,
+        "versesOnPage": 5,
+        "startVerseSurah": 27,
+        "endVerseSurah": 31,
+        "startVerseGlobal": 1262,
+        "endVerseGlobal": 1266
+      },
+      {
+        "pageNum": 192,
+        "versesOnPage": 5,
+        "startVerseSurah": 32,
+        "endVerseSurah": 36,
+        "startVerseGlobal": 1267,
+        "endVerseGlobal": 1271
+      },
+      {
+        "pageNum": 193,
+        "versesOnPage": 4,
+        "startVerseSurah": 37,
+        "endVerseSurah": 40,
+        "startVerseGlobal": 1272,
+        "endVerseGlobal": 1275
+      },
+      {
+        "pageNum": 194,
+        "versesOnPage": 7,
+        "startVerseSurah": 41,
+        "endVerseSurah": 47,
+        "startVerseGlobal": 1276,
+        "endVerseGlobal": 1282
+      },
+      {
+        "pageNum": 195,
+        "versesOnPage": 7,
+        "startVerseSurah": 48,
+        "endVerseSurah": 54,
+        "startVerseGlobal": 1283,
+        "endVerseGlobal": 1289
+      },
+      {
+        "pageNum": 196,
+        "versesOnPage": 7,
+        "startVerseSurah": 55,
+        "endVerseSurah": 61,
+        "startVerseGlobal": 1290,
+        "endVerseGlobal": 1296
+      },
+      {
+        "pageNum": 197,
+        "versesOnPage": 7,
+        "startVerseSurah": 62,
+        "endVerseSurah": 68,
+        "startVerseGlobal": 1297,
+        "endVerseGlobal": 1303
+      },
+      {
+        "pageNum": 198,
+        "versesOnPage": 4,
+        "startVerseSurah": 69,
+        "endVerseSurah": 72,
+        "startVerseGlobal": 1304,
+        "endVerseGlobal": 1307
+      },
+      {
+        "pageNum": 199,
+        "versesOnPage": 7,
+        "startVerseSurah": 73,
+        "endVerseSurah": 79,
+        "startVerseGlobal": 1308,
+        "endVerseGlobal": 1314
+      },
+      {
+        "pageNum": 200,
+        "versesOnPage": 7,
+        "startVerseSurah": 80,
+        "endVerseSurah": 86,
+        "startVerseGlobal": 1315,
+        "endVerseGlobal": 1321
+      },
+      {
+        "pageNum": 201,
+        "versesOnPage": 7,
+        "startVerseSurah": 87,
+        "endVerseSurah": 93,
+        "startVerseGlobal": 1322,
+        "endVerseGlobal": 1328
+      },
+      {
+        "pageNum": 202,
+        "versesOnPage": 6,
+        "startVerseSurah": 94,
+        "endVerseSurah": 99,
+        "startVerseGlobal": 1329,
+        "endVerseGlobal": 1334
+      },
+      {
+        "pageNum": 203,
+        "versesOnPage": 7,
+        "startVerseSurah": 100,
+        "endVerseSurah": 106,
+        "startVerseGlobal": 1335,
+        "endVerseGlobal": 1341
+      },
+      {
+        "pageNum": 204,
+        "versesOnPage": 5,
+        "startVerseSurah": 107,
+        "endVerseSurah": 111,
+        "startVerseGlobal": 1342,
+        "endVerseGlobal": 1346
+      },
+      {
+        "pageNum": 205,
+        "versesOnPage": 6,
+        "startVerseSurah": 112,
+        "endVerseSurah": 117,
+        "startVerseGlobal": 1347,
+        "endVerseGlobal": 1352
+      },
+      {
+        "pageNum": 206,
+        "versesOnPage": 5,
+        "startVerseSurah": 118,
+        "endVerseSurah": 122,
+        "startVerseGlobal": 1353,
+        "endVerseGlobal": 1357
+      },
+      {
+        "pageNum": 207,
+        "versesOnPage": 7,
+        "startVerseSurah": 123,
+        "endVerseSurah": 129,
+        "startVerseGlobal": 1358,
+        "endVerseGlobal": 1364
+      }
+    ]
+  },
+  "Yunus": {
+    "startPage": 208,
+    "endPage": 221,
+    "numVerses": 109,
+    "numSurah": 10,
+    "pages": [
+      {
+        "pageNum": 208,
+        "versesOnPage": 6,
+        "startVerseSurah": 1,
+        "endVerseSurah": 6,
+        "startVerseGlobal": 1365,
+        "endVerseGlobal": 1370
+      },
+      {
+        "pageNum": 209,
+        "versesOnPage": 8,
+        "startVerseSurah": 7,
+        "endVerseSurah": 14,
+        "startVerseGlobal": 1371,
+        "endVerseGlobal": 1378
+      },
+      {
+        "pageNum": 210,
+        "versesOnPage": 6,
+        "startVerseSurah": 15,
+        "endVerseSurah": 20,
+        "startVerseGlobal": 1379,
+        "endVerseGlobal": 1384
+      },
+      {
+        "pageNum": 211,
+        "versesOnPage": 5,
+        "startVerseSurah": 21,
+        "endVerseSurah": 25,
+        "startVerseGlobal": 1385,
+        "endVerseGlobal": 1389
+      },
+      {
+        "pageNum": 212,
+        "versesOnPage": 8,
+        "startVerseSurah": 26,
+        "endVerseSurah": 33,
+        "startVerseGlobal": 1390,
+        "endVerseGlobal": 1397
+      },
+      {
+        "pageNum": 213,
+        "versesOnPage": 9,
+        "startVerseSurah": 34,
+        "endVerseSurah": 42,
+        "startVerseGlobal": 1398,
+        "endVerseGlobal": 1406
+      },
+      {
+        "pageNum": 214,
+        "versesOnPage": 11,
+        "startVerseSurah": 43,
+        "endVerseSurah": 53,
+        "startVerseGlobal": 1407,
+        "endVerseGlobal": 1417
+      },
+      {
+        "pageNum": 215,
+        "versesOnPage": 8,
+        "startVerseSurah": 54,
+        "endVerseSurah": 61,
+        "startVerseGlobal": 1418,
+        "endVerseGlobal": 1425
+      },
+      {
+        "pageNum": 216,
+        "versesOnPage": 9,
+        "startVerseSurah": 62,
+        "endVerseSurah": 70,
+        "startVerseGlobal": 1426,
+        "endVerseGlobal": 1434
+      },
+      {
+        "pageNum": 217,
+        "versesOnPage": 8,
+        "startVerseSurah": 71,
+        "endVerseSurah": 78,
+        "startVerseGlobal": 1435,
+        "endVerseGlobal": 1442
+      },
+      {
+        "pageNum": 218,
+        "versesOnPage": 10,
+        "startVerseSurah": 79,
+        "endVerseSurah": 88,
+        "startVerseGlobal": 1443,
+        "endVerseGlobal": 1452
+      },
+      {
+        "pageNum": 219,
+        "versesOnPage": 9,
+        "startVerseSurah": 89,
+        "endVerseSurah": 97,
+        "startVerseGlobal": 1453,
+        "endVerseGlobal": 1461
+      },
+      {
+        "pageNum": 220,
+        "versesOnPage": 9,
+        "startVerseSurah": 98,
+        "endVerseSurah": 106,
+        "startVerseGlobal": 1462,
+        "endVerseGlobal": 1470
+      },
+      {
+        "pageNum": 221,
+        "versesOnPage": 3,
+        "startVerseSurah": 107,
+        "endVerseSurah": 109,
+        "startVerseGlobal": 1471,
+        "endVerseGlobal": 1473
+      }
+    ]
+  },
+  "Hud": {
+    "startPage": 221,
+    "endPage": 235,
+    "numVerses": 123,
+    "numSurah": 11,
+    "pages": [
+      {
+        "pageNum": 221,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 1474,
+        "endVerseGlobal": 1478
+      },
+      {
+        "pageNum": 222,
+        "versesOnPage": 7,
+        "startVerseSurah": 6,
+        "endVerseSurah": 12,
+        "startVerseGlobal": 1479,
+        "endVerseGlobal": 1485
+      },
+      {
+        "pageNum": 223,
+        "versesOnPage": 7,
+        "startVerseSurah": 13,
+        "endVerseSurah": 19,
+        "startVerseGlobal": 1486,
+        "endVerseGlobal": 1492
+      },
+      {
+        "pageNum": 224,
+        "versesOnPage": 9,
+        "startVerseSurah": 20,
+        "endVerseSurah": 28,
+        "startVerseGlobal": 1493,
+        "endVerseGlobal": 1501
+      },
+      {
+        "pageNum": 225,
+        "versesOnPage": 9,
+        "startVerseSurah": 29,
+        "endVerseSurah": 37,
+        "startVerseGlobal": 1502,
+        "endVerseGlobal": 1510
+      },
+      {
+        "pageNum": 226,
+        "versesOnPage": 8,
+        "startVerseSurah": 38,
+        "endVerseSurah": 45,
+        "startVerseGlobal": 1511,
+        "endVerseGlobal": 1518
+      },
+      {
+        "pageNum": 227,
+        "versesOnPage": 8,
+        "startVerseSurah": 46,
+        "endVerseSurah": 53,
+        "startVerseGlobal": 1519,
+        "endVerseGlobal": 1526
+      },
+      {
+        "pageNum": 228,
+        "versesOnPage": 9,
+        "startVerseSurah": 54,
+        "endVerseSurah": 62,
+        "startVerseGlobal": 1527,
+        "endVerseGlobal": 1535
+      },
+      {
+        "pageNum": 229,
+        "versesOnPage": 9,
+        "startVerseSurah": 63,
+        "endVerseSurah": 71,
+        "startVerseGlobal": 1536,
+        "endVerseGlobal": 1544
+      },
+      {
+        "pageNum": 230,
+        "versesOnPage": 10,
+        "startVerseSurah": 72,
+        "endVerseSurah": 81,
+        "startVerseGlobal": 1545,
+        "endVerseGlobal": 1554
+      },
+      {
+        "pageNum": 231,
+        "versesOnPage": 7,
+        "startVerseSurah": 82,
+        "endVerseSurah": 88,
+        "startVerseGlobal": 1555,
+        "endVerseGlobal": 1561
+      },
+      {
+        "pageNum": 232,
+        "versesOnPage": 9,
+        "startVerseSurah": 89,
+        "endVerseSurah": 97,
+        "startVerseGlobal": 1562,
+        "endVerseGlobal": 1570
+      },
+      {
+        "pageNum": 233,
+        "versesOnPage": 11,
+        "startVerseSurah": 98,
+        "endVerseSurah": 108,
+        "startVerseGlobal": 1571,
+        "endVerseGlobal": 1581
+      },
+      {
+        "pageNum": 234,
+        "versesOnPage": 9,
+        "startVerseSurah": 109,
+        "endVerseSurah": 117,
+        "startVerseGlobal": 1582,
+        "endVerseGlobal": 1590
+      },
+      {
+        "pageNum": 235,
+        "versesOnPage": 6,
+        "startVerseSurah": 118,
+        "endVerseSurah": 123,
+        "startVerseGlobal": 1591,
+        "endVerseGlobal": 1596
+      }
+    ]
+  },
+  "Yusuf": {
+    "startPage": 235,
+    "endPage": 248,
+    "numVerses": 111,
+    "numSurah": 12,
+    "pages": [
+      {
+        "pageNum": 235,
+        "versesOnPage": 4,
+        "startVerseSurah": 1,
+        "endVerseSurah": 4,
+        "startVerseGlobal": 1597,
+        "endVerseGlobal": 1600
+      },
+      {
+        "pageNum": 236,
+        "versesOnPage": 10,
+        "startVerseSurah": 5,
+        "endVerseSurah": 14,
+        "startVerseGlobal": 1601,
+        "endVerseGlobal": 1610
+      },
+      {
+        "pageNum": 237,
+        "versesOnPage": 8,
+        "startVerseSurah": 15,
+        "endVerseSurah": 22,
+        "startVerseGlobal": 1611,
+        "endVerseGlobal": 1618
+      },
+      {
+        "pageNum": 238,
+        "versesOnPage": 8,
+        "startVerseSurah": 23,
+        "endVerseSurah": 30,
+        "startVerseGlobal": 1619,
+        "endVerseGlobal": 1626
+      },
+      {
+        "pageNum": 239,
+        "versesOnPage": 7,
+        "startVerseSurah": 31,
+        "endVerseSurah": 37,
+        "startVerseGlobal": 1627,
+        "endVerseGlobal": 1633
+      },
+      {
+        "pageNum": 240,
+        "versesOnPage": 6,
+        "startVerseSurah": 38,
+        "endVerseSurah": 43,
+        "startVerseGlobal": 1634,
+        "endVerseGlobal": 1639
+      },
+      {
+        "pageNum": 241,
+        "versesOnPage": 9,
+        "startVerseSurah": 44,
+        "endVerseSurah": 52,
+        "startVerseGlobal": 1640,
+        "endVerseGlobal": 1648
+      },
+      {
+        "pageNum": 242,
+        "versesOnPage": 11,
+        "startVerseSurah": 53,
+        "endVerseSurah": 63,
+        "startVerseGlobal": 1649,
+        "endVerseGlobal": 1659
+      },
+      {
+        "pageNum": 243,
+        "versesOnPage": 6,
+        "startVerseSurah": 64,
+        "endVerseSurah": 69,
+        "startVerseGlobal": 1660,
+        "endVerseGlobal": 1665
+      },
+      {
+        "pageNum": 244,
+        "versesOnPage": 9,
+        "startVerseSurah": 70,
+        "endVerseSurah": 78,
+        "startVerseGlobal": 1666,
+        "endVerseGlobal": 1674
+      },
+      {
+        "pageNum": 245,
+        "versesOnPage": 8,
+        "startVerseSurah": 79,
+        "endVerseSurah": 86,
+        "startVerseGlobal": 1675,
+        "endVerseGlobal": 1682
+      },
+      {
+        "pageNum": 246,
+        "versesOnPage": 9,
+        "startVerseSurah": 87,
+        "endVerseSurah": 95,
+        "startVerseGlobal": 1683,
+        "endVerseGlobal": 1691
+      },
+      {
+        "pageNum": 247,
+        "versesOnPage": 8,
+        "startVerseSurah": 96,
+        "endVerseSurah": 103,
+        "startVerseGlobal": 1692,
+        "endVerseGlobal": 1699
+      },
+      {
+        "pageNum": 248,
+        "versesOnPage": 8,
+        "startVerseSurah": 104,
+        "endVerseSurah": 111,
+        "startVerseGlobal": 1700,
+        "endVerseGlobal": 1707
+      }
+    ]
+  },
+  "Ar-Ra'd": {
+    "startPage": 249,
+    "endPage": 255,
+    "numVerses": 43,
+    "numSurah": 13,
+    "pages": [
+      {
+        "pageNum": 249,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 1708,
+        "endVerseGlobal": 1712
+      },
+      {
+        "pageNum": 250,
+        "versesOnPage": 8,
+        "startVerseSurah": 6,
+        "endVerseSurah": 13,
+        "startVerseGlobal": 1713,
+        "endVerseGlobal": 1720
+      },
+      {
+        "pageNum": 251,
+        "versesOnPage": 5,
+        "startVerseSurah": 14,
+        "endVerseSurah": 18,
+        "startVerseGlobal": 1721,
+        "endVerseGlobal": 1725
+      },
+      {
+        "pageNum": 252,
+        "versesOnPage": 10,
+        "startVerseSurah": 19,
+        "endVerseSurah": 28,
+        "startVerseGlobal": 1726,
+        "endVerseGlobal": 1735
+      },
+      {
+        "pageNum": 253,
+        "versesOnPage": 6,
+        "startVerseSurah": 29,
+        "endVerseSurah": 34,
+        "startVerseGlobal": 1736,
+        "endVerseGlobal": 1741
+      },
+      {
+        "pageNum": 254,
+        "versesOnPage": 8,
+        "startVerseSurah": 35,
+        "endVerseSurah": 42,
+        "startVerseGlobal": 1742,
+        "endVerseGlobal": 1749
+      },
+      {
+        "pageNum": 255,
+        "versesOnPage": 1,
+        "startVerseSurah": 43,
+        "endVerseSurah": 43,
+        "startVerseGlobal": 1750,
+        "endVerseGlobal": 1750
+      }
+    ]
+  },
+  "Ibrahim": {
+    "startPage": 255,
+    "endPage": 261,
+    "numVerses": 52,
+    "numSurah": 14,
+    "pages": [
+      {
+        "pageNum": 255,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 1751,
+        "endVerseGlobal": 1755
+      },
+      {
+        "pageNum": 256,
+        "versesOnPage": 5,
+        "startVerseSurah": 6,
+        "endVerseSurah": 10,
+        "startVerseGlobal": 1756,
+        "endVerseGlobal": 1760
+      },
+      {
+        "pageNum": 257,
+        "versesOnPage": 8,
+        "startVerseSurah": 11,
+        "endVerseSurah": 18,
+        "startVerseGlobal": 1761,
+        "endVerseGlobal": 1768
+      },
+      {
+        "pageNum": 258,
+        "versesOnPage": 6,
+        "startVerseSurah": 19,
+        "endVerseSurah": 24,
+        "startVerseGlobal": 1769,
+        "endVerseGlobal": 1774
+      },
+      {
+        "pageNum": 259,
+        "versesOnPage": 9,
+        "startVerseSurah": 25,
+        "endVerseSurah": 33,
+        "startVerseGlobal": 1775,
+        "endVerseGlobal": 1783
+      },
+      {
+        "pageNum": 260,
+        "versesOnPage": 9,
+        "startVerseSurah": 34,
+        "endVerseSurah": 42,
+        "startVerseGlobal": 1784,
+        "endVerseGlobal": 1792
+      },
+      {
+        "pageNum": 261,
+        "versesOnPage": 10,
+        "startVerseSurah": 43,
+        "endVerseSurah": 52,
+        "startVerseGlobal": 1793,
+        "endVerseGlobal": 1802
+      }
+    ]
+  },
+  "Al-Hijr": {
+    "startPage": 262,
+    "endPage": 267,
+    "numVerses": 99,
+    "numSurah": 15,
+    "pages": [
+      {
+        "pageNum": 262,
+        "versesOnPage": 15,
+        "startVerseSurah": 1,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 1803,
+        "endVerseGlobal": 1817
+      },
+      {
+        "pageNum": 263,
+        "versesOnPage": 16,
+        "startVerseSurah": 16,
+        "endVerseSurah": 31,
+        "startVerseGlobal": 1818,
+        "endVerseGlobal": 1833
+      },
+      {
+        "pageNum": 264,
+        "versesOnPage": 20,
+        "startVerseSurah": 32,
+        "endVerseSurah": 51,
+        "startVerseGlobal": 1834,
+        "endVerseGlobal": 1853
+      },
+      {
+        "pageNum": 265,
+        "versesOnPage": 19,
+        "startVerseSurah": 52,
+        "endVerseSurah": 70,
+        "startVerseGlobal": 1854,
+        "endVerseGlobal": 1872
+      },
+      {
+        "pageNum": 266,
+        "versesOnPage": 20,
+        "startVerseSurah": 71,
+        "endVerseSurah": 90,
+        "startVerseGlobal": 1873,
+        "endVerseGlobal": 1892
+      },
+      {
+        "pageNum": 267,
+        "versesOnPage": 9,
+        "startVerseSurah": 91,
+        "endVerseSurah": 99,
+        "startVerseGlobal": 1893,
+        "endVerseGlobal": 1901
+      }
+    ]
+  },
+  "An-Nahl": {
+    "startPage": 267,
+    "endPage": 281,
+    "numVerses": 128,
+    "numSurah": 16,
+    "pages": [
+      {
+        "pageNum": 267,
+        "versesOnPage": 6,
+        "startVerseSurah": 1,
+        "endVerseSurah": 6,
+        "startVerseGlobal": 1902,
+        "endVerseGlobal": 1907
+      },
+      {
+        "pageNum": 268,
+        "versesOnPage": 8,
+        "startVerseSurah": 7,
+        "endVerseSurah": 14,
+        "startVerseGlobal": 1908,
+        "endVerseGlobal": 1915
+      },
+      {
+        "pageNum": 269,
+        "versesOnPage": 12,
+        "startVerseSurah": 15,
+        "endVerseSurah": 26,
+        "startVerseGlobal": 1916,
+        "endVerseGlobal": 1927
+      },
+      {
+        "pageNum": 270,
+        "versesOnPage": 8,
+        "startVerseSurah": 27,
+        "endVerseSurah": 34,
+        "startVerseGlobal": 1928,
+        "endVerseGlobal": 1935
+      },
+      {
+        "pageNum": 271,
+        "versesOnPage": 8,
+        "startVerseSurah": 35,
+        "endVerseSurah": 42,
+        "startVerseGlobal": 1936,
+        "endVerseGlobal": 1943
+      },
+      {
+        "pageNum": 272,
+        "versesOnPage": 12,
+        "startVerseSurah": 43,
+        "endVerseSurah": 54,
+        "startVerseGlobal": 1944,
+        "endVerseGlobal": 1955
+      },
+      {
+        "pageNum": 273,
+        "versesOnPage": 10,
+        "startVerseSurah": 55,
+        "endVerseSurah": 64,
+        "startVerseGlobal": 1956,
+        "endVerseGlobal": 1965
+      },
+      {
+        "pageNum": 274,
+        "versesOnPage": 8,
+        "startVerseSurah": 65,
+        "endVerseSurah": 72,
+        "startVerseGlobal": 1966,
+        "endVerseGlobal": 1973
+      },
+      {
+        "pageNum": 275,
+        "versesOnPage": 7,
+        "startVerseSurah": 73,
+        "endVerseSurah": 79,
+        "startVerseGlobal": 1974,
+        "endVerseGlobal": 1980
+      },
+      {
+        "pageNum": 276,
+        "versesOnPage": 8,
+        "startVerseSurah": 80,
+        "endVerseSurah": 87,
+        "startVerseGlobal": 1981,
+        "endVerseGlobal": 1988
+      },
+      {
+        "pageNum": 277,
+        "versesOnPage": 6,
+        "startVerseSurah": 88,
+        "endVerseSurah": 93,
+        "startVerseGlobal": 1989,
+        "endVerseGlobal": 1994
+      },
+      {
+        "pageNum": 278,
+        "versesOnPage": 9,
+        "startVerseSurah": 94,
+        "endVerseSurah": 102,
+        "startVerseGlobal": 1995,
+        "endVerseGlobal": 2003
+      },
+      {
+        "pageNum": 279,
+        "versesOnPage": 8,
+        "startVerseSurah": 103,
+        "endVerseSurah": 110,
+        "startVerseGlobal": 2004,
+        "endVerseGlobal": 2011
+      },
+      {
+        "pageNum": 280,
+        "versesOnPage": 8,
+        "startVerseSurah": 111,
+        "endVerseSurah": 118,
+        "startVerseGlobal": 2012,
+        "endVerseGlobal": 2019
+      },
+      {
+        "pageNum": 281,
+        "versesOnPage": 10,
+        "startVerseSurah": 119,
+        "endVerseSurah": 128,
+        "startVerseGlobal": 2020,
+        "endVerseGlobal": 2029
+      }
+    ]
+  },
+  "Al-Israa": {
+    "startPage": 282,
+    "endPage": 293,
+    "numVerses": 111,
+    "numSurah": 17,
+    "pages": [
+      {
+        "pageNum": 282,
+        "versesOnPage": 7,
+        "startVerseSurah": 1,
+        "endVerseSurah": 7,
+        "startVerseGlobal": 2030,
+        "endVerseGlobal": 2036
+      },
+      {
+        "pageNum": 283,
+        "versesOnPage": 10,
+        "startVerseSurah": 8,
+        "endVerseSurah": 17,
+        "startVerseGlobal": 2037,
+        "endVerseGlobal": 2046
+      },
+      {
+        "pageNum": 284,
+        "versesOnPage": 10,
+        "startVerseSurah": 18,
+        "endVerseSurah": 27,
+        "startVerseGlobal": 2047,
+        "endVerseGlobal": 2056
+      },
+      {
+        "pageNum": 285,
+        "versesOnPage": 11,
+        "startVerseSurah": 28,
+        "endVerseSurah": 38,
+        "startVerseGlobal": 2057,
+        "endVerseGlobal": 2067
+      },
+      {
+        "pageNum": 286,
+        "versesOnPage": 11,
+        "startVerseSurah": 39,
+        "endVerseSurah": 49,
+        "startVerseGlobal": 2068,
+        "endVerseGlobal": 2078
+      },
+      {
+        "pageNum": 287,
+        "versesOnPage": 9,
+        "startVerseSurah": 50,
+        "endVerseSurah": 58,
+        "startVerseGlobal": 2079,
+        "endVerseGlobal": 2087
+      },
+      {
+        "pageNum": 288,
+        "versesOnPage": 8,
+        "startVerseSurah": 59,
+        "endVerseSurah": 66,
+        "startVerseGlobal": 2088,
+        "endVerseGlobal": 2095
+      },
+      {
+        "pageNum": 289,
+        "versesOnPage": 9,
+        "startVerseSurah": 67,
+        "endVerseSurah": 75,
+        "startVerseGlobal": 2096,
+        "endVerseGlobal": 2104
+      },
+      {
+        "pageNum": 290,
+        "versesOnPage": 11,
+        "startVerseSurah": 76,
+        "endVerseSurah": 86,
+        "startVerseGlobal": 2105,
+        "endVerseGlobal": 2115
+      },
+      {
+        "pageNum": 291,
+        "versesOnPage": 10,
+        "startVerseSurah": 87,
+        "endVerseSurah": 96,
+        "startVerseGlobal": 2116,
+        "endVerseGlobal": 2125
+      },
+      {
+        "pageNum": 292,
+        "versesOnPage": 8,
+        "startVerseSurah": 97,
+        "endVerseSurah": 104,
+        "startVerseGlobal": 2126,
+        "endVerseGlobal": 2133
+      },
+      {
+        "pageNum": 293,
+        "versesOnPage": 7,
+        "startVerseSurah": 105,
+        "endVerseSurah": 111,
+        "startVerseGlobal": 2134,
+        "endVerseGlobal": 2140
+      }
+    ]
+  },
+  "Al-Kahf": {
+    "startPage": 293,
+    "endPage": 304,
+    "numVerses": 110,
+    "numSurah": 18,
+    "pages": [
+      {
+        "pageNum": 293,
+        "versesOnPage": 4,
+        "startVerseSurah": 1,
+        "endVerseSurah": 4,
+        "startVerseGlobal": 2141,
+        "endVerseGlobal": 2144
+      },
+      {
+        "pageNum": 294,
+        "versesOnPage": 11,
+        "startVerseSurah": 5,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 2145,
+        "endVerseGlobal": 2155
+      },
+      {
+        "pageNum": 295,
+        "versesOnPage": 5,
+        "startVerseSurah": 16,
+        "endVerseSurah": 20,
+        "startVerseGlobal": 2156,
+        "endVerseGlobal": 2160
+      },
+      {
+        "pageNum": 296,
+        "versesOnPage": 7,
+        "startVerseSurah": 21,
+        "endVerseSurah": 27,
+        "startVerseGlobal": 2161,
+        "endVerseGlobal": 2167
+      },
+      {
+        "pageNum": 297,
+        "versesOnPage": 7,
+        "startVerseSurah": 28,
+        "endVerseSurah": 34,
+        "startVerseGlobal": 2168,
+        "endVerseGlobal": 2174
+      },
+      {
+        "pageNum": 298,
+        "versesOnPage": 11,
+        "startVerseSurah": 35,
+        "endVerseSurah": 45,
+        "startVerseGlobal": 2175,
+        "endVerseGlobal": 2185
+      },
+      {
+        "pageNum": 299,
+        "versesOnPage": 8,
+        "startVerseSurah": 46,
+        "endVerseSurah": 53,
+        "startVerseGlobal": 2186,
+        "endVerseGlobal": 2193
+      },
+      {
+        "pageNum": 300,
+        "versesOnPage": 8,
+        "startVerseSurah": 54,
+        "endVerseSurah": 61,
+        "startVerseGlobal": 2194,
+        "endVerseGlobal": 2201
+      },
+      {
+        "pageNum": 301,
+        "versesOnPage": 13,
+        "startVerseSurah": 62,
+        "endVerseSurah": 74,
+        "startVerseGlobal": 2202,
+        "endVerseGlobal": 2214
+      },
+      {
+        "pageNum": 302,
+        "versesOnPage": 9,
+        "startVerseSurah": 75,
+        "endVerseSurah": 83,
+        "startVerseGlobal": 2215,
+        "endVerseGlobal": 2223
+      },
+      {
+        "pageNum": 303,
+        "versesOnPage": 14,
+        "startVerseSurah": 84,
+        "endVerseSurah": 97,
+        "startVerseGlobal": 2224,
+        "endVerseGlobal": 2237
+      },
+      {
+        "pageNum": 304,
+        "versesOnPage": 13,
+        "startVerseSurah": 98,
+        "endVerseSurah": 110,
+        "startVerseGlobal": 2238,
+        "endVerseGlobal": 2250
+      }
+    ]
+  },
+  "Maryam": {
+    "startPage": 305,
+    "endPage": 312,
+    "numVerses": 98,
+    "numSurah": 19,
+    "pages": [
+      {
+        "pageNum": 305,
+        "versesOnPage": 11,
+        "startVerseSurah": 1,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 2251,
+        "endVerseGlobal": 2261
+      },
+      {
+        "pageNum": 306,
+        "versesOnPage": 14,
+        "startVerseSurah": 12,
+        "endVerseSurah": 25,
+        "startVerseGlobal": 2262,
+        "endVerseGlobal": 2275
+      },
+      {
+        "pageNum": 307,
+        "versesOnPage": 13,
+        "startVerseSurah": 26,
+        "endVerseSurah": 38,
+        "startVerseGlobal": 2276,
+        "endVerseGlobal": 2288
+      },
+      {
+        "pageNum": 308,
+        "versesOnPage": 13,
+        "startVerseSurah": 39,
+        "endVerseSurah": 51,
+        "startVerseGlobal": 2289,
+        "endVerseGlobal": 2301
+      },
+      {
+        "pageNum": 309,
+        "versesOnPage": 13,
+        "startVerseSurah": 52,
+        "endVerseSurah": 64,
+        "startVerseGlobal": 2302,
+        "endVerseGlobal": 2314
+      },
+      {
+        "pageNum": 310,
+        "versesOnPage": 12,
+        "startVerseSurah": 65,
+        "endVerseSurah": 76,
+        "startVerseGlobal": 2315,
+        "endVerseGlobal": 2326
+      },
+      {
+        "pageNum": 311,
+        "versesOnPage": 19,
+        "startVerseSurah": 77,
+        "endVerseSurah": 95,
+        "startVerseGlobal": 2327,
+        "endVerseGlobal": 2345
+      },
+      {
+        "pageNum": 312,
+        "versesOnPage": 3,
+        "startVerseSurah": 96,
+        "endVerseSurah": 98,
+        "startVerseGlobal": 2346,
+        "endVerseGlobal": 2348
+      }
+    ]
+  },
+  "Taa-Haa": {
+    "startPage": 312,
+    "endPage": 321,
+    "numVerses": 135,
+    "numSurah": 20,
+    "pages": [
+      {
+        "pageNum": 312,
+        "versesOnPage": 12,
+        "startVerseSurah": 1,
+        "endVerseSurah": 12,
+        "startVerseGlobal": 2349,
+        "endVerseGlobal": 2360
+      },
+      {
+        "pageNum": 313,
+        "versesOnPage": 25,
+        "startVerseSurah": 13,
+        "endVerseSurah": 37,
+        "startVerseGlobal": 2361,
+        "endVerseGlobal": 2385
+      },
+      {
+        "pageNum": 314,
+        "versesOnPage": 14,
+        "startVerseSurah": 38,
+        "endVerseSurah": 51,
+        "startVerseGlobal": 2386,
+        "endVerseGlobal": 2399
+      },
+      {
+        "pageNum": 315,
+        "versesOnPage": 13,
+        "startVerseSurah": 52,
+        "endVerseSurah": 64,
+        "startVerseGlobal": 2400,
+        "endVerseGlobal": 2412
+      },
+      {
+        "pageNum": 316,
+        "versesOnPage": 12,
+        "startVerseSurah": 65,
+        "endVerseSurah": 76,
+        "startVerseGlobal": 2413,
+        "endVerseGlobal": 2424
+      },
+      {
+        "pageNum": 317,
+        "versesOnPage": 11,
+        "startVerseSurah": 77,
+        "endVerseSurah": 87,
+        "startVerseGlobal": 2425,
+        "endVerseGlobal": 2435
+      },
+      {
+        "pageNum": 318,
+        "versesOnPage": 11,
+        "startVerseSurah": 88,
+        "endVerseSurah": 98,
+        "startVerseGlobal": 2436,
+        "endVerseGlobal": 2446
+      },
+      {
+        "pageNum": 319,
+        "versesOnPage": 15,
+        "startVerseSurah": 99,
+        "endVerseSurah": 113,
+        "startVerseGlobal": 2447,
+        "endVerseGlobal": 2461
+      },
+      {
+        "pageNum": 320,
+        "versesOnPage": 12,
+        "startVerseSurah": 114,
+        "endVerseSurah": 125,
+        "startVerseGlobal": 2462,
+        "endVerseGlobal": 2473
+      },
+      {
+        "pageNum": 321,
+        "versesOnPage": 10,
+        "startVerseSurah": 126,
+        "endVerseSurah": 135,
+        "startVerseGlobal": 2474,
+        "endVerseGlobal": 2483
+      }
+    ]
+  },
+  "Al-Anbiyaa": {
+    "startPage": 322,
+    "endPage": 331,
+    "numVerses": 112,
+    "numSurah": 21,
+    "pages": [
+      {
+        "pageNum": 322,
+        "versesOnPage": 10,
+        "startVerseSurah": 1,
+        "endVerseSurah": 10,
+        "startVerseGlobal": 2484,
+        "endVerseGlobal": 2493
+      },
+      {
+        "pageNum": 323,
+        "versesOnPage": 14,
+        "startVerseSurah": 11,
+        "endVerseSurah": 24,
+        "startVerseGlobal": 2494,
+        "endVerseGlobal": 2507
+      },
+      {
+        "pageNum": 324,
+        "versesOnPage": 11,
+        "startVerseSurah": 25,
+        "endVerseSurah": 35,
+        "startVerseGlobal": 2508,
+        "endVerseGlobal": 2518
+      },
+      {
+        "pageNum": 325,
+        "versesOnPage": 9,
+        "startVerseSurah": 36,
+        "endVerseSurah": 44,
+        "startVerseGlobal": 2519,
+        "endVerseGlobal": 2527
+      },
+      {
+        "pageNum": 326,
+        "versesOnPage": 13,
+        "startVerseSurah": 45,
+        "endVerseSurah": 57,
+        "startVerseGlobal": 2528,
+        "endVerseGlobal": 2540
+      },
+      {
+        "pageNum": 327,
+        "versesOnPage": 15,
+        "startVerseSurah": 58,
+        "endVerseSurah": 72,
+        "startVerseGlobal": 2541,
+        "endVerseGlobal": 2555
+      },
+      {
+        "pageNum": 328,
+        "versesOnPage": 9,
+        "startVerseSurah": 73,
+        "endVerseSurah": 81,
+        "startVerseGlobal": 2556,
+        "endVerseGlobal": 2564
+      },
+      {
+        "pageNum": 329,
+        "versesOnPage": 9,
+        "startVerseSurah": 82,
+        "endVerseSurah": 90,
+        "startVerseGlobal": 2565,
+        "endVerseGlobal": 2573
+      },
+      {
+        "pageNum": 330,
+        "versesOnPage": 11,
+        "startVerseSurah": 91,
+        "endVerseSurah": 101,
+        "startVerseGlobal": 2574,
+        "endVerseGlobal": 2584
+      },
+      {
+        "pageNum": 331,
+        "versesOnPage": 11,
+        "startVerseSurah": 102,
+        "endVerseSurah": 112,
+        "startVerseGlobal": 2585,
+        "endVerseGlobal": 2595
+      }
+    ]
+  },
+  "Al-Hajj": {
+    "startPage": 332,
+    "endPage": 341,
+    "numVerses": 78,
+    "numSurah": 22,
+    "pages": [
+      {
+        "pageNum": 332,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 2596,
+        "endVerseGlobal": 2600
+      },
+      {
+        "pageNum": 333,
+        "versesOnPage": 10,
+        "startVerseSurah": 6,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 2601,
+        "endVerseGlobal": 2610
+      },
+      {
+        "pageNum": 334,
+        "versesOnPage": 8,
+        "startVerseSurah": 16,
+        "endVerseSurah": 23,
+        "startVerseGlobal": 2611,
+        "endVerseGlobal": 2618
+      },
+      {
+        "pageNum": 335,
+        "versesOnPage": 7,
+        "startVerseSurah": 24,
+        "endVerseSurah": 30,
+        "startVerseGlobal": 2619,
+        "endVerseGlobal": 2625
+      },
+      {
+        "pageNum": 336,
+        "versesOnPage": 8,
+        "startVerseSurah": 31,
+        "endVerseSurah": 38,
+        "startVerseGlobal": 2626,
+        "endVerseGlobal": 2633
+      },
+      {
+        "pageNum": 337,
+        "versesOnPage": 8,
+        "startVerseSurah": 39,
+        "endVerseSurah": 46,
+        "startVerseGlobal": 2634,
+        "endVerseGlobal": 2641
+      },
+      {
+        "pageNum": 338,
+        "versesOnPage": 9,
+        "startVerseSurah": 47,
+        "endVerseSurah": 55,
+        "startVerseGlobal": 2642,
+        "endVerseGlobal": 2650
+      },
+      {
+        "pageNum": 339,
+        "versesOnPage": 9,
+        "startVerseSurah": 56,
+        "endVerseSurah": 64,
+        "startVerseGlobal": 2651,
+        "endVerseGlobal": 2659
+      },
+      {
+        "pageNum": 340,
+        "versesOnPage": 8,
+        "startVerseSurah": 65,
+        "endVerseSurah": 72,
+        "startVerseGlobal": 2660,
+        "endVerseGlobal": 2667
+      },
+      {
+        "pageNum": 341,
+        "versesOnPage": 6,
+        "startVerseSurah": 73,
+        "endVerseSurah": 78,
+        "startVerseGlobal": 2668,
+        "endVerseGlobal": 2673
+      }
+    ]
+  },
+  "Al-Muminoon": {
+    "startPage": 342,
+    "endPage": 349,
+    "numVerses": 118,
+    "numSurah": 23,
+    "pages": [
+      {
+        "pageNum": 342,
+        "versesOnPage": 17,
+        "startVerseSurah": 1,
+        "endVerseSurah": 17,
+        "startVerseGlobal": 2674,
+        "endVerseGlobal": 2690
+      },
+      {
+        "pageNum": 343,
+        "versesOnPage": 10,
+        "startVerseSurah": 18,
+        "endVerseSurah": 27,
+        "startVerseGlobal": 2691,
+        "endVerseGlobal": 2700
+      },
+      {
+        "pageNum": 344,
+        "versesOnPage": 15,
+        "startVerseSurah": 28,
+        "endVerseSurah": 42,
+        "startVerseGlobal": 2701,
+        "endVerseGlobal": 2715
+      },
+      {
+        "pageNum": 345,
+        "versesOnPage": 17,
+        "startVerseSurah": 43,
+        "endVerseSurah": 59,
+        "startVerseGlobal": 2716,
+        "endVerseGlobal": 2732
+      },
+      {
+        "pageNum": 346,
+        "versesOnPage": 15,
+        "startVerseSurah": 60,
+        "endVerseSurah": 74,
+        "startVerseGlobal": 2733,
+        "endVerseGlobal": 2747
+      },
+      {
+        "pageNum": 347,
+        "versesOnPage": 15,
+        "startVerseSurah": 75,
+        "endVerseSurah": 89,
+        "startVerseGlobal": 2748,
+        "endVerseGlobal": 2762
+      },
+      {
+        "pageNum": 348,
+        "versesOnPage": 15,
+        "startVerseSurah": 90,
+        "endVerseSurah": 104,
+        "startVerseGlobal": 2763,
+        "endVerseGlobal": 2777
+      },
+      {
+        "pageNum": 349,
+        "versesOnPage": 14,
+        "startVerseSurah": 105,
+        "endVerseSurah": 118,
+        "startVerseGlobal": 2778,
+        "endVerseGlobal": 2791
+      }
+    ]
+  },
+  "An-Noor": {
+    "startPage": 350,
+    "endPage": 359,
+    "numVerses": 64,
+    "numSurah": 24,
+    "pages": [
+      {
+        "pageNum": 350,
+        "versesOnPage": 10,
+        "startVerseSurah": 1,
+        "endVerseSurah": 10,
+        "startVerseGlobal": 2792,
+        "endVerseGlobal": 2801
+      },
+      {
+        "pageNum": 351,
+        "versesOnPage": 10,
+        "startVerseSurah": 11,
+        "endVerseSurah": 20,
+        "startVerseGlobal": 2802,
+        "endVerseGlobal": 2811
+      },
+      {
+        "pageNum": 352,
+        "versesOnPage": 7,
+        "startVerseSurah": 21,
+        "endVerseSurah": 27,
+        "startVerseGlobal": 2812,
+        "endVerseGlobal": 2818
+      },
+      {
+        "pageNum": 353,
+        "versesOnPage": 4,
+        "startVerseSurah": 28,
+        "endVerseSurah": 31,
+        "startVerseGlobal": 2819,
+        "endVerseGlobal": 2822
+      },
+      {
+        "pageNum": 354,
+        "versesOnPage": 5,
+        "startVerseSurah": 32,
+        "endVerseSurah": 36,
+        "startVerseGlobal": 2823,
+        "endVerseGlobal": 2827
+      },
+      {
+        "pageNum": 355,
+        "versesOnPage": 7,
+        "startVerseSurah": 37,
+        "endVerseSurah": 43,
+        "startVerseGlobal": 2828,
+        "endVerseGlobal": 2834
+      },
+      {
+        "pageNum": 356,
+        "versesOnPage": 10,
+        "startVerseSurah": 44,
+        "endVerseSurah": 53,
+        "startVerseGlobal": 2835,
+        "endVerseGlobal": 2844
+      },
+      {
+        "pageNum": 357,
+        "versesOnPage": 5,
+        "startVerseSurah": 54,
+        "endVerseSurah": 58,
+        "startVerseGlobal": 2845,
+        "endVerseGlobal": 2849
+      },
+      {
+        "pageNum": 358,
+        "versesOnPage": 3,
+        "startVerseSurah": 59,
+        "endVerseSurah": 61,
+        "startVerseGlobal": 2850,
+        "endVerseGlobal": 2852
+      },
+      {
+        "pageNum": 359,
+        "versesOnPage": 3,
+        "startVerseSurah": 62,
+        "endVerseSurah": 64,
+        "startVerseGlobal": 2853,
+        "endVerseGlobal": 2855
+      }
+    ]
+  },
+  "Al-Furqaan": {
+    "startPage": 359,
+    "endPage": 366,
+    "numVerses": 77,
+    "numSurah": 25,
+    "pages": [
+      {
+        "pageNum": 359,
+        "versesOnPage": 2,
+        "startVerseSurah": 1,
+        "endVerseSurah": 2,
+        "startVerseGlobal": 2856,
+        "endVerseGlobal": 2857
+      },
+      {
+        "pageNum": 360,
+        "versesOnPage": 9,
+        "startVerseSurah": 3,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 2858,
+        "endVerseGlobal": 2866
+      },
+      {
+        "pageNum": 361,
+        "versesOnPage": 9,
+        "startVerseSurah": 12,
+        "endVerseSurah": 20,
+        "startVerseGlobal": 2867,
+        "endVerseGlobal": 2875
+      },
+      {
+        "pageNum": 362,
+        "versesOnPage": 12,
+        "startVerseSurah": 21,
+        "endVerseSurah": 32,
+        "startVerseGlobal": 2876,
+        "endVerseGlobal": 2887
+      },
+      {
+        "pageNum": 363,
+        "versesOnPage": 11,
+        "startVerseSurah": 33,
+        "endVerseSurah": 43,
+        "startVerseGlobal": 2888,
+        "endVerseGlobal": 2898
+      },
+      {
+        "pageNum": 364,
+        "versesOnPage": 12,
+        "startVerseSurah": 44,
+        "endVerseSurah": 55,
+        "startVerseGlobal": 2899,
+        "endVerseGlobal": 2910
+      },
+      {
+        "pageNum": 365,
+        "versesOnPage": 12,
+        "startVerseSurah": 56,
+        "endVerseSurah": 67,
+        "startVerseGlobal": 2911,
+        "endVerseGlobal": 2922
+      },
+      {
+        "pageNum": 366,
+        "versesOnPage": 10,
+        "startVerseSurah": 68,
+        "endVerseSurah": 77,
+        "startVerseGlobal": 2923,
+        "endVerseGlobal": 2932
+      }
+    ]
+  },
+  "Ash-Shu'araa": {
+    "startPage": 367,
+    "endPage": 376,
+    "numVerses": 227,
+    "numSurah": 26,
+    "pages": [
+      {
+        "pageNum": 367,
+        "versesOnPage": 19,
+        "startVerseSurah": 1,
+        "endVerseSurah": 19,
+        "startVerseGlobal": 2933,
+        "endVerseGlobal": 2951
+      },
+      {
+        "pageNum": 368,
+        "versesOnPage": 20,
+        "startVerseSurah": 20,
+        "endVerseSurah": 39,
+        "startVerseGlobal": 2952,
+        "endVerseGlobal": 2971
+      },
+      {
+        "pageNum": 369,
+        "versesOnPage": 21,
+        "startVerseSurah": 40,
+        "endVerseSurah": 60,
+        "startVerseGlobal": 2972,
+        "endVerseGlobal": 2992
+      },
+      {
+        "pageNum": 370,
+        "versesOnPage": 23,
+        "startVerseSurah": 61,
+        "endVerseSurah": 83,
+        "startVerseGlobal": 2993,
+        "endVerseGlobal": 3015
+      },
+      {
+        "pageNum": 371,
+        "versesOnPage": 28,
+        "startVerseSurah": 84,
+        "endVerseSurah": 111,
+        "startVerseGlobal": 3016,
+        "endVerseGlobal": 3043
+      },
+      {
+        "pageNum": 372,
+        "versesOnPage": 25,
+        "startVerseSurah": 112,
+        "endVerseSurah": 136,
+        "startVerseGlobal": 3044,
+        "endVerseGlobal": 3068
+      },
+      {
+        "pageNum": 373,
+        "versesOnPage": 23,
+        "startVerseSurah": 137,
+        "endVerseSurah": 159,
+        "startVerseGlobal": 3069,
+        "endVerseGlobal": 3091
+      },
+      {
+        "pageNum": 374,
+        "versesOnPage": 24,
+        "startVerseSurah": 160,
+        "endVerseSurah": 183,
+        "startVerseGlobal": 3092,
+        "endVerseGlobal": 3115
+      },
+      {
+        "pageNum": 375,
+        "versesOnPage": 23,
+        "startVerseSurah": 184,
+        "endVerseSurah": 206,
+        "startVerseGlobal": 3116,
+        "endVerseGlobal": 3138
+      },
+      {
+        "pageNum": 376,
+        "versesOnPage": 21,
+        "startVerseSurah": 207,
+        "endVerseSurah": 227,
+        "startVerseGlobal": 3139,
+        "endVerseGlobal": 3159
+      }
+    ]
+  },
+  "An-Naml": {
+    "startPage": 377,
+    "endPage": 385,
+    "numVerses": 93,
+    "numSurah": 27,
+    "pages": [
+      {
+        "pageNum": 377,
+        "versesOnPage": 13,
+        "startVerseSurah": 1,
+        "endVerseSurah": 13,
+        "startVerseGlobal": 3160,
+        "endVerseGlobal": 3172
+      },
+      {
+        "pageNum": 378,
+        "versesOnPage": 9,
+        "startVerseSurah": 14,
+        "endVerseSurah": 22,
+        "startVerseGlobal": 3173,
+        "endVerseGlobal": 3181
+      },
+      {
+        "pageNum": 379,
+        "versesOnPage": 13,
+        "startVerseSurah": 23,
+        "endVerseSurah": 35,
+        "startVerseGlobal": 3182,
+        "endVerseGlobal": 3194
+      },
+      {
+        "pageNum": 380,
+        "versesOnPage": 9,
+        "startVerseSurah": 36,
+        "endVerseSurah": 44,
+        "startVerseGlobal": 3195,
+        "endVerseGlobal": 3203
+      },
+      {
+        "pageNum": 381,
+        "versesOnPage": 11,
+        "startVerseSurah": 45,
+        "endVerseSurah": 55,
+        "startVerseGlobal": 3204,
+        "endVerseGlobal": 3214
+      },
+      {
+        "pageNum": 382,
+        "versesOnPage": 8,
+        "startVerseSurah": 56,
+        "endVerseSurah": 63,
+        "startVerseGlobal": 3215,
+        "endVerseGlobal": 3222
+      },
+      {
+        "pageNum": 383,
+        "versesOnPage": 13,
+        "startVerseSurah": 64,
+        "endVerseSurah": 76,
+        "startVerseGlobal": 3223,
+        "endVerseGlobal": 3235
+      },
+      {
+        "pageNum": 384,
+        "versesOnPage": 12,
+        "startVerseSurah": 77,
+        "endVerseSurah": 88,
+        "startVerseGlobal": 3236,
+        "endVerseGlobal": 3247
+      },
+      {
+        "pageNum": 385,
+        "versesOnPage": 5,
+        "startVerseSurah": 89,
+        "endVerseSurah": 93,
+        "startVerseGlobal": 3248,
+        "endVerseGlobal": 3252
+      }
+    ]
+  },
+  "Al-Qasas": {
+    "startPage": 385,
+    "endPage": 396,
+    "numVerses": 88,
+    "numSurah": 28,
+    "pages": [
+      {
+        "pageNum": 385,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 3253,
+        "endVerseGlobal": 3257
+      },
+      {
+        "pageNum": 386,
+        "versesOnPage": 8,
+        "startVerseSurah": 6,
+        "endVerseSurah": 13,
+        "startVerseGlobal": 3258,
+        "endVerseGlobal": 3265
+      },
+      {
+        "pageNum": 387,
+        "versesOnPage": 8,
+        "startVerseSurah": 14,
+        "endVerseSurah": 21,
+        "startVerseGlobal": 3266,
+        "endVerseGlobal": 3273
+      },
+      {
+        "pageNum": 388,
+        "versesOnPage": 7,
+        "startVerseSurah": 22,
+        "endVerseSurah": 28,
+        "startVerseGlobal": 3274,
+        "endVerseGlobal": 3280
+      },
+      {
+        "pageNum": 389,
+        "versesOnPage": 7,
+        "startVerseSurah": 29,
+        "endVerseSurah": 35,
+        "startVerseGlobal": 3281,
+        "endVerseGlobal": 3287
+      },
+      {
+        "pageNum": 390,
+        "versesOnPage": 8,
+        "startVerseSurah": 36,
+        "endVerseSurah": 43,
+        "startVerseGlobal": 3288,
+        "endVerseGlobal": 3295
+      },
+      {
+        "pageNum": 391,
+        "versesOnPage": 7,
+        "startVerseSurah": 44,
+        "endVerseSurah": 50,
+        "startVerseGlobal": 3296,
+        "endVerseGlobal": 3302
+      },
+      {
+        "pageNum": 392,
+        "versesOnPage": 9,
+        "startVerseSurah": 51,
+        "endVerseSurah": 59,
+        "startVerseGlobal": 3303,
+        "endVerseGlobal": 3311
+      },
+      {
+        "pageNum": 393,
+        "versesOnPage": 11,
+        "startVerseSurah": 60,
+        "endVerseSurah": 70,
+        "startVerseGlobal": 3312,
+        "endVerseGlobal": 3322
+      },
+      {
+        "pageNum": 394,
+        "versesOnPage": 7,
+        "startVerseSurah": 71,
+        "endVerseSurah": 77,
+        "startVerseGlobal": 3323,
+        "endVerseGlobal": 3329
+      },
+      {
+        "pageNum": 395,
+        "versesOnPage": 7,
+        "startVerseSurah": 78,
+        "endVerseSurah": 84,
+        "startVerseGlobal": 3330,
+        "endVerseGlobal": 3336
+      },
+      {
+        "pageNum": 396,
+        "versesOnPage": 4,
+        "startVerseSurah": 85,
+        "endVerseSurah": 88,
+        "startVerseGlobal": 3337,
+        "endVerseGlobal": 3340
+      }
+    ]
+  },
+  "Al-Ankaboot": {
+    "startPage": 396,
+    "endPage": 404,
+    "numVerses": 69,
+    "numSurah": 29,
+    "pages": [
+      {
+        "pageNum": 396,
+        "versesOnPage": 6,
+        "startVerseSurah": 1,
+        "endVerseSurah": 6,
+        "startVerseGlobal": 3341,
+        "endVerseGlobal": 3346
+      },
+      {
+        "pageNum": 397,
+        "versesOnPage": 8,
+        "startVerseSurah": 7,
+        "endVerseSurah": 14,
+        "startVerseGlobal": 3347,
+        "endVerseGlobal": 3354
+      },
+      {
+        "pageNum": 398,
+        "versesOnPage": 9,
+        "startVerseSurah": 15,
+        "endVerseSurah": 23,
+        "startVerseGlobal": 3355,
+        "endVerseGlobal": 3363
+      },
+      {
+        "pageNum": 399,
+        "versesOnPage": 7,
+        "startVerseSurah": 24,
+        "endVerseSurah": 30,
+        "startVerseGlobal": 3364,
+        "endVerseGlobal": 3370
+      },
+      {
+        "pageNum": 400,
+        "versesOnPage": 8,
+        "startVerseSurah": 31,
+        "endVerseSurah": 38,
+        "startVerseGlobal": 3371,
+        "endVerseGlobal": 3378
+      },
+      {
+        "pageNum": 401,
+        "versesOnPage": 7,
+        "startVerseSurah": 39,
+        "endVerseSurah": 45,
+        "startVerseGlobal": 3379,
+        "endVerseGlobal": 3385
+      },
+      {
+        "pageNum": 402,
+        "versesOnPage": 7,
+        "startVerseSurah": 46,
+        "endVerseSurah": 52,
+        "startVerseGlobal": 3386,
+        "endVerseGlobal": 3392
+      },
+      {
+        "pageNum": 403,
+        "versesOnPage": 11,
+        "startVerseSurah": 53,
+        "endVerseSurah": 63,
+        "startVerseGlobal": 3393,
+        "endVerseGlobal": 3403
+      },
+      {
+        "pageNum": 404,
+        "versesOnPage": 6,
+        "startVerseSurah": 64,
+        "endVerseSurah": 69,
+        "startVerseGlobal": 3404,
+        "endVerseGlobal": 3409
+      }
+    ]
+  },
+  "Ar-Room": {
+    "startPage": 404,
+    "endPage": 410,
+    "numVerses": 60,
+    "numSurah": 30,
+    "pages": [
+      {
+        "pageNum": 404,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 3410,
+        "endVerseGlobal": 3414
+      },
+      {
+        "pageNum": 405,
+        "versesOnPage": 10,
+        "startVerseSurah": 6,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 3415,
+        "endVerseGlobal": 3424
+      },
+      {
+        "pageNum": 406,
+        "versesOnPage": 9,
+        "startVerseSurah": 16,
+        "endVerseSurah": 24,
+        "startVerseGlobal": 3425,
+        "endVerseGlobal": 3433
+      },
+      {
+        "pageNum": 407,
+        "versesOnPage": 8,
+        "startVerseSurah": 25,
+        "endVerseSurah": 32,
+        "startVerseGlobal": 3434,
+        "endVerseGlobal": 3441
+      },
+      {
+        "pageNum": 408,
+        "versesOnPage": 9,
+        "startVerseSurah": 33,
+        "endVerseSurah": 41,
+        "startVerseGlobal": 3442,
+        "endVerseGlobal": 3450
+      },
+      {
+        "pageNum": 409,
+        "versesOnPage": 9,
+        "startVerseSurah": 42,
+        "endVerseSurah": 50,
+        "startVerseGlobal": 3451,
+        "endVerseGlobal": 3459
+      },
+      {
+        "pageNum": 410,
+        "versesOnPage": 10,
+        "startVerseSurah": 51,
+        "endVerseSurah": 60,
+        "startVerseGlobal": 3460,
+        "endVerseGlobal": 3469
+      }
+    ]
+  },
+  "Luqman": {
+    "startPage": 411,
+    "endPage": 414,
+    "numVerses": 34,
+    "numSurah": 31,
+    "pages": [
+      {
+        "pageNum": 411,
+        "versesOnPage": 11,
+        "startVerseSurah": 1,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 3470,
+        "endVerseGlobal": 3480
+      },
+      {
+        "pageNum": 412,
+        "versesOnPage": 8,
+        "startVerseSurah": 12,
+        "endVerseSurah": 19,
+        "startVerseGlobal": 3481,
+        "endVerseGlobal": 3488
+      },
+      {
+        "pageNum": 413,
+        "versesOnPage": 9,
+        "startVerseSurah": 20,
+        "endVerseSurah": 28,
+        "startVerseGlobal": 3489,
+        "endVerseGlobal": 3497
+      },
+      {
+        "pageNum": 414,
+        "versesOnPage": 6,
+        "startVerseSurah": 29,
+        "endVerseSurah": 34,
+        "startVerseGlobal": 3498,
+        "endVerseGlobal": 3503
+      }
+    ]
+  },
+  "As-Sajda": {
+    "startPage": 415,
+    "endPage": 417,
+    "numVerses": 30,
+    "numSurah": 32,
+    "pages": [
+      {
+        "pageNum": 415,
+        "versesOnPage": 11,
+        "startVerseSurah": 1,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 3504,
+        "endVerseGlobal": 3514
+      },
+      {
+        "pageNum": 416,
+        "versesOnPage": 9,
+        "startVerseSurah": 12,
+        "endVerseSurah": 20,
+        "startVerseGlobal": 3515,
+        "endVerseGlobal": 3523
+      },
+      {
+        "pageNum": 417,
+        "versesOnPage": 10,
+        "startVerseSurah": 21,
+        "endVerseSurah": 30,
+        "startVerseGlobal": 3524,
+        "endVerseGlobal": 3533
+      }
+    ]
+  },
+  "Al-Ahzaab": {
+    "startPage": 418,
+    "endPage": 427,
+    "numVerses": 73,
+    "numSurah": 33,
+    "pages": [
+      {
+        "pageNum": 418,
+        "versesOnPage": 6,
+        "startVerseSurah": 1,
+        "endVerseSurah": 6,
+        "startVerseGlobal": 3534,
+        "endVerseGlobal": 3539
+      },
+      {
+        "pageNum": 419,
+        "versesOnPage": 9,
+        "startVerseSurah": 7,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 3540,
+        "endVerseGlobal": 3548
+      },
+      {
+        "pageNum": 420,
+        "versesOnPage": 7,
+        "startVerseSurah": 16,
+        "endVerseSurah": 22,
+        "startVerseGlobal": 3549,
+        "endVerseGlobal": 3555
+      },
+      {
+        "pageNum": 421,
+        "versesOnPage": 8,
+        "startVerseSurah": 23,
+        "endVerseSurah": 30,
+        "startVerseGlobal": 3556,
+        "endVerseGlobal": 3563
+      },
+      {
+        "pageNum": 422,
+        "versesOnPage": 5,
+        "startVerseSurah": 31,
+        "endVerseSurah": 35,
+        "startVerseGlobal": 3564,
+        "endVerseGlobal": 3568
+      },
+      {
+        "pageNum": 423,
+        "versesOnPage": 8,
+        "startVerseSurah": 36,
+        "endVerseSurah": 43,
+        "startVerseGlobal": 3569,
+        "endVerseGlobal": 3576
+      },
+      {
+        "pageNum": 424,
+        "versesOnPage": 7,
+        "startVerseSurah": 44,
+        "endVerseSurah": 50,
+        "startVerseGlobal": 3577,
+        "endVerseGlobal": 3583
+      },
+      {
+        "pageNum": 425,
+        "versesOnPage": 4,
+        "startVerseSurah": 51,
+        "endVerseSurah": 54,
+        "startVerseGlobal": 3584,
+        "endVerseGlobal": 3587
+      },
+      {
+        "pageNum": 426,
+        "versesOnPage": 8,
+        "startVerseSurah": 55,
+        "endVerseSurah": 62,
+        "startVerseGlobal": 3588,
+        "endVerseGlobal": 3595
+      },
+      {
+        "pageNum": 427,
+        "versesOnPage": 11,
+        "startVerseSurah": 63,
+        "endVerseSurah": 73,
+        "startVerseGlobal": 3596,
+        "endVerseGlobal": 3606
+      }
+    ]
+  },
+  "Saba": {
+    "startPage": 428,
+    "endPage": 434,
+    "numVerses": 54,
+    "numSurah": 34,
+    "pages": [
+      {
+        "pageNum": 428,
+        "versesOnPage": 7,
+        "startVerseSurah": 1,
+        "endVerseSurah": 7,
+        "startVerseGlobal": 3607,
+        "endVerseGlobal": 3613
+      },
+      {
+        "pageNum": 429,
+        "versesOnPage": 7,
+        "startVerseSurah": 8,
+        "endVerseSurah": 14,
+        "startVerseGlobal": 3614,
+        "endVerseGlobal": 3620
+      },
+      {
+        "pageNum": 430,
+        "versesOnPage": 8,
+        "startVerseSurah": 15,
+        "endVerseSurah": 22,
+        "startVerseGlobal": 3621,
+        "endVerseGlobal": 3628
+      },
+      {
+        "pageNum": 431,
+        "versesOnPage": 9,
+        "startVerseSurah": 23,
+        "endVerseSurah": 31,
+        "startVerseGlobal": 3629,
+        "endVerseGlobal": 3637
+      },
+      {
+        "pageNum": 432,
+        "versesOnPage": 8,
+        "startVerseSurah": 32,
+        "endVerseSurah": 39,
+        "startVerseGlobal": 3638,
+        "endVerseGlobal": 3645
+      },
+      {
+        "pageNum": 433,
+        "versesOnPage": 9,
+        "startVerseSurah": 40,
+        "endVerseSurah": 48,
+        "startVerseGlobal": 3646,
+        "endVerseGlobal": 3654
+      },
+      {
+        "pageNum": 434,
+        "versesOnPage": 6,
+        "startVerseSurah": 49,
+        "endVerseSurah": 54,
+        "startVerseGlobal": 3655,
+        "endVerseGlobal": 3660
+      }
+    ]
+  },
+  "Faatir": {
+    "startPage": 434,
+    "endPage": 440,
+    "numVerses": 45,
+    "numSurah": 35,
+    "pages": [
+      {
+        "pageNum": 434,
+        "versesOnPage": 3,
+        "startVerseSurah": 1,
+        "endVerseSurah": 3,
+        "startVerseGlobal": 3661,
+        "endVerseGlobal": 3663
+      },
+      {
+        "pageNum": 435,
+        "versesOnPage": 8,
+        "startVerseSurah": 4,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 3664,
+        "endVerseGlobal": 3671
+      },
+      {
+        "pageNum": 436,
+        "versesOnPage": 7,
+        "startVerseSurah": 12,
+        "endVerseSurah": 18,
+        "startVerseGlobal": 3672,
+        "endVerseGlobal": 3678
+      },
+      {
+        "pageNum": 437,
+        "versesOnPage": 12,
+        "startVerseSurah": 19,
+        "endVerseSurah": 30,
+        "startVerseGlobal": 3679,
+        "endVerseGlobal": 3690
+      },
+      {
+        "pageNum": 438,
+        "versesOnPage": 8,
+        "startVerseSurah": 31,
+        "endVerseSurah": 38,
+        "startVerseGlobal": 3691,
+        "endVerseGlobal": 3698
+      },
+      {
+        "pageNum": 439,
+        "versesOnPage": 6,
+        "startVerseSurah": 39,
+        "endVerseSurah": 44,
+        "startVerseGlobal": 3699,
+        "endVerseGlobal": 3704
+      },
+      {
+        "pageNum": 440,
+        "versesOnPage": 1,
+        "startVerseSurah": 45,
+        "endVerseSurah": 45,
+        "startVerseGlobal": 3705,
+        "endVerseGlobal": 3705
+      }
+    ]
+  },
+  "Yaseen": {
+    "startPage": 440,
+    "endPage": 445,
+    "numVerses": 83,
+    "numSurah": 36,
+    "pages": [
+      {
+        "pageNum": 440,
+        "versesOnPage": 12,
+        "startVerseSurah": 1,
+        "endVerseSurah": 12,
+        "startVerseGlobal": 3706,
+        "endVerseGlobal": 3717
+      },
+      {
+        "pageNum": 441,
+        "versesOnPage": 15,
+        "startVerseSurah": 13,
+        "endVerseSurah": 27,
+        "startVerseGlobal": 3718,
+        "endVerseGlobal": 3732
+      },
+      {
+        "pageNum": 442,
+        "versesOnPage": 13,
+        "startVerseSurah": 28,
+        "endVerseSurah": 40,
+        "startVerseGlobal": 3733,
+        "endVerseGlobal": 3745
+      },
+      {
+        "pageNum": 443,
+        "versesOnPage": 14,
+        "startVerseSurah": 41,
+        "endVerseSurah": 54,
+        "startVerseGlobal": 3746,
+        "endVerseGlobal": 3759
+      },
+      {
+        "pageNum": 444,
+        "versesOnPage": 16,
+        "startVerseSurah": 55,
+        "endVerseSurah": 70,
+        "startVerseGlobal": 3760,
+        "endVerseGlobal": 3775
+      },
+      {
+        "pageNum": 445,
+        "versesOnPage": 13,
+        "startVerseSurah": 71,
+        "endVerseSurah": 83,
+        "startVerseGlobal": 3776,
+        "endVerseGlobal": 3788
+      }
+    ]
+  },
+  "As-Saaffaat": {
+    "startPage": 446,
+    "endPage": 452,
+    "numVerses": 182,
+    "numSurah": 37,
+    "pages": [
+      {
+        "pageNum": 446,
+        "versesOnPage": 24,
+        "startVerseSurah": 1,
+        "endVerseSurah": 24,
+        "startVerseGlobal": 3789,
+        "endVerseGlobal": 3812
+      },
+      {
+        "pageNum": 447,
+        "versesOnPage": 27,
+        "startVerseSurah": 25,
+        "endVerseSurah": 51,
+        "startVerseGlobal": 3813,
+        "endVerseGlobal": 3839
+      },
+      {
+        "pageNum": 448,
+        "versesOnPage": 25,
+        "startVerseSurah": 52,
+        "endVerseSurah": 76,
+        "startVerseGlobal": 3840,
+        "endVerseGlobal": 3864
+      },
+      {
+        "pageNum": 449,
+        "versesOnPage": 26,
+        "startVerseSurah": 77,
+        "endVerseSurah": 102,
+        "startVerseGlobal": 3865,
+        "endVerseGlobal": 3890
+      },
+      {
+        "pageNum": 450,
+        "versesOnPage": 24,
+        "startVerseSurah": 103,
+        "endVerseSurah": 126,
+        "startVerseGlobal": 3891,
+        "endVerseGlobal": 3914
+      },
+      {
+        "pageNum": 451,
+        "versesOnPage": 27,
+        "startVerseSurah": 127,
+        "endVerseSurah": 153,
+        "startVerseGlobal": 3915,
+        "endVerseGlobal": 3941
+      },
+      {
+        "pageNum": 452,
+        "versesOnPage": 29,
+        "startVerseSurah": 154,
+        "endVerseSurah": 182,
+        "startVerseGlobal": 3942,
+        "endVerseGlobal": 3970
+      }
+    ]
+  },
+  "Saad": {
+    "startPage": 453,
+    "endPage": 458,
+    "numVerses": 88,
+    "numSurah": 38,
+    "pages": [
+      {
+        "pageNum": 453,
+        "versesOnPage": 16,
+        "startVerseSurah": 1,
+        "endVerseSurah": 16,
+        "startVerseGlobal": 3971,
+        "endVerseGlobal": 3986
+      },
+      {
+        "pageNum": 454,
+        "versesOnPage": 10,
+        "startVerseSurah": 17,
+        "endVerseSurah": 26,
+        "startVerseGlobal": 3987,
+        "endVerseGlobal": 3996
+      },
+      {
+        "pageNum": 455,
+        "versesOnPage": 16,
+        "startVerseSurah": 27,
+        "endVerseSurah": 42,
+        "startVerseGlobal": 3997,
+        "endVerseGlobal": 4012
+      },
+      {
+        "pageNum": 456,
+        "versesOnPage": 19,
+        "startVerseSurah": 43,
+        "endVerseSurah": 61,
+        "startVerseGlobal": 4013,
+        "endVerseGlobal": 4031
+      },
+      {
+        "pageNum": 457,
+        "versesOnPage": 22,
+        "startVerseSurah": 62,
+        "endVerseSurah": 83,
+        "startVerseGlobal": 4032,
+        "endVerseGlobal": 4053
+      },
+      {
+        "pageNum": 458,
+        "versesOnPage": 5,
+        "startVerseSurah": 84,
+        "endVerseSurah": 88,
+        "startVerseGlobal": 4054,
+        "endVerseGlobal": 4058
+      }
+    ]
+  },
+  "Az-Zumar": {
+    "startPage": 458,
+    "endPage": 467,
+    "numVerses": 75,
+    "numSurah": 39,
+    "pages": [
+      {
+        "pageNum": 458,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 4059,
+        "endVerseGlobal": 4063
+      },
+      {
+        "pageNum": 459,
+        "versesOnPage": 5,
+        "startVerseSurah": 6,
+        "endVerseSurah": 10,
+        "startVerseGlobal": 4064,
+        "endVerseGlobal": 4068
+      },
+      {
+        "pageNum": 460,
+        "versesOnPage": 11,
+        "startVerseSurah": 11,
+        "endVerseSurah": 21,
+        "startVerseGlobal": 4069,
+        "endVerseGlobal": 4079
+      },
+      {
+        "pageNum": 461,
+        "versesOnPage": 10,
+        "startVerseSurah": 22,
+        "endVerseSurah": 31,
+        "startVerseGlobal": 4080,
+        "endVerseGlobal": 4089
+      },
+      {
+        "pageNum": 462,
+        "versesOnPage": 9,
+        "startVerseSurah": 32,
+        "endVerseSurah": 40,
+        "startVerseGlobal": 4090,
+        "endVerseGlobal": 4098
+      },
+      {
+        "pageNum": 463,
+        "versesOnPage": 7,
+        "startVerseSurah": 41,
+        "endVerseSurah": 47,
+        "startVerseGlobal": 4099,
+        "endVerseGlobal": 4105
+      },
+      {
+        "pageNum": 464,
+        "versesOnPage": 9,
+        "startVerseSurah": 48,
+        "endVerseSurah": 56,
+        "startVerseGlobal": 4106,
+        "endVerseGlobal": 4114
+      },
+      {
+        "pageNum": 465,
+        "versesOnPage": 11,
+        "startVerseSurah": 57,
+        "endVerseSurah": 67,
+        "startVerseGlobal": 4115,
+        "endVerseGlobal": 4125
+      },
+      {
+        "pageNum": 466,
+        "versesOnPage": 7,
+        "startVerseSurah": 68,
+        "endVerseSurah": 74,
+        "startVerseGlobal": 4126,
+        "endVerseGlobal": 4132
+      },
+      {
+        "pageNum": 467,
+        "versesOnPage": 1,
+        "startVerseSurah": 75,
+        "endVerseSurah": 75,
+        "startVerseGlobal": 4133,
+        "endVerseGlobal": 4133
+      }
+    ]
+  },
+  "Ghafir": {
+    "startPage": 467,
+    "endPage": 476,
+    "numVerses": 85,
+    "numSurah": 40,
+    "pages": [
+      {
+        "pageNum": 467,
+        "versesOnPage": 7,
+        "startVerseSurah": 1,
+        "endVerseSurah": 7,
+        "startVerseGlobal": 4134,
+        "endVerseGlobal": 4140
+      },
+      {
+        "pageNum": 468,
+        "versesOnPage": 9,
+        "startVerseSurah": 8,
+        "endVerseSurah": 16,
+        "startVerseGlobal": 4141,
+        "endVerseGlobal": 4149
+      },
+      {
+        "pageNum": 469,
+        "versesOnPage": 9,
+        "startVerseSurah": 17,
+        "endVerseSurah": 25,
+        "startVerseGlobal": 4150,
+        "endVerseGlobal": 4158
+      },
+      {
+        "pageNum": 470,
+        "versesOnPage": 8,
+        "startVerseSurah": 26,
+        "endVerseSurah": 33,
+        "startVerseGlobal": 4159,
+        "endVerseGlobal": 4166
+      },
+      {
+        "pageNum": 471,
+        "versesOnPage": 7,
+        "startVerseSurah": 34,
+        "endVerseSurah": 40,
+        "startVerseGlobal": 4167,
+        "endVerseGlobal": 4173
+      },
+      {
+        "pageNum": 472,
+        "versesOnPage": 9,
+        "startVerseSurah": 41,
+        "endVerseSurah": 49,
+        "startVerseGlobal": 4174,
+        "endVerseGlobal": 4182
+      },
+      {
+        "pageNum": 473,
+        "versesOnPage": 9,
+        "startVerseSurah": 50,
+        "endVerseSurah": 58,
+        "startVerseGlobal": 4183,
+        "endVerseGlobal": 4191
+      },
+      {
+        "pageNum": 474,
+        "versesOnPage": 8,
+        "startVerseSurah": 59,
+        "endVerseSurah": 66,
+        "startVerseGlobal": 4192,
+        "endVerseGlobal": 4199
+      },
+      {
+        "pageNum": 475,
+        "versesOnPage": 11,
+        "startVerseSurah": 67,
+        "endVerseSurah": 77,
+        "startVerseGlobal": 4200,
+        "endVerseGlobal": 4210
+      },
+      {
+        "pageNum": 476,
+        "versesOnPage": 8,
+        "startVerseSurah": 78,
+        "endVerseSurah": 85,
+        "startVerseGlobal": 4211,
+        "endVerseGlobal": 4218
+      }
+    ]
+  },
+  "Fussilat": {
+    "startPage": 477,
+    "endPage": 482,
+    "numVerses": 54,
+    "numSurah": 41,
+    "pages": [
+      {
+        "pageNum": 477,
+        "versesOnPage": 11,
+        "startVerseSurah": 1,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 4219,
+        "endVerseGlobal": 4229
+      },
+      {
+        "pageNum": 478,
+        "versesOnPage": 9,
+        "startVerseSurah": 12,
+        "endVerseSurah": 20,
+        "startVerseGlobal": 4230,
+        "endVerseGlobal": 4238
+      },
+      {
+        "pageNum": 479,
+        "versesOnPage": 9,
+        "startVerseSurah": 21,
+        "endVerseSurah": 29,
+        "startVerseGlobal": 4239,
+        "endVerseGlobal": 4247
+      },
+      {
+        "pageNum": 480,
+        "versesOnPage": 9,
+        "startVerseSurah": 30,
+        "endVerseSurah": 38,
+        "startVerseGlobal": 4248,
+        "endVerseGlobal": 4256
+      },
+      {
+        "pageNum": 481,
+        "versesOnPage": 8,
+        "startVerseSurah": 39,
+        "endVerseSurah": 46,
+        "startVerseGlobal": 4257,
+        "endVerseGlobal": 4264
+      },
+      {
+        "pageNum": 482,
+        "versesOnPage": 8,
+        "startVerseSurah": 47,
+        "endVerseSurah": 54,
+        "startVerseGlobal": 4265,
+        "endVerseGlobal": 4272
+      }
+    ]
+  },
+  "Ash-Shura": {
+    "startPage": 483,
+    "endPage": 489,
+    "numVerses": 53,
+    "numSurah": 42,
+    "pages": [
+      {
+        "pageNum": 483,
+        "versesOnPage": 10,
+        "startVerseSurah": 1,
+        "endVerseSurah": 10,
+        "startVerseGlobal": 4273,
+        "endVerseGlobal": 4282
+      },
+      {
+        "pageNum": 484,
+        "versesOnPage": 5,
+        "startVerseSurah": 11,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 4283,
+        "endVerseGlobal": 4287
+      },
+      {
+        "pageNum": 485,
+        "versesOnPage": 7,
+        "startVerseSurah": 16,
+        "endVerseSurah": 22,
+        "startVerseGlobal": 4288,
+        "endVerseGlobal": 4294
+      },
+      {
+        "pageNum": 486,
+        "versesOnPage": 9,
+        "startVerseSurah": 23,
+        "endVerseSurah": 31,
+        "startVerseGlobal": 4295,
+        "endVerseGlobal": 4303
+      },
+      {
+        "pageNum": 487,
+        "versesOnPage": 13,
+        "startVerseSurah": 32,
+        "endVerseSurah": 44,
+        "startVerseGlobal": 4304,
+        "endVerseGlobal": 4316
+      },
+      {
+        "pageNum": 488,
+        "versesOnPage": 7,
+        "startVerseSurah": 45,
+        "endVerseSurah": 51,
+        "startVerseGlobal": 4317,
+        "endVerseGlobal": 4323
+      },
+      {
+        "pageNum": 489,
+        "versesOnPage": 2,
+        "startVerseSurah": 52,
+        "endVerseSurah": 53,
+        "startVerseGlobal": 4324,
+        "endVerseGlobal": 4325
+      }
+    ]
+  },
+  "Az-Zukhruf": {
+    "startPage": 489,
+    "endPage": 495,
+    "numVerses": 89,
+    "numSurah": 43,
+    "pages": [
+      {
+        "pageNum": 489,
+        "versesOnPage": 10,
+        "startVerseSurah": 1,
+        "endVerseSurah": 10,
+        "startVerseGlobal": 4326,
+        "endVerseGlobal": 4335
+      },
+      {
+        "pageNum": 490,
+        "versesOnPage": 12,
+        "startVerseSurah": 11,
+        "endVerseSurah": 22,
+        "startVerseGlobal": 4336,
+        "endVerseGlobal": 4347
+      },
+      {
+        "pageNum": 491,
+        "versesOnPage": 11,
+        "startVerseSurah": 23,
+        "endVerseSurah": 33,
+        "startVerseGlobal": 4348,
+        "endVerseGlobal": 4358
+      },
+      {
+        "pageNum": 492,
+        "versesOnPage": 14,
+        "startVerseSurah": 34,
+        "endVerseSurah": 47,
+        "startVerseGlobal": 4359,
+        "endVerseGlobal": 4372
+      },
+      {
+        "pageNum": 493,
+        "versesOnPage": 13,
+        "startVerseSurah": 48,
+        "endVerseSurah": 60,
+        "startVerseGlobal": 4373,
+        "endVerseGlobal": 4385
+      },
+      {
+        "pageNum": 494,
+        "versesOnPage": 13,
+        "startVerseSurah": 61,
+        "endVerseSurah": 73,
+        "startVerseGlobal": 4386,
+        "endVerseGlobal": 4398
+      },
+      {
+        "pageNum": 495,
+        "versesOnPage": 16,
+        "startVerseSurah": 74,
+        "endVerseSurah": 89,
+        "startVerseGlobal": 4399,
+        "endVerseGlobal": 4414
+      }
+    ]
+  },
+  "Ad-Dukhaan": {
+    "startPage": 496,
+    "endPage": 498,
+    "numVerses": 59,
+    "numSurah": 44,
+    "pages": [
+      {
+        "pageNum": 496,
+        "versesOnPage": 18,
+        "startVerseSurah": 1,
+        "endVerseSurah": 18,
+        "startVerseGlobal": 4415,
+        "endVerseGlobal": 4432
+      },
+      {
+        "pageNum": 497,
+        "versesOnPage": 21,
+        "startVerseSurah": 19,
+        "endVerseSurah": 39,
+        "startVerseGlobal": 4433,
+        "endVerseGlobal": 4453
+      },
+      {
+        "pageNum": 498,
+        "versesOnPage": 20,
+        "startVerseSurah": 40,
+        "endVerseSurah": 59,
+        "startVerseGlobal": 4454,
+        "endVerseGlobal": 4473
+      }
+    ]
+  },
+  "Al-Jaathiya": {
+    "startPage": 499,
+    "endPage": 502,
+    "numVerses": 37,
+    "numSurah": 45,
+    "pages": [
+      {
+        "pageNum": 499,
+        "versesOnPage": 13,
+        "startVerseSurah": 1,
+        "endVerseSurah": 13,
+        "startVerseGlobal": 4474,
+        "endVerseGlobal": 4486
+      },
+      {
+        "pageNum": 500,
+        "versesOnPage": 9,
+        "startVerseSurah": 14,
+        "endVerseSurah": 22,
+        "startVerseGlobal": 4487,
+        "endVerseGlobal": 4495
+      },
+      {
+        "pageNum": 501,
+        "versesOnPage": 10,
+        "startVerseSurah": 23,
+        "endVerseSurah": 32,
+        "startVerseGlobal": 4496,
+        "endVerseGlobal": 4505
+      },
+      {
+        "pageNum": 502,
+        "versesOnPage": 5,
+        "startVerseSurah": 33,
+        "endVerseSurah": 37,
+        "startVerseGlobal": 4506,
+        "endVerseGlobal": 4510
+      }
+    ]
+  },
+  "Al-Ahqaf": {
+    "startPage": 502,
+    "endPage": 506,
+    "numVerses": 35,
+    "numSurah": 46,
+    "pages": [
+      {
+        "pageNum": 502,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 4511,
+        "endVerseGlobal": 4515
+      },
+      {
+        "pageNum": 503,
+        "versesOnPage": 9,
+        "startVerseSurah": 6,
+        "endVerseSurah": 14,
+        "startVerseGlobal": 4516,
+        "endVerseGlobal": 4524
+      },
+      {
+        "pageNum": 504,
+        "versesOnPage": 6,
+        "startVerseSurah": 15,
+        "endVerseSurah": 20,
+        "startVerseGlobal": 4525,
+        "endVerseGlobal": 4530
+      },
+      {
+        "pageNum": 505,
+        "versesOnPage": 8,
+        "startVerseSurah": 21,
+        "endVerseSurah": 28,
+        "startVerseGlobal": 4531,
+        "endVerseGlobal": 4538
+      },
+      {
+        "pageNum": 506,
+        "versesOnPage": 7,
+        "startVerseSurah": 29,
+        "endVerseSurah": 35,
+        "startVerseGlobal": 4539,
+        "endVerseGlobal": 4545
+      }
+    ]
+  },
+  "Muhammad": {
+    "startPage": 507,
+    "endPage": 510,
+    "numVerses": 38,
+    "numSurah": 47,
+    "pages": [
+      {
+        "pageNum": 507,
+        "versesOnPage": 11,
+        "startVerseSurah": 1,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 4546,
+        "endVerseGlobal": 4556
+      },
+      {
+        "pageNum": 508,
+        "versesOnPage": 8,
+        "startVerseSurah": 12,
+        "endVerseSurah": 19,
+        "startVerseGlobal": 4557,
+        "endVerseGlobal": 4564
+      },
+      {
+        "pageNum": 509,
+        "versesOnPage": 10,
+        "startVerseSurah": 20,
+        "endVerseSurah": 29,
+        "startVerseGlobal": 4565,
+        "endVerseGlobal": 4574
+      },
+      {
+        "pageNum": 510,
+        "versesOnPage": 9,
+        "startVerseSurah": 30,
+        "endVerseSurah": 38,
+        "startVerseGlobal": 4575,
+        "endVerseGlobal": 4583
+      }
+    ]
+  },
+  "Al-Fath": {
+    "startPage": 511,
+    "endPage": 515,
+    "numVerses": 29,
+    "numSurah": 48,
+    "pages": [
+      {
+        "pageNum": 511,
+        "versesOnPage": 9,
+        "startVerseSurah": 1,
+        "endVerseSurah": 9,
+        "startVerseGlobal": 4584,
+        "endVerseGlobal": 4592
+      },
+      {
+        "pageNum": 512,
+        "versesOnPage": 6,
+        "startVerseSurah": 10,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 4593,
+        "endVerseGlobal": 4598
+      },
+      {
+        "pageNum": 513,
+        "versesOnPage": 8,
+        "startVerseSurah": 16,
+        "endVerseSurah": 23,
+        "startVerseGlobal": 4599,
+        "endVerseGlobal": 4606
+      },
+      {
+        "pageNum": 514,
+        "versesOnPage": 5,
+        "startVerseSurah": 24,
+        "endVerseSurah": 28,
+        "startVerseGlobal": 4607,
+        "endVerseGlobal": 4611
+      },
+      {
+        "pageNum": 515,
+        "versesOnPage": 1,
+        "startVerseSurah": 29,
+        "endVerseSurah": 29,
+        "startVerseGlobal": 4612,
+        "endVerseGlobal": 4612
+      }
+    ]
+  },
+  "Al-Hujuraat": {
+    "startPage": 515,
+    "endPage": 517,
+    "numVerses": 18,
+    "numSurah": 49,
+    "pages": [
+      {
+        "pageNum": 515,
+        "versesOnPage": 4,
+        "startVerseSurah": 1,
+        "endVerseSurah": 4,
+        "startVerseGlobal": 4613,
+        "endVerseGlobal": 4616
+      },
+      {
+        "pageNum": 516,
+        "versesOnPage": 7,
+        "startVerseSurah": 5,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 4617,
+        "endVerseGlobal": 4623
+      },
+      {
+        "pageNum": 517,
+        "versesOnPage": 7,
+        "startVerseSurah": 12,
+        "endVerseSurah": 18,
+        "startVerseGlobal": 4624,
+        "endVerseGlobal": 4630
+      }
+    ]
+  },
+  "Qaaf": {
+    "startPage": 518,
+    "endPage": 520,
+    "numVerses": 45,
+    "numSurah": 50,
+    "pages": [
+      {
+        "pageNum": 518,
+        "versesOnPage": 15,
+        "startVerseSurah": 1,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 4631,
+        "endVerseGlobal": 4645
+      },
+      {
+        "pageNum": 519,
+        "versesOnPage": 20,
+        "startVerseSurah": 16,
+        "endVerseSurah": 35,
+        "startVerseGlobal": 4646,
+        "endVerseGlobal": 4665
+      },
+      {
+        "pageNum": 520,
+        "versesOnPage": 10,
+        "startVerseSurah": 36,
+        "endVerseSurah": 45,
+        "startVerseGlobal": 4666,
+        "endVerseGlobal": 4675
+      }
+    ]
+  },
+  "Adh-Dhaariyat": {
+    "startPage": 520,
+    "endPage": 523,
+    "numVerses": 60,
+    "numSurah": 51,
+    "pages": [
+      {
+        "pageNum": 520,
+        "versesOnPage": 6,
+        "startVerseSurah": 1,
+        "endVerseSurah": 6,
+        "startVerseGlobal": 4676,
+        "endVerseGlobal": 4681
+      },
+      {
+        "pageNum": 521,
+        "versesOnPage": 24,
+        "startVerseSurah": 7,
+        "endVerseSurah": 30,
+        "startVerseGlobal": 4682,
+        "endVerseGlobal": 4705
+      },
+      {
+        "pageNum": 522,
+        "versesOnPage": 21,
+        "startVerseSurah": 31,
+        "endVerseSurah": 51,
+        "startVerseGlobal": 4706,
+        "endVerseGlobal": 4726
+      },
+      {
+        "pageNum": 523,
+        "versesOnPage": 9,
+        "startVerseSurah": 52,
+        "endVerseSurah": 60,
+        "startVerseGlobal": 4727,
+        "endVerseGlobal": 4735
+      }
+    ]
+  },
+  "At-Tur": {
+    "startPage": 523,
+    "endPage": 525,
+    "numVerses": 49,
+    "numSurah": 52,
+    "pages": [
+      {
+        "pageNum": 523,
+        "versesOnPage": 14,
+        "startVerseSurah": 1,
+        "endVerseSurah": 14,
+        "startVerseGlobal": 4736,
+        "endVerseGlobal": 4749
+      },
+      {
+        "pageNum": 524,
+        "versesOnPage": 17,
+        "startVerseSurah": 15,
+        "endVerseSurah": 31,
+        "startVerseGlobal": 4750,
+        "endVerseGlobal": 4766
+      },
+      {
+        "pageNum": 525,
+        "versesOnPage": 18,
+        "startVerseSurah": 32,
+        "endVerseSurah": 49,
+        "startVerseGlobal": 4767,
+        "endVerseGlobal": 4784
+      }
+    ]
+  },
+  "An-Najm": {
+    "startPage": 526,
+    "endPage": 528,
+    "numVerses": 62,
+    "numSurah": 53,
+    "pages": [
+      {
+        "pageNum": 526,
+        "versesOnPage": 26,
+        "startVerseSurah": 1,
+        "endVerseSurah": 26,
+        "startVerseGlobal": 4785,
+        "endVerseGlobal": 4810
+      },
+      {
+        "pageNum": 527,
+        "versesOnPage": 18,
+        "startVerseSurah": 27,
+        "endVerseSurah": 44,
+        "startVerseGlobal": 4811,
+        "endVerseGlobal": 4828
+      },
+      {
+        "pageNum": 528,
+        "versesOnPage": 18,
+        "startVerseSurah": 45,
+        "endVerseSurah": 62,
+        "startVerseGlobal": 4829,
+        "endVerseGlobal": 4846
+      }
+    ]
+  },
+  "Al-Qamar": {
+    "startPage": 528,
+    "endPage": 531,
+    "numVerses": 55,
+    "numSurah": 54,
+    "pages": [
+      {
+        "pageNum": 528,
+        "versesOnPage": 6,
+        "startVerseSurah": 1,
+        "endVerseSurah": 6,
+        "startVerseGlobal": 4847,
+        "endVerseGlobal": 4852
+      },
+      {
+        "pageNum": 529,
+        "versesOnPage": 21,
+        "startVerseSurah": 7,
+        "endVerseSurah": 27,
+        "startVerseGlobal": 4853,
+        "endVerseGlobal": 4873
+      },
+      {
+        "pageNum": 530,
+        "versesOnPage": 22,
+        "startVerseSurah": 28,
+        "endVerseSurah": 49,
+        "startVerseGlobal": 4874,
+        "endVerseGlobal": 4895
+      },
+      {
+        "pageNum": 531,
+        "versesOnPage": 6,
+        "startVerseSurah": 50,
+        "endVerseSurah": 55,
+        "startVerseGlobal": 4896,
+        "endVerseGlobal": 4901
+      }
+    ]
+  },
+  "Ar-Rahmaan": {
+    "startPage": 531,
+    "endPage": 534,
+    "numVerses": 78,
+    "numSurah": 55,
+    "pages": [
+      {
+        "pageNum": 531,
+        "versesOnPage": 16,
+        "startVerseSurah": 1,
+        "endVerseSurah": 16,
+        "startVerseGlobal": 4902,
+        "endVerseGlobal": 4917
+      },
+      {
+        "pageNum": 532,
+        "versesOnPage": 24,
+        "startVerseSurah": 17,
+        "endVerseSurah": 40,
+        "startVerseGlobal": 4918,
+        "endVerseGlobal": 4941
+      },
+      {
+        "pageNum": 533,
+        "versesOnPage": 27,
+        "startVerseSurah": 41,
+        "endVerseSurah": 67,
+        "startVerseGlobal": 4942,
+        "endVerseGlobal": 4968
+      },
+      {
+        "pageNum": 534,
+        "versesOnPage": 11,
+        "startVerseSurah": 68,
+        "endVerseSurah": 78,
+        "startVerseGlobal": 4969,
+        "endVerseGlobal": 4979
+      }
+    ]
+  },
+  "Al-Waaqia": {
+    "startPage": 534,
+    "endPage": 537,
+    "numVerses": 96,
+    "numSurah": 56,
+    "pages": [
+      {
+        "pageNum": 534,
+        "versesOnPage": 16,
+        "startVerseSurah": 1,
+        "endVerseSurah": 16,
+        "startVerseGlobal": 4980,
+        "endVerseGlobal": 4995
+      },
+      {
+        "pageNum": 535,
+        "versesOnPage": 34,
+        "startVerseSurah": 17,
+        "endVerseSurah": 50,
+        "startVerseGlobal": 4996,
+        "endVerseGlobal": 5029
+      },
+      {
+        "pageNum": 536,
+        "versesOnPage": 26,
+        "startVerseSurah": 51,
+        "endVerseSurah": 76,
+        "startVerseGlobal": 5030,
+        "endVerseGlobal": 5055
+      },
+      {
+        "pageNum": 537,
+        "versesOnPage": 20,
+        "startVerseSurah": 77,
+        "endVerseSurah": 96,
+        "startVerseGlobal": 5056,
+        "endVerseGlobal": 5075
+      }
+    ]
+  },
+  "Al-Hadid": {
+    "startPage": 537,
+    "endPage": 541,
+    "numVerses": 29,
+    "numSurah": 57,
+    "pages": [
+      {
+        "pageNum": 537,
+        "versesOnPage": 3,
+        "startVerseSurah": 1,
+        "endVerseSurah": 3,
+        "startVerseGlobal": 5076,
+        "endVerseGlobal": 5078
+      },
+      {
+        "pageNum": 538,
+        "versesOnPage": 8,
+        "startVerseSurah": 4,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 5079,
+        "endVerseGlobal": 5086
+      },
+      {
+        "pageNum": 539,
+        "versesOnPage": 7,
+        "startVerseSurah": 12,
+        "endVerseSurah": 18,
+        "startVerseGlobal": 5087,
+        "endVerseGlobal": 5093
+      },
+      {
+        "pageNum": 540,
+        "versesOnPage": 6,
+        "startVerseSurah": 19,
+        "endVerseSurah": 24,
+        "startVerseGlobal": 5094,
+        "endVerseGlobal": 5099
+      },
+      {
+        "pageNum": 541,
+        "versesOnPage": 5,
+        "startVerseSurah": 25,
+        "endVerseSurah": 29,
+        "startVerseGlobal": 5100,
+        "endVerseGlobal": 5104
+      }
+    ]
+  },
+  "Al-Mujaadila": {
+    "startPage": 542,
+    "endPage": 545,
+    "numVerses": 22,
+    "numSurah": 58,
+    "pages": [
+      {
+        "pageNum": 542,
+        "versesOnPage": 6,
+        "startVerseSurah": 1,
+        "endVerseSurah": 6,
+        "startVerseGlobal": 5105,
+        "endVerseGlobal": 5110
+      },
+      {
+        "pageNum": 543,
+        "versesOnPage": 5,
+        "startVerseSurah": 7,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 5111,
+        "endVerseGlobal": 5115
+      },
+      {
+        "pageNum": 544,
+        "versesOnPage": 10,
+        "startVerseSurah": 12,
+        "endVerseSurah": 21,
+        "startVerseGlobal": 5116,
+        "endVerseGlobal": 5125
+      },
+      {
+        "pageNum": 545,
+        "versesOnPage": 1,
+        "startVerseSurah": 22,
+        "endVerseSurah": 22,
+        "startVerseGlobal": 5126,
+        "endVerseGlobal": 5126
+      }
+    ]
+  },
+  "Al-Hashr": {
+    "startPage": 545,
+    "endPage": 548,
+    "numVerses": 24,
+    "numSurah": 59,
+    "pages": [
+      {
+        "pageNum": 545,
+        "versesOnPage": 3,
+        "startVerseSurah": 1,
+        "endVerseSurah": 3,
+        "startVerseGlobal": 5127,
+        "endVerseGlobal": 5129
+      },
+      {
+        "pageNum": 546,
+        "versesOnPage": 6,
+        "startVerseSurah": 4,
+        "endVerseSurah": 9,
+        "startVerseGlobal": 5130,
+        "endVerseGlobal": 5135
+      },
+      {
+        "pageNum": 547,
+        "versesOnPage": 7,
+        "startVerseSurah": 10,
+        "endVerseSurah": 16,
+        "startVerseGlobal": 5136,
+        "endVerseGlobal": 5142
+      },
+      {
+        "pageNum": 548,
+        "versesOnPage": 8,
+        "startVerseSurah": 17,
+        "endVerseSurah": 24,
+        "startVerseGlobal": 5143,
+        "endVerseGlobal": 5150
+      }
+    ]
+  },
+  "Al-Mumtahana": {
+    "startPage": 549,
+    "endPage": 551,
+    "numVerses": 13,
+    "numSurah": 60,
+    "pages": [
+      {
+        "pageNum": 549,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 5151,
+        "endVerseGlobal": 5155
+      },
+      {
+        "pageNum": 550,
+        "versesOnPage": 6,
+        "startVerseSurah": 6,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 5156,
+        "endVerseGlobal": 5161
+      },
+      {
+        "pageNum": 551,
+        "versesOnPage": 2,
+        "startVerseSurah": 12,
+        "endVerseSurah": 13,
+        "startVerseGlobal": 5162,
+        "endVerseGlobal": 5163
+      }
+    ]
+  },
+  "As-Saff": {
+    "startPage": 551,
+    "endPage": 552,
+    "numVerses": 14,
+    "numSurah": 61,
+    "pages": [
+      {
+        "pageNum": 551,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 5164,
+        "endVerseGlobal": 5168
+      },
+      {
+        "pageNum": 552,
+        "versesOnPage": 9,
+        "startVerseSurah": 6,
+        "endVerseSurah": 14,
+        "startVerseGlobal": 5169,
+        "endVerseGlobal": 5177
+      }
+    ]
+  },
+  "Al-Jumu'a": {
+    "startPage": 553,
+    "endPage": 554,
+    "numVerses": 11,
+    "numSurah": 62,
+    "pages": [
+      {
+        "pageNum": 553,
+        "versesOnPage": 8,
+        "startVerseSurah": 1,
+        "endVerseSurah": 8,
+        "startVerseGlobal": 5178,
+        "endVerseGlobal": 5185
+      },
+      {
+        "pageNum": 554,
+        "versesOnPage": 3,
+        "startVerseSurah": 9,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 5186,
+        "endVerseGlobal": 5188
+      }
+    ]
+  },
+  "Al-Munaafiqoon": {
+    "startPage": 554,
+    "endPage": 555,
+    "numVerses": 11,
+    "numSurah": 63,
+    "pages": [
+      {
+        "pageNum": 554,
+        "versesOnPage": 4,
+        "startVerseSurah": 1,
+        "endVerseSurah": 4,
+        "startVerseGlobal": 5189,
+        "endVerseGlobal": 5192
+      },
+      {
+        "pageNum": 555,
+        "versesOnPage": 7,
+        "startVerseSurah": 5,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 5193,
+        "endVerseGlobal": 5199
+      }
+    ]
+  },
+  "At-Taghaabun": {
+    "startPage": 556,
+    "endPage": 557,
+    "numVerses": 18,
+    "numSurah": 64,
+    "pages": [
+      {
+        "pageNum": 556,
+        "versesOnPage": 9,
+        "startVerseSurah": 1,
+        "endVerseSurah": 9,
+        "startVerseGlobal": 5200,
+        "endVerseGlobal": 5208
+      },
+      {
+        "pageNum": 557,
+        "versesOnPage": 9,
+        "startVerseSurah": 10,
+        "endVerseSurah": 18,
+        "startVerseGlobal": 5209,
+        "endVerseGlobal": 5217
+      }
+    ]
+  },
+  "At-Talaaq": {
+    "startPage": 558,
+    "endPage": 559,
+    "numVerses": 12,
+    "numSurah": 65,
+    "pages": [
+      {
+        "pageNum": 558,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 5218,
+        "endVerseGlobal": 5222
+      },
+      {
+        "pageNum": 559,
+        "versesOnPage": 7,
+        "startVerseSurah": 6,
+        "endVerseSurah": 12,
+        "startVerseGlobal": 5223,
+        "endVerseGlobal": 5229
+      }
+    ]
+  },
+  "At-Tahrim": {
+    "startPage": 560,
+    "endPage": 561,
+    "numVerses": 12,
+    "numSurah": 66,
+    "pages": [
+      {
+        "pageNum": 560,
+        "versesOnPage": 7,
+        "startVerseSurah": 1,
+        "endVerseSurah": 7,
+        "startVerseGlobal": 5230,
+        "endVerseGlobal": 5236
+      },
+      {
+        "pageNum": 561,
+        "versesOnPage": 5,
+        "startVerseSurah": 8,
+        "endVerseSurah": 12,
+        "startVerseGlobal": 5237,
+        "endVerseGlobal": 5241
+      }
+    ]
+  },
+  "Al-Mulk": {
+    "startPage": 562,
+    "endPage": 564,
+    "numVerses": 30,
+    "numSurah": 67,
+    "pages": [
+      {
+        "pageNum": 562,
+        "versesOnPage": 12,
+        "startVerseSurah": 1,
+        "endVerseSurah": 12,
+        "startVerseGlobal": 5242,
+        "endVerseGlobal": 5253
+      },
+      {
+        "pageNum": 563,
+        "versesOnPage": 14,
+        "startVerseSurah": 13,
+        "endVerseSurah": 26,
+        "startVerseGlobal": 5254,
+        "endVerseGlobal": 5267
+      },
+      {
+        "pageNum": 564,
+        "versesOnPage": 4,
+        "startVerseSurah": 27,
+        "endVerseSurah": 30,
+        "startVerseGlobal": 5268,
+        "endVerseGlobal": 5271
+      }
+    ]
+  },
+  "Al-Qalam": {
+    "startPage": 564,
+    "endPage": 566,
+    "numVerses": 52,
+    "numSurah": 68,
+    "pages": [
+      {
+        "pageNum": 564,
+        "versesOnPage": 15,
+        "startVerseSurah": 1,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 5272,
+        "endVerseGlobal": 5286
+      },
+      {
+        "pageNum": 565,
+        "versesOnPage": 27,
+        "startVerseSurah": 16,
+        "endVerseSurah": 42,
+        "startVerseGlobal": 5287,
+        "endVerseGlobal": 5313
+      },
+      {
+        "pageNum": 566,
+        "versesOnPage": 10,
+        "startVerseSurah": 43,
+        "endVerseSurah": 52,
+        "startVerseGlobal": 5314,
+        "endVerseGlobal": 5323
+      }
+    ]
+  },
+  "Al-Haaqqa": {
+    "startPage": 566,
+    "endPage": 568,
+    "numVerses": 52,
+    "numSurah": 69,
+    "pages": [
+      {
+        "pageNum": 566,
+        "versesOnPage": 8,
+        "startVerseSurah": 1,
+        "endVerseSurah": 8,
+        "startVerseGlobal": 5324,
+        "endVerseGlobal": 5331
+      },
+      {
+        "pageNum": 567,
+        "versesOnPage": 26,
+        "startVerseSurah": 9,
+        "endVerseSurah": 34,
+        "startVerseGlobal": 5332,
+        "endVerseGlobal": 5357
+      },
+      {
+        "pageNum": 568,
+        "versesOnPage": 18,
+        "startVerseSurah": 35,
+        "endVerseSurah": 52,
+        "startVerseGlobal": 5358,
+        "endVerseGlobal": 5375
+      }
+    ]
+  },
+  "Al-Ma'aarij": {
+    "startPage": 568,
+    "endPage": 570,
+    "numVerses": 44,
+    "numSurah": 70,
+    "pages": [
+      {
+        "pageNum": 568,
+        "versesOnPage": 10,
+        "startVerseSurah": 1,
+        "endVerseSurah": 10,
+        "startVerseGlobal": 5376,
+        "endVerseGlobal": 5385
+      },
+      {
+        "pageNum": 569,
+        "versesOnPage": 29,
+        "startVerseSurah": 11,
+        "endVerseSurah": 39,
+        "startVerseGlobal": 5386,
+        "endVerseGlobal": 5414
+      },
+      {
+        "pageNum": 570,
+        "versesOnPage": 5,
+        "startVerseSurah": 40,
+        "endVerseSurah": 44,
+        "startVerseGlobal": 5415,
+        "endVerseGlobal": 5419
+      }
+    ]
+  },
+  "Nooh": {
+    "startPage": 570,
+    "endPage": 571,
+    "numVerses": 28,
+    "numSurah": 71,
+    "pages": [
+      {
+        "pageNum": 570,
+        "versesOnPage": 10,
+        "startVerseSurah": 1,
+        "endVerseSurah": 10,
+        "startVerseGlobal": 5420,
+        "endVerseGlobal": 5429
+      },
+      {
+        "pageNum": 571,
+        "versesOnPage": 18,
+        "startVerseSurah": 11,
+        "endVerseSurah": 28,
+        "startVerseGlobal": 5430,
+        "endVerseGlobal": 5447
+      }
+    ]
+  },
+  "Al-Jinn": {
+    "startPage": 572,
+    "endPage": 573,
+    "numVerses": 28,
+    "numSurah": 72,
+    "pages": [
+      {
+        "pageNum": 572,
+        "versesOnPage": 13,
+        "startVerseSurah": 1,
+        "endVerseSurah": 13,
+        "startVerseGlobal": 5448,
+        "endVerseGlobal": 5460
+      },
+      {
+        "pageNum": 573,
+        "versesOnPage": 15,
+        "startVerseSurah": 14,
+        "endVerseSurah": 28,
+        "startVerseGlobal": 5461,
+        "endVerseGlobal": 5475
+      }
+    ]
+  },
+  "Al-Muzzammil": {
+    "startPage": 574,
+    "endPage": 575,
+    "numVerses": 20,
+    "numSurah": 73,
+    "pages": [
+      {
+        "pageNum": 574,
+        "versesOnPage": 19,
+        "startVerseSurah": 1,
+        "endVerseSurah": 19,
+        "startVerseGlobal": 5476,
+        "endVerseGlobal": 5494
+      },
+      {
+        "pageNum": 575,
+        "versesOnPage": 1,
+        "startVerseSurah": 20,
+        "endVerseSurah": 20,
+        "startVerseGlobal": 5495,
+        "endVerseGlobal": 5495
+      }
+    ]
+  },
+  "Al-Muddaththir": {
+    "startPage": 575,
+    "endPage": 577,
+    "numVerses": 56,
+    "numSurah": 74,
+    "pages": [
+      {
+        "pageNum": 575,
+        "versesOnPage": 17,
+        "startVerseSurah": 1,
+        "endVerseSurah": 17,
+        "startVerseGlobal": 5496,
+        "endVerseGlobal": 5512
+      },
+      {
+        "pageNum": 576,
+        "versesOnPage": 30,
+        "startVerseSurah": 18,
+        "endVerseSurah": 47,
+        "startVerseGlobal": 5513,
+        "endVerseGlobal": 5542
+      },
+      {
+        "pageNum": 577,
+        "versesOnPage": 9,
+        "startVerseSurah": 48,
+        "endVerseSurah": 56,
+        "startVerseGlobal": 5543,
+        "endVerseGlobal": 5551
+      }
+    ]
+  },
+  "Al-Qiyaama": {
+    "startPage": 577,
+    "endPage": 578,
+    "numVerses": 40,
+    "numSurah": 75,
+    "pages": [
+      {
+        "pageNum": 577,
+        "versesOnPage": 19,
+        "startVerseSurah": 1,
+        "endVerseSurah": 19,
+        "startVerseGlobal": 5552,
+        "endVerseGlobal": 5570
+      },
+      {
+        "pageNum": 578,
+        "versesOnPage": 21,
+        "startVerseSurah": 20,
+        "endVerseSurah": 40,
+        "startVerseGlobal": 5571,
+        "endVerseGlobal": 5591
+      }
+    ]
+  },
+  "Al-Insaan": {
+    "startPage": 578,
+    "endPage": 580,
+    "numVerses": 31,
+    "numSurah": 76,
+    "pages": [
+      {
+        "pageNum": 578,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 5592,
+        "endVerseGlobal": 5596
+      },
+      {
+        "pageNum": 579,
+        "versesOnPage": 20,
+        "startVerseSurah": 6,
+        "endVerseSurah": 25,
+        "startVerseGlobal": 5597,
+        "endVerseGlobal": 5616
+      },
+      {
+        "pageNum": 580,
+        "versesOnPage": 6,
+        "startVerseSurah": 26,
+        "endVerseSurah": 31,
+        "startVerseGlobal": 5617,
+        "endVerseGlobal": 5622
+      }
+    ]
+  },
+  "Al-Mursalaat": {
+    "startPage": 580,
+    "endPage": 581,
+    "numVerses": 50,
+    "numSurah": 77,
+    "pages": [
+      {
+        "pageNum": 580,
+        "versesOnPage": 19,
+        "startVerseSurah": 1,
+        "endVerseSurah": 19,
+        "startVerseGlobal": 5623,
+        "endVerseGlobal": 5641
+      },
+      {
+        "pageNum": 581,
+        "versesOnPage": 31,
+        "startVerseSurah": 20,
+        "endVerseSurah": 50,
+        "startVerseGlobal": 5642,
+        "endVerseGlobal": 5672
+      }
+    ]
+  },
+  "An-Naba": {
+    "startPage": 582,
+    "endPage": 583,
+    "numVerses": 40,
+    "numSurah": 78,
+    "pages": [
+      {
+        "pageNum": 582,
+        "versesOnPage": 30,
+        "startVerseSurah": 1,
+        "endVerseSurah": 30,
+        "startVerseGlobal": 5673,
+        "endVerseGlobal": 5702
+      },
+      {
+        "pageNum": 583,
+        "versesOnPage": 10,
+        "startVerseSurah": 31,
+        "endVerseSurah": 40,
+        "startVerseGlobal": 5703,
+        "endVerseGlobal": 5712
+      }
+    ]
+  },
+  "An-Naazi'aat": {
+    "startPage": 583,
+    "endPage": 584,
+    "numVerses": 46,
+    "numSurah": 79,
+    "pages": [
+      {
+        "pageNum": 583,
+        "versesOnPage": 15,
+        "startVerseSurah": 1,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 5713,
+        "endVerseGlobal": 5727
+      },
+      {
+        "pageNum": 584,
+        "versesOnPage": 31,
+        "startVerseSurah": 16,
+        "endVerseSurah": 46,
+        "startVerseGlobal": 5728,
+        "endVerseGlobal": 5758
+      }
+    ]
+  },
+  "Abasa": {
+    "startPage": 585,
+    "endPage": 585,
+    "numVerses": 42,
+    "numSurah": 80,
+    "pages": [
+      {
+        "pageNum": 585,
+        "versesOnPage": 42,
+        "startVerseSurah": 1,
+        "endVerseSurah": 42,
+        "startVerseGlobal": 5759,
+        "endVerseGlobal": 5800
+      }
+    ]
+  },
+  "At-Takwir": {
+    "startPage": 586,
+    "endPage": 586,
+    "numVerses": 29,
+    "numSurah": 81,
+    "pages": [
+      {
+        "pageNum": 586,
+        "versesOnPage": 29,
+        "startVerseSurah": 1,
+        "endVerseSurah": 29,
+        "startVerseGlobal": 5801,
+        "endVerseGlobal": 5829
+      }
+    ]
+  },
+  "Al-Infitaar": {
+    "startPage": 587,
+    "endPage": 587,
+    "numVerses": 19,
+    "numSurah": 82,
+    "pages": [
+      {
+        "pageNum": 587,
+        "versesOnPage": 19,
+        "startVerseSurah": 1,
+        "endVerseSurah": 19,
+        "startVerseGlobal": 5830,
+        "endVerseGlobal": 5848
+      }
+    ]
+  },
+  "Al-Mutaffifin": {
+    "startPage": 587,
+    "endPage": 589,
+    "numVerses": 36,
+    "numSurah": 83,
+    "pages": [
+      {
+        "pageNum": 587,
+        "versesOnPage": 6,
+        "startVerseSurah": 1,
+        "endVerseSurah": 6,
+        "startVerseGlobal": 5849,
+        "endVerseGlobal": 5854
+      },
+      {
+        "pageNum": 588,
+        "versesOnPage": 28,
+        "startVerseSurah": 7,
+        "endVerseSurah": 34,
+        "startVerseGlobal": 5855,
+        "endVerseGlobal": 5882
+      },
+      {
+        "pageNum": 589,
+        "versesOnPage": 2,
+        "startVerseSurah": 35,
+        "endVerseSurah": 36,
+        "startVerseGlobal": 5883,
+        "endVerseGlobal": 5884
+      }
+    ]
+  },
+  "Al-Inshiqaaq": {
+    "startPage": 589,
+    "endPage": 589,
+    "numVerses": 25,
+    "numSurah": 84,
+    "pages": [
+      {
+        "pageNum": 589,
+        "versesOnPage": 25,
+        "startVerseSurah": 1,
+        "endVerseSurah": 25,
+        "startVerseGlobal": 5885,
+        "endVerseGlobal": 5909
+      }
+    ]
+  },
+  "Al-Burooj": {
+    "startPage": 590,
+    "endPage": 590,
+    "numVerses": 22,
+    "numSurah": 85,
+    "pages": [
+      {
+        "pageNum": 590,
+        "versesOnPage": 22,
+        "startVerseSurah": 1,
+        "endVerseSurah": 22,
+        "startVerseGlobal": 5910,
+        "endVerseGlobal": 5931
+      }
+    ]
+  },
+  "At-Taariq": {
+    "startPage": 591,
+    "endPage": 591,
+    "numVerses": 17,
+    "numSurah": 86,
+    "pages": [
+      {
+        "pageNum": 591,
+        "versesOnPage": 17,
+        "startVerseSurah": 1,
+        "endVerseSurah": 17,
+        "startVerseGlobal": 5932,
+        "endVerseGlobal": 5948
+      }
+    ]
+  },
+  "Al-A'laa": {
+    "startPage": 591,
+    "endPage": 592,
+    "numVerses": 19,
+    "numSurah": 87,
+    "pages": [
+      {
+        "pageNum": 591,
+        "versesOnPage": 15,
+        "startVerseSurah": 1,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 5949,
+        "endVerseGlobal": 5963
+      },
+      {
+        "pageNum": 592,
+        "versesOnPage": 4,
+        "startVerseSurah": 16,
+        "endVerseSurah": 19,
+        "startVerseGlobal": 5964,
+        "endVerseGlobal": 5967
+      }
+    ]
+  },
+  "Al-Ghaashiya": {
+    "startPage": 592,
+    "endPage": 592,
+    "numVerses": 26,
+    "numSurah": 88,
+    "pages": [
+      {
+        "pageNum": 592,
+        "versesOnPage": 26,
+        "startVerseSurah": 1,
+        "endVerseSurah": 26,
+        "startVerseGlobal": 5968,
+        "endVerseGlobal": 5993
+      }
+    ]
+  },
+  "Al-Fajr": {
+    "startPage": 593,
+    "endPage": 594,
+    "numVerses": 30,
+    "numSurah": 89,
+    "pages": [
+      {
+        "pageNum": 593,
+        "versesOnPage": 23,
+        "startVerseSurah": 1,
+        "endVerseSurah": 23,
+        "startVerseGlobal": 5994,
+        "endVerseGlobal": 6016
+      },
+      {
+        "pageNum": 594,
+        "versesOnPage": 7,
+        "startVerseSurah": 24,
+        "endVerseSurah": 30,
+        "startVerseGlobal": 6017,
+        "endVerseGlobal": 6023
+      }
+    ]
+  },
+  "Al-Balad": {
+    "startPage": 594,
+    "endPage": 594,
+    "numVerses": 20,
+    "numSurah": 90,
+    "pages": [
+      {
+        "pageNum": 594,
+        "versesOnPage": 20,
+        "startVerseSurah": 1,
+        "endVerseSurah": 20,
+        "startVerseGlobal": 6024,
+        "endVerseGlobal": 6043
+      }
+    ]
+  },
+  "Ash-Shams": {
+    "startPage": 595,
+    "endPage": 595,
+    "numVerses": 15,
+    "numSurah": 91,
+    "pages": [
+      {
+        "pageNum": 595,
+        "versesOnPage": 15,
+        "startVerseSurah": 1,
+        "endVerseSurah": 15,
+        "startVerseGlobal": 6044,
+        "endVerseGlobal": 6058
+      }
+    ]
+  },
+  "Al-Lail": {
+    "startPage": 595,
+    "endPage": 596,
+    "numVerses": 21,
+    "numSurah": 92,
+    "pages": [
+      {
+        "pageNum": 595,
+        "versesOnPage": 14,
+        "startVerseSurah": 1,
+        "endVerseSurah": 14,
+        "startVerseGlobal": 6059,
+        "endVerseGlobal": 6072
+      },
+      {
+        "pageNum": 596,
+        "versesOnPage": 7,
+        "startVerseSurah": 15,
+        "endVerseSurah": 21,
+        "startVerseGlobal": 6073,
+        "endVerseGlobal": 6079
+      }
+    ]
+  },
+  "Ad-Dhuhaa": {
+    "startPage": 596,
+    "endPage": 596,
+    "numVerses": 11,
+    "numSurah": 93,
+    "pages": [
+      {
+        "pageNum": 596,
+        "versesOnPage": 11,
+        "startVerseSurah": 1,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 6080,
+        "endVerseGlobal": 6090
+      }
+    ]
+  },
+  "Ash-Sharh": {
+    "startPage": 596,
+    "endPage": 596,
+    "numVerses": 8,
+    "numSurah": 94,
+    "pages": [
+      {
+        "pageNum": 596,
+        "versesOnPage": 8,
+        "startVerseSurah": 1,
+        "endVerseSurah": 8,
+        "startVerseGlobal": 6091,
+        "endVerseGlobal": 6098
+      }
+    ]
+  },
+  "At-Tin": {
+    "startPage": 597,
+    "endPage": 597,
+    "numVerses": 8,
+    "numSurah": 95,
+    "pages": [
+      {
+        "pageNum": 597,
+        "versesOnPage": 8,
+        "startVerseSurah": 1,
+        "endVerseSurah": 8,
+        "startVerseGlobal": 6099,
+        "endVerseGlobal": 6106
+      }
+    ]
+  },
+  "Al-Alaq": {
+    "startPage": 597,
+    "endPage": 597,
+    "numVerses": 19,
+    "numSurah": 96,
+    "pages": [
+      {
+        "pageNum": 597,
+        "versesOnPage": 19,
+        "startVerseSurah": 1,
+        "endVerseSurah": 19,
+        "startVerseGlobal": 6107,
+        "endVerseGlobal": 6125
+      }
+    ]
+  },
+  "Al-Qadr": {
+    "startPage": 598,
+    "endPage": 598,
+    "numVerses": 5,
+    "numSurah": 97,
+    "pages": [
+      {
+        "pageNum": 598,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 6126,
+        "endVerseGlobal": 6130
+      }
+    ]
+  },
+  "Al-Bayyina": {
+    "startPage": 598,
+    "endPage": 599,
+    "numVerses": 8,
+    "numSurah": 98,
+    "pages": [
+      {
+        "pageNum": 598,
+        "versesOnPage": 7,
+        "startVerseSurah": 1,
+        "endVerseSurah": 7,
+        "startVerseGlobal": 6131,
+        "endVerseGlobal": 6137
+      },
+      {
+        "pageNum": 599,
+        "versesOnPage": 1,
+        "startVerseSurah": 8,
+        "endVerseSurah": 8,
+        "startVerseGlobal": 6138,
+        "endVerseGlobal": 6138
+      }
+    ]
+  },
+  "Az-Zalzala": {
+    "startPage": 599,
+    "endPage": 599,
+    "numVerses": 8,
+    "numSurah": 99,
+    "pages": [
+      {
+        "pageNum": 599,
+        "versesOnPage": 8,
+        "startVerseSurah": 1,
+        "endVerseSurah": 8,
+        "startVerseGlobal": 6139,
+        "endVerseGlobal": 6146
+      }
+    ]
+  },
+  "Al-Aadiyaat": {
+    "startPage": 599,
+    "endPage": 600,
+    "numVerses": 11,
+    "numSurah": 100,
+    "pages": [
+      {
+        "pageNum": 599,
+        "versesOnPage": 9,
+        "startVerseSurah": 1,
+        "endVerseSurah": 9,
+        "startVerseGlobal": 6147,
+        "endVerseGlobal": 6155
+      },
+      {
+        "pageNum": 600,
+        "versesOnPage": 2,
+        "startVerseSurah": 10,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 6156,
+        "endVerseGlobal": 6157
+      }
+    ]
+  },
+  "Al-Qaari'a": {
+    "startPage": 600,
+    "endPage": 600,
+    "numVerses": 11,
+    "numSurah": 101,
+    "pages": [
+      {
+        "pageNum": 600,
+        "versesOnPage": 11,
+        "startVerseSurah": 1,
+        "endVerseSurah": 11,
+        "startVerseGlobal": 6158,
+        "endVerseGlobal": 6168
+      }
+    ]
+  },
+  "At-Takaathur": {
+    "startPage": 600,
+    "endPage": 600,
+    "numVerses": 8,
+    "numSurah": 102,
+    "pages": [
+      {
+        "pageNum": 600,
+        "versesOnPage": 8,
+        "startVerseSurah": 1,
+        "endVerseSurah": 8,
+        "startVerseGlobal": 6169,
+        "endVerseGlobal": 6176
+      }
+    ]
+  },
+  "Al-Asr": {
+    "startPage": 601,
+    "endPage": 601,
+    "numVerses": 3,
+    "numSurah": 103,
+    "pages": [
+      {
+        "pageNum": 601,
+        "versesOnPage": 3,
+        "startVerseSurah": 1,
+        "endVerseSurah": 3,
+        "startVerseGlobal": 6177,
+        "endVerseGlobal": 6179
+      }
+    ]
+  },
+  "Al-Humaza": {
+    "startPage": 601,
+    "endPage": 601,
+    "numVerses": 9,
+    "numSurah": 104,
+    "pages": [
+      {
+        "pageNum": 601,
+        "versesOnPage": 9,
+        "startVerseSurah": 1,
+        "endVerseSurah": 9,
+        "startVerseGlobal": 6180,
+        "endVerseGlobal": 6188
+      }
+    ]
+  },
+  "Al-Fil": {
+    "startPage": 601,
+    "endPage": 601,
+    "numVerses": 5,
+    "numSurah": 105,
+    "pages": [
+      {
+        "pageNum": 601,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 6189,
+        "endVerseGlobal": 6193
+      }
+    ]
+  },
+  "Quraish": {
+    "startPage": 602,
+    "endPage": 602,
+    "numVerses": 4,
+    "numSurah": 106,
+    "pages": [
+      {
+        "pageNum": 602,
+        "versesOnPage": 4,
+        "startVerseSurah": 1,
+        "endVerseSurah": 4,
+        "startVerseGlobal": 6194,
+        "endVerseGlobal": 6197
+      }
+    ]
+  },
+  "Al-Maa'un": {
+    "startPage": 602,
+    "endPage": 602,
+    "numVerses": 7,
+    "numSurah": 107,
+    "pages": [
+      {
+        "pageNum": 602,
+        "versesOnPage": 7,
+        "startVerseSurah": 1,
+        "endVerseSurah": 7,
+        "startVerseGlobal": 6198,
+        "endVerseGlobal": 6204
+      }
+    ]
+  },
+  "Al-Kawthar": {
+    "startPage": 602,
+    "endPage": 602,
+    "numVerses": 3,
+    "numSurah": 108,
+    "pages": [
+      {
+        "pageNum": 602,
+        "versesOnPage": 3,
+        "startVerseSurah": 1,
+        "endVerseSurah": 3,
+        "startVerseGlobal": 6205,
+        "endVerseGlobal": 6207
+      }
+    ]
+  },
+  "Al-Kaafiroon": {
+    "startPage": 603,
+    "endPage": 603,
+    "numVerses": 6,
+    "numSurah": 109,
+    "pages": [
+      {
+        "pageNum": 603,
+        "versesOnPage": 6,
+        "startVerseSurah": 1,
+        "endVerseSurah": 6,
+        "startVerseGlobal": 6208,
+        "endVerseGlobal": 6213
+      }
+    ]
+  },
+  "An-Nasr": {
+    "startPage": 603,
+    "endPage": 603,
+    "numVerses": 3,
+    "numSurah": 110,
+    "pages": [
+      {
+        "pageNum": 603,
+        "versesOnPage": 3,
+        "startVerseSurah": 1,
+        "endVerseSurah": 3,
+        "startVerseGlobal": 6214,
+        "endVerseGlobal": 6216
+      }
+    ]
+  },
+  "Al-Masad": {
+    "startPage": 603,
+    "endPage": 603,
+    "numVerses": 5,
+    "numSurah": 111,
+    "pages": [
+      {
+        "pageNum": 603,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 6217,
+        "endVerseGlobal": 6221
+      }
+    ]
+  },
+  "Al-Ikhlaas": {
+    "startPage": 604,
+    "endPage": 604,
+    "numVerses": 4,
+    "numSurah": 112,
+    "pages": [
+      {
+        "pageNum": 604,
+        "versesOnPage": 4,
+        "startVerseSurah": 1,
+        "endVerseSurah": 4,
+        "startVerseGlobal": 6222,
+        "endVerseGlobal": 6225
+      }
+    ]
+  },
+  "Al-Falaq": {
+    "startPage": 604,
+    "endPage": 604,
+    "numVerses": 5,
+    "numSurah": 113,
+    "pages": [
+      {
+        "pageNum": 604,
+        "versesOnPage": 5,
+        "startVerseSurah": 1,
+        "endVerseSurah": 5,
+        "startVerseGlobal": 6226,
+        "endVerseGlobal": 6230
+      }
+    ]
+  },
+  "An-Naas": {
+    "startPage": 604,
+    "endPage": 604,
+    "numVerses": 6,
+    "numSurah": 114,
+    "pages": [
+      {
+        "pageNum": 604,
+        "versesOnPage": 6,
+        "startVerseSurah": 1,
+        "endVerseSurah": 6,
+        "startVerseGlobal": 6231,
+        "endVerseGlobal": 6236
+      }
+    ]
+  }
+}
