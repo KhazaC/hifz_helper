@@ -11,6 +11,7 @@ Built with React 19 + Vite 7. Zero backend — everything runs in your browser a
 - [Features](#features)
 - [Screenshots & UI Overview](#screenshots--ui-overview)
 - [Getting Started](#getting-started)
+- [Deploy to GitHub Pages](#deploy-to-github-pages)
 - [Architecture Overview](#architecture-overview)
 - [Data Model](#data-model)
 - [FSRS v4 Algorithm](#fsrs-v4-algorithm)
@@ -112,6 +113,25 @@ npm run preview
 ```
 
 **Requirements:** Node.js 18+, npm 9+
+
+---
+
+## Deploy to GitHub Pages
+
+1. Create a GitHub repository and push this project.
+2. In GitHub, go to **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+4. Run:
+
+```bash
+npm install
+npm run deploy
+```
+
+5. In **Pages**, set branch to `gh-pages` and folder to `/ (root)`.
+6. Your app will be available at `https://<your-username>.github.io/<your-repo-name>/`.
+
+The project is configured with a relative Vite base path (`./`) so it works correctly on GitHub Pages project URLs.
 
 ---
 
