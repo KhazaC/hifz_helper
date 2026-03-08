@@ -14,17 +14,18 @@ export function useQuranData() {
 
   useEffect(() => {
     let cancelled = false
+    const dataBase = `${import.meta.env.BASE_URL}data`
 
     Promise.all([
-      fetch('/data/surah_index.json').then(r => {
+      fetch(`${dataBase}/surah_index.json`).then(r => {
         if (!r.ok) throw new Error(`Failed to load surah_index.json (${r.status})`)
         return r.json()
       }),
-      fetch('/data/verse_data.json').then(r => {
+      fetch(`${dataBase}/verse_data.json`).then(r => {
         if (!r.ok) throw new Error(`Failed to load verse_data.json (${r.status})`)
         return r.json()
       }),
-      fetch('/data/pageMap.json').then(r => {
+      fetch(`${dataBase}/pageMap.json`).then(r => {
         if (!r.ok) throw new Error(`Failed to load pageMap.json (${r.status})`)
         return r.json()
       }),

@@ -230,7 +230,7 @@ function App() {
   // --- Test data ---
 
   const loadTestData = () => {
-    fetch('/data/test_data.json')
+    fetch(`${import.meta.env.BASE_URL}data/test_data.json`)
       .then(res => {
         if (!res.ok) throw new Error(`Failed to load test data (${res.status})`)
         return res.json()
