@@ -1,11 +1,21 @@
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import { NEW_PERIOD_DAYS, qualityLabels } from '../constants'
+
+/** Helper: keyboard handler for Enter/Space on clickable non-button elements */
+function handleKeyActivate(handler) {
+  return (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handler()
+    }
+  }
+}
 
 /**
  * Today's Revision Suggestions panel.
  * Shows new memorization (grouped by surah), FSRS due items, and upcoming items.
  */
-export default function SuggestionsPanel({
+const SuggestionsPanel = memo(function SuggestionsPanel({
   entries,
   newEntries,
   mergedOldEntries,
@@ -13,11 +23,11 @@ export default function SuggestionsPanel({
   upcomingFsrs,
   formatEntry,
   newEntriesBySurah,
-  sectionOpen,
-  toggleSection,
 }) {
+  const [sectionOpen, setSectionOpen] = useState({ new: true, old: true, coming: true })
   const [expandedNewSurahs, setExpandedNewSurahs] = useState({})
 
+  const toggle = (key) => setSectionOpen(prev => ({ ...prev, [key]: !prev[key] }))
   const toggleNewSurah = (surahNum) => {
     setExpandedNewSurahs(prev => ({ ...prev, [surahNum]: !prev[surahNum] }))
   }
@@ -29,7 +39,14 @@ export default function SuggestionsPanel({
 
       {newEntries.length > 0 && (
         <>
-          <h3 className="section-header" onClick={() => toggleSection('new')}>
+          <h3
+            className="section-header"
+            role="button"
+            tabIndex={0}
+            aria-expanded={sectionOpen.new}
+            onClick={() => toggle('new')}
+            onKeyDown={handleKeyActivate(() => toggle('new'))}
+          >
             <span className="expand-icon">{sectionOpen.new ? '▾' : '▸'}</span>
             New Memorization (daily for {NEW_PERIOD_DAYS} days) — {newEntries.length} entries
           </h3>
@@ -42,7 +59,14 @@ export default function SuggestionsPanel({
               : `${group.entries[0].startVerse}–${group.entries[group.entries.length - 1].endVerse}`
             return (
               <div key={group.surahNum} className="surah-group">
-                <div className="surah-group-header" onClick={() => toggleNewSurah(group.surahNum)}>
+                <div
+                  className="surah-group-header"
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={isExpanded}
+                  onClick={() => toggleNewSurah(group.surahNum)}
+                  onKeyDown={handleKeyActivate(() => toggleNewSurah(group.surahNum))}
+                >
                   <span className="expand-icon">{isExpanded ? '▾' : '▸'}</span>
                   <strong>{group.name}</strong>
                   <span className="surah-group-meta">
@@ -76,7 +100,14 @@ export default function SuggestionsPanel({
 
       {mergedOldEntries.length > 0 && (
         <>
-          <h3 className="section-header" onClick={() => toggleSection('old')}>
+          <h3
+            className="section-header"
+            role="button"
+            tabIndex={0}
+            aria-expanded={sectionOpen.old}
+            onClick={() => toggle('old')}
+            onKeyDown={handleKeyActivate(() => toggle('old'))}
+          >
             <span className="expand-icon">{sectionOpen.old ? '▾' : '▸'}</span>
             Old Memorization (FSRS) — {dueFsrs.length} due
           </h3>
@@ -112,7 +143,14 @@ export default function SuggestionsPanel({
               ))}
               {upcomingFsrs.length > 0 && (
                 <>
-                  <h3 className="section-header" onClick={() => toggleSection('coming')}>
+                  <h3
+                    className="section-header"
+                    role="button"
+                    tabIndex={0}
+                    aria-expanded={sectionOpen.coming}
+                    onClick={() => toggle('coming')}
+                    onKeyDown={handleKeyActivate(() => toggle('coming'))}
+                  >
                     <span className="expand-icon">{sectionOpen.coming ? '▾' : '▸'}</span>
                     Coming Up — {upcomingFsrs.length} entries
                   </h3>
@@ -140,4 +178,6 @@ export default function SuggestionsPanel({
       )}
     </div>
   )
-}
+})
+
+export default SuggestionsPanel

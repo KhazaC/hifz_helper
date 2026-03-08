@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import SurahVerseFields from './SurahVerseFields'
 import { qualityLabels } from '../constants'
 
@@ -6,7 +6,7 @@ import { qualityLabels } from '../constants'
  * Form for logging / editing revision entries.
  * Use a `key` prop on this component to force re-mount when switching between add/edit.
  */
-export default function RevisionForm({
+const RevisionForm = memo(function RevisionForm({
   surahs,
   getMaxVerses,
   editRevision,
@@ -40,13 +40,13 @@ export default function RevisionForm({
     if (!startSurah || !startVerse || !endSurah || !endVerse) return
 
     const revision = {
-      id: editRevision ? editRevision.id : Date.now(),
+      id: editRevision ? editRevision.id : crypto.randomUUID(),
       startSurah: Number(startSurah),
       startVerse,
       endSurah: Number(endSurah),
       endVerse,
       quality: Number(quality),
-      createdAt: editRevision ? new Date(date + 'T00:00:00').toISOString() : new Date(date + 'T00:00:00').toISOString(),
+      createdAt: new Date(date + 'T00:00:00').toISOString(),
       updatedAt: new Date().toISOString(),
     }
 
@@ -117,4 +117,6 @@ export default function RevisionForm({
       </div>
     </form>
   )
-}
+})
+
+export default RevisionForm

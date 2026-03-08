@@ -1,8 +1,10 @@
+import { memo } from 'react'
+
 /**
  * Reusable start/end surah + verse input fields.
  * Used by both the memorization form and the revision form.
  */
-export default function SurahVerseFields({
+const SurahVerseFields = memo(function SurahVerseFields({
   surahs,
   startSurah,
   startVerse,
@@ -71,4 +73,6 @@ export default function SurahVerseFields({
       </div>
     </>
   )
-}
+})
+
+export default SurahVerseFields

@@ -1,23 +1,10 @@
 /**
  * Page-based merging for old memorization entries.
  *
- * Uses verse_data.json to determine which page(s) each entry spans,
- * then merges entries that share the same page into a single combined entry.
+ * Uses a pre-built pageMap (surah:verse → pageNum) and verse_data.json
+ * to determine which page(s) each entry spans, then merges entries that
+ * share the same page into a single combined entry.
  */
-
-/**
- * Build a lookup: (surahNum, verseNum) → pageNum
- * from the verse_data pages object.
- */
-export function buildVersesToPageMap(verseData) {
-  const map = {} // "surah:verse" → pageNum
-  for (const [pageNum, pageInfo] of Object.entries(verseData.pages)) {
-    for (const v of pageInfo.verses) {
-      map[`${v.surahNum}:${v.verseNum}`] = Number(pageNum)
-    }
-  }
-  return map
-}
 
 /**
  * Parse a verse string like "5" or "5.2" into its integer verse number.
@@ -78,27 +65,19 @@ function getPageBounds(pageNum, verseData) {
 /**
  * Merge old entries that share the same page into combined page-level entries.
  *
- * For each page that has entries, the merged entry spans the full page bounds
- * (or the actual min/max of the entries on that page if they don't cover
- * the whole page — but since the goal is to revise by page, we use page bounds).
- *
- * The merged entry keeps the earliest createdAt from its source entries,
- * and collects source entry IDs for reference.
- *
  * @param {Array} oldEntries - Entries that are >= 21 days old
  * @param {object} verseData - The verse_data.json object
+ * @param {object} pageMap - Pre-built "surah:verse" → pageNum map (from pageMap.json)
  * @returns {Array} Merged entries grouped by page
  */
-export function mergeByPage(oldEntries, verseData) {
-  if (!verseData || !verseData.pages || oldEntries.length === 0) return oldEntries
-
-  const verseToPage = buildVersesToPageMap(verseData)
+export function mergeByPage(oldEntries, verseData, pageMap) {
+  if (!verseData || !verseData.pages || !pageMap || oldEntries.length === 0) return oldEntries
 
   // Map page → list of entries on that page
-  const pageGroups = {} // pageNum → { entries: [], bounds }
+  const pageGroups = {} // pageNum → { entries: [] }
 
   for (const entry of oldEntries) {
-    const pages = getPagesForEntry(entry, verseToPage)
+    const pages = getPagesForEntry(entry, pageMap)
     for (const pageNum of pages) {
       if (!pageGroups[pageNum]) {
         pageGroups[pageNum] = { entries: [] }

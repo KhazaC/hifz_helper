@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import SurahVerseFields from './SurahVerseFields'
 
 /**
  * Form for logging / editing memorization entries.
  * Use a `key` prop on this component to force re-mount when switching between add/edit.
  */
-export default function MemorizationForm({
+const MemorizationForm = memo(function MemorizationForm({
   surahs,
   getMaxVerses,
   editEntry,
@@ -37,12 +37,12 @@ export default function MemorizationForm({
     if (!startSurah || !startVerse || !endSurah || !endVerse) return
 
     const entry = {
-      id: editEntry ? editEntry.id : Date.now(),
+      id: editEntry ? editEntry.id : crypto.randomUUID(),
       startSurah: Number(startSurah),
       startVerse,
       endSurah: Number(endSurah),
       endVerse,
-      createdAt: editEntry ? new Date(date + 'T00:00:00').toISOString() : new Date(date + 'T00:00:00').toISOString(),
+      createdAt: new Date(date + 'T00:00:00').toISOString(),
       updatedAt: new Date().toISOString(),
     }
 
@@ -93,4 +93,6 @@ export default function MemorizationForm({
       </div>
     </form>
   )
-}
+})
+
+export default MemorizationForm

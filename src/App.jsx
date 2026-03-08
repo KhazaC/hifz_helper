@@ -1,8 +1,9 @@
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import { computeSuggestions } from './fsrs'
 import { mergeByPage } from './pageMerge'
 import { useQuranData } from './hooks/useQuranData'
-import { NEW_PERIOD_DAYS } from './constants'
+import { useDebouncedWrite } from './hooks/useDebounce'
+import { NEW_PERIOD_DAYS, SCHEMA_VERSION, STORAGE_KEYS } from './constants'
 import SuggestionsPanel from './components/SuggestionsPanel'
 import RevisionForm from './components/RevisionForm'
 import RevisionLog from './components/RevisionLog'
@@ -10,39 +11,52 @@ import MemorizationForm from './components/MemorizationForm'
 import MemorizedSections from './components/MemorizedSections'
 import './App.css'
 
+/** Crash-safe JSON parse with fallback */
+function safeParse(raw, fallback = []) {
+  if (!raw) return fallback
+  try {
+    const parsed = JSON.parse(raw)
+    return Array.isArray(parsed) ? parsed : fallback
+  } catch {
+    console.warn('Corrupt localStorage data, resetting to default')
+    return fallback
+  }
+}
+
+/** Check schema version and clear stale data if needed */
+function migrateIfNeeded() {
+  const stored = Number(localStorage.getItem(STORAGE_KEYS.SCHEMA) || 0)
+  if (stored < SCHEMA_VERSION) {
+    // Currently v1 — no migrations needed yet, just stamp
+    localStorage.setItem(STORAGE_KEYS.SCHEMA, String(SCHEMA_VERSION))
+  }
+}
+
 function App() {
-  const { surahs, verseData, getSurahName, getMaxVerses } = useQuranData()
+  const { surahs, verseData, pageMap, isLoading, error, getSurahName, getMaxVerses } = useQuranData()
 
   const [entries, setEntries] = useState(() => {
-    const saved = localStorage.getItem('quran-memorization-entries')
-    return saved ? JSON.parse(saved) : []
+    migrateIfNeeded()
+    return safeParse(localStorage.getItem(STORAGE_KEYS.ENTRIES))
   })
   const [revisions, setRevisions] = useState(() => {
-    const saved = localStorage.getItem('quran-revision-entries')
-    return saved ? JSON.parse(saved) : []
+    return safeParse(localStorage.getItem(STORAGE_KEYS.REVISIONS))
   })
 
   const [editingEntry, setEditingEntry] = useState(null)
   const [editingRevision, setEditingRevision] = useState(null)
-  const [sectionOpen, setSectionOpen] = useState({
-    new: true, old: true, coming: true,
-    memorized: true, newMem: true, oldMem: true, revLog: true,
-  })
 
-  const toggleSection = useCallback((key) => {
-    setSectionOpen(prev => ({ ...prev, [key]: !prev[key] }))
+  // Debounced localStorage persistence (300ms)
+  const writeEntries = useCallback((val) => {
+    localStorage.setItem(STORAGE_KEYS.ENTRIES, JSON.stringify(val))
   }, [])
+  const writeRevisions = useCallback((val) => {
+    localStorage.setItem(STORAGE_KEYS.REVISIONS, JSON.stringify(val))
+  }, [])
+  useDebouncedWrite(entries, writeEntries)
+  useDebouncedWrite(revisions, writeRevisions)
 
-  // Persist to localStorage
-  useEffect(() => {
-    localStorage.setItem('quran-memorization-entries', JSON.stringify(entries))
-  }, [entries])
-
-  useEffect(() => {
-    localStorage.setItem('quran-revision-entries', JSON.stringify(revisions))
-  }, [revisions])
-
-  // --- Derived data ---
+  // --- Derived data (all memoized) ---
 
   const formatEntry = useCallback((entry) => {
     const startName = getSurahName(entry.startSurah)
@@ -65,19 +79,31 @@ function App() {
         oldE.push(entry)
       }
     }
-    // Sort newest first
     newE.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-    const merged = verseData ? mergeByPage(oldE, verseData) : oldE
+    const merged = (verseData && pageMap) ? mergeByPage(oldE, verseData, pageMap) : oldE
     merged.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     return { newEntries: newE, oldEntries: oldE, mergedOldEntries: merged }
-  }, [entries, verseData])
+  }, [entries, verseData, pageMap])
 
   const fsrsSuggestions = useMemo(
     () => computeSuggestions(mergedOldEntries, revisions),
     [mergedOldEntries, revisions]
   )
-  const dueFsrs = fsrsSuggestions.filter(s => s.dueIn <= 0)
-  const upcomingFsrs = fsrsSuggestions.filter(s => s.dueIn > 0).slice(0, 5)
+
+  const dueFsrs = useMemo(
+    () => fsrsSuggestions.filter(s => s.dueIn <= 0),
+    [fsrsSuggestions]
+  )
+
+  const upcomingFsrs = useMemo(
+    () => fsrsSuggestions.filter(s => s.dueIn > 0).slice(0, 5),
+    [fsrsSuggestions]
+  )
+
+  const sortedRevisions = useMemo(
+    () => [...revisions].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)),
+    [revisions]
+  )
 
   const newEntriesBySurah = useMemo(() => {
     const groups = {}
@@ -141,11 +167,15 @@ function App() {
 
   const loadTestData = () => {
     fetch('/data/test_data.json')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error(`Failed to load test data (${res.status})`)
+        return res.json()
+      })
       .then(data => {
         setEntries(data['quran-memorization-entries'])
         setRevisions(data['quran-revision-entries'])
       })
+      .catch(err => console.error('Failed to load test data:', err))
   }
 
   const clearAllData = () => {
@@ -153,6 +183,63 @@ function App() {
       setEntries([])
       setRevisions([])
     }
+  }
+
+  // --- Export / Import ---
+
+  const exportData = () => {
+    const data = {
+      'quran-memorization-entries': entries,
+      'quran-revision-entries': revisions,
+      exportedAt: new Date().toISOString(),
+      schemaVersion: SCHEMA_VERSION,
+    }
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `quran-tracker-backup-${new Date().toISOString().slice(0, 10)}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const importData = () => {
+    const input = document.createElement('input')
+    input.type = 'file'
+    input.accept = '.json'
+    input.onchange = (e) => {
+      const file = e.target.files[0]
+      if (!file) return
+      const reader = new FileReader()
+      reader.onload = (ev) => {
+        try {
+          const data = JSON.parse(ev.target.result)
+          const importedEntries = data['quran-memorization-entries']
+          const importedRevisions = data['quran-revision-entries']
+          if (!Array.isArray(importedEntries) || !Array.isArray(importedRevisions)) {
+            throw new Error('Invalid data format')
+          }
+          if (window.confirm(`Import ${importedEntries.length} entries and ${importedRevisions.length} revisions? This will replace current data.`)) {
+            setEntries(importedEntries)
+            setRevisions(importedRevisions)
+          }
+        } catch (err) {
+          alert('Failed to import: ' + err.message)
+        }
+      }
+      reader.readAsText(file)
+    }
+    input.click()
+  }
+
+  // --- Loading / Error states ---
+
+  if (isLoading) {
+    return <div className="app"><p>Loading Quran data…</p></div>
+  }
+
+  if (error) {
+    return <div className="app"><p style={{ color: '#dc2626' }}>Error loading data: {error}</p></div>
   }
 
   return (
@@ -167,8 +254,6 @@ function App() {
         upcomingFsrs={upcomingFsrs}
         formatEntry={formatEntry}
         newEntriesBySurah={newEntriesBySurah}
-        sectionOpen={sectionOpen}
-        toggleSection={toggleSection}
       />
 
       <hr className="section-divider" />
@@ -183,12 +268,10 @@ function App() {
       />
 
       <RevisionLog
-        revisions={[...revisions].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))}
+        revisions={sortedRevisions}
         formatEntry={formatEntry}
         onEdit={handleRevisionEdit}
         onDelete={handleRevisionDelete}
-        sectionOpen={sectionOpen}
-        toggleSection={toggleSection}
       />
 
       <hr className="section-divider" />
@@ -210,12 +293,12 @@ function App() {
         formatEntry={formatEntry}
         onEdit={handleMemorizationEdit}
         onDelete={handleMemorizationDelete}
-        sectionOpen={sectionOpen}
-        toggleSection={toggleSection}
       />
 
       <hr className="section-divider" />
       <div className="test-data-controls">
+        <button onClick={exportData} className="test-btn">Export Data</button>
+        <button onClick={importData} className="test-btn">Import Data</button>
         <button onClick={loadTestData} className="test-btn">Load Test Data</button>
         <button onClick={clearAllData} className="test-btn clear-btn">Clear All Data</button>
       </div>

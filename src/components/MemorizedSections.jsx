@@ -1,10 +1,20 @@
-import { useState } from 'react'
+import { useState, memo } from 'react'
+
+/** Helper: keyboard handler for Enter/Space on clickable non-button elements */
+function handleKeyActivate(handler) {
+  return (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handler()
+    }
+  }
+}
 
 /**
  * Displays memorized sections split into New and Old (merged by page),
  * with collapsible subsections and pagination.
  */
-export default function MemorizedSections({
+const MemorizedSections = memo(function MemorizedSections({
   entries,
   newEntries,
   oldEntries,
@@ -12,15 +22,29 @@ export default function MemorizedSections({
   formatEntry,
   onEdit,
   onDelete,
-  sectionOpen,
-  toggleSection,
 }) {
+  const [sectionOpen, setSectionOpen] = useState({ memorized: true, newMem: true, oldMem: true })
   const [newShowCount, setNewShowCount] = useState(5)
   const [oldShowCount, setOldShowCount] = useState(5)
 
+  const toggle = (key) => setSectionOpen(prev => ({ ...prev, [key]: !prev[key] }))
+
+  const confirmDelete = (id) => {
+    if (window.confirm('Delete this memorized section?')) {
+      onDelete(id)
+    }
+  }
+
   return (
     <div className="entries">
-      <h2 className="section-header" onClick={() => toggleSection('memorized')}>
+      <h2
+        className="section-header"
+        role="button"
+        tabIndex={0}
+        aria-expanded={sectionOpen.memorized}
+        onClick={() => toggle('memorized')}
+        onKeyDown={handleKeyActivate(() => toggle('memorized'))}
+      >
         <span className="toggle-icon">{sectionOpen.memorized ? '▾' : '▸'}</span>
         Memorized Sections ({entries.length})
       </h2>
@@ -30,7 +54,14 @@ export default function MemorizedSections({
 
           {newEntries.length > 0 && (
             <>
-              <h3 className="bucket-label section-header" onClick={() => toggleSection('newMem')}>
+              <h3
+                className="bucket-label section-header"
+                role="button"
+                tabIndex={0}
+                aria-expanded={sectionOpen.newMem}
+                onClick={() => toggle('newMem')}
+                onKeyDown={handleKeyActivate(() => toggle('newMem'))}
+              >
                 <span className="toggle-icon">{sectionOpen.newMem ? '▾' : '▸'}</span>
                 New ({newEntries.length})
               </h3>
@@ -48,7 +79,7 @@ export default function MemorizedSections({
                       </div>
                       <div className="entry-actions">
                         <button onClick={() => onEdit(entry)} className="edit-btn">Edit</button>
-                        <button onClick={() => onDelete(entry.id)} className="delete-btn">Delete</button>
+                        <button onClick={() => confirmDelete(entry.id)} className="delete-btn">Delete</button>
                       </div>
                     </div>
                   ))}
@@ -69,7 +100,14 @@ export default function MemorizedSections({
 
           {oldEntries.length > 0 && (
             <>
-              <h3 className="bucket-label section-header" onClick={() => toggleSection('oldMem')}>
+              <h3
+                className="bucket-label section-header"
+                role="button"
+                tabIndex={0}
+                aria-expanded={sectionOpen.oldMem}
+                onClick={() => toggle('oldMem')}
+                onKeyDown={handleKeyActivate(() => toggle('oldMem'))}
+              >
                 <span className="toggle-icon">{sectionOpen.oldMem ? '▾' : '▸'}</span>
                 Old — by page ({mergedOldEntries.length} pages from {oldEntries.length} entries)
               </h3>
@@ -109,4 +147,6 @@ export default function MemorizedSections({
       )}
     </div>
   )
-}
+})
+
+export default MemorizedSections

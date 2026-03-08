@@ -1,26 +1,50 @@
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import { qualityLabels } from '../constants'
+
+/** Helper: keyboard handler for Enter/Space on clickable non-button elements */
+function handleKeyActivate(handler) {
+  return (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handler()
+    }
+  }
+}
 
 /**
  * Displays the revision log with collapsibility and pagination.
  */
-export default function RevisionLog({
+const RevisionLog = memo(function RevisionLog({
   revisions,
   formatEntry,
   onEdit,
   onDelete,
-  sectionOpen,
-  toggleSection,
 }) {
+  const [isOpen, setIsOpen] = useState(true)
   const [showCount, setShowCount] = useState(5)
+
+  const toggle = () => setIsOpen(prev => !prev)
+
+  const confirmDelete = (id) => {
+    if (window.confirm('Delete this revision entry?')) {
+      onDelete(id)
+    }
+  }
 
   return (
     <div className="entries">
-      <h2 className="section-header" onClick={() => toggleSection('revLog')}>
-        <span className="toggle-icon">{sectionOpen.revLog ? '▾' : '▸'}</span>
+      <h2
+        className="section-header"
+        role="button"
+        tabIndex={0}
+        aria-expanded={isOpen}
+        onClick={toggle}
+        onKeyDown={handleKeyActivate(toggle)}
+      >
+        <span className="toggle-icon">{isOpen ? '▾' : '▸'}</span>
         Revision Log ({revisions.length})
       </h2>
-      {sectionOpen.revLog && (
+      {isOpen && (
         <>
           {revisions.length === 0 && <p className="empty">No revisions yet.</p>}
           {revisions.slice(0, showCount).map(rev => (
@@ -35,7 +59,7 @@ export default function RevisionLog({
               </div>
               <div className="entry-actions">
                 <button onClick={() => onEdit(rev)} className="edit-btn">Edit</button>
-                <button onClick={() => onDelete(rev.id)} className="delete-btn">Delete</button>
+                <button onClick={() => confirmDelete(rev.id)} className="delete-btn">Delete</button>
               </div>
             </div>
           ))}
@@ -53,4 +77,6 @@ export default function RevisionLog({
       )}
     </div>
   )
-}
+})
+
+export default RevisionLog

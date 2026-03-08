@@ -24,6 +24,7 @@ h2 {
   display: flex;
   gap: 1rem;
   margin-bottom: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .form-group {
