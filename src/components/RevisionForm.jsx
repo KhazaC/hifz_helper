@@ -13,11 +13,13 @@ export default function RevisionForm({
   onSubmit,
   onCancel,
 }) {
+  const todayStr = new Date().toISOString().slice(0, 10)
   const [startSurah, setStartSurah] = useState(editRevision ? String(editRevision.startSurah) : '')
   const [startVerse, setStartVerse] = useState(editRevision ? editRevision.startVerse : '')
   const [endSurah, setEndSurah] = useState(editRevision ? String(editRevision.endSurah) : '')
   const [endVerse, setEndVerse] = useState(editRevision ? editRevision.endVerse : '')
   const [quality, setQuality] = useState(editRevision ? String(editRevision.quality) : '3')
+  const [date, setDate] = useState(editRevision ? editRevision.createdAt.slice(0, 10) : todayStr)
 
   const clearFields = () => {
     setStartSurah('')
@@ -25,6 +27,7 @@ export default function RevisionForm({
     setEndSurah('')
     setEndVerse('')
     setQuality('3')
+    setDate(todayStr)
   }
 
   const handleStartSurahChange = (val) => {
@@ -43,7 +46,7 @@ export default function RevisionForm({
       endSurah: Number(endSurah),
       endVerse,
       quality: Number(quality),
-      createdAt: editRevision ? editRevision.createdAt : new Date().toISOString(),
+      createdAt: editRevision ? new Date(date + 'T00:00:00').toISOString() : new Date(date + 'T00:00:00').toISOString(),
       updatedAt: new Date().toISOString(),
     }
 
@@ -92,6 +95,19 @@ export default function RevisionForm({
               </label>
             ))}
           </div>
+        </div>
+      </div>
+
+      <div className="form-row">
+        <div className="form-group">
+          <label>Date</label>
+          <input
+            type="date"
+            value={date}
+            onChange={e => setDate(e.target.value)}
+            max={todayStr}
+          />
+          <span className="hint">Use a past date to backlog</span>
         </div>
       </div>
 

@@ -65,7 +65,10 @@ function App() {
         oldE.push(entry)
       }
     }
+    // Sort newest first
+    newE.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     const merged = verseData ? mergeByPage(oldE, verseData) : oldE
+    merged.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     return { newEntries: newE, oldEntries: oldE, mergedOldEntries: merged }
   }, [entries, verseData])
 
@@ -180,7 +183,7 @@ function App() {
       />
 
       <RevisionLog
-        revisions={revisions}
+        revisions={[...revisions].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))}
         formatEntry={formatEntry}
         onEdit={handleRevisionEdit}
         onDelete={handleRevisionDelete}

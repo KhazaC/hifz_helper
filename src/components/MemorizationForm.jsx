@@ -12,16 +12,19 @@ export default function MemorizationForm({
   onSubmit,
   onCancel,
 }) {
+  const todayStr = new Date().toISOString().slice(0, 10)
   const [startSurah, setStartSurah] = useState(editEntry ? String(editEntry.startSurah) : '')
   const [startVerse, setStartVerse] = useState(editEntry ? editEntry.startVerse : '')
   const [endSurah, setEndSurah] = useState(editEntry ? String(editEntry.endSurah) : '')
   const [endVerse, setEndVerse] = useState(editEntry ? editEntry.endVerse : '')
+  const [date, setDate] = useState(editEntry ? editEntry.createdAt.slice(0, 10) : todayStr)
 
   const clearFields = () => {
     setStartSurah('')
     setStartVerse('')
     setEndSurah('')
     setEndVerse('')
+    setDate(todayStr)
   }
 
   const handleStartSurahChange = (val) => {
@@ -39,7 +42,7 @@ export default function MemorizationForm({
       startVerse,
       endSurah: Number(endSurah),
       endVerse,
-      createdAt: editEntry ? editEntry.createdAt : new Date().toISOString(),
+      createdAt: editEntry ? new Date(date + 'T00:00:00').toISOString() : new Date(date + 'T00:00:00').toISOString(),
       updatedAt: new Date().toISOString(),
     }
 
@@ -70,6 +73,19 @@ export default function MemorizationForm({
         onEndVerseChange={setEndVerse}
         getMaxVerses={getMaxVerses}
       />
+
+      <div className="form-row">
+        <div className="form-group">
+          <label>Date</label>
+          <input
+            type="date"
+            value={date}
+            onChange={e => setDate(e.target.value)}
+            max={todayStr}
+          />
+          <span className="hint">Use a past date to backlog</span>
+        </div>
+      </div>
 
       <div className="form-actions">
         <button type="submit">{isEditing ? 'Update' : 'Add Entry'}</button>
