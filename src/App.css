@@ -453,9 +453,20 @@ h2 {
   color: #4c1d95;
 }
 
-/* Surah group collapsible */
+.new-surah-group .surah-group-header {
+  background: #ddd6fe;
+}
+
+.new-surah-group .suggestion-card.new-memorization.nested {
+  margin-left: 0;
+}
+
+/* Surah group collapsible (old memorization) */
 .surah-group {
   margin-bottom: 0.35rem;
+  background: #f5f3ff;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .surah-group-header {
@@ -465,12 +476,19 @@ h2 {
   padding: 0.5rem 0.8rem;
   background: #ddd6fe;
   border-radius: 6px;
+}
+
+.surah-group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
   cursor: pointer;
   user-select: none;
 }
 
-.surah-group-header:hover {
-  background: #c4b5fd;
+.surah-group-header:hover .surah-group-title {
+  opacity: 0.85;
 }
 
 .expand-icon {
@@ -484,10 +502,25 @@ h2 {
   font-size: 0.78rem;
   color: #6b21a8;
   margin-left: auto;
+  white-space: nowrap;
 }
 
 .surah-group-entries {
-  padding: 0.3rem 0;
+  padding: 0.3rem 0.5rem;
+}
+
+.surah-group-menu {
+  padding: 0 0.8rem 0.3rem;
+}
+
+.surah-upcoming-divider {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.72rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-top: 1px dashed #d1d5db;
+  margin-top: 0.3rem;
 }
 
 /* Page group (new memorization by page) */

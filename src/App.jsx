@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
-import { computeSuggestions, applyRevisionToSnapshot, rebuildSnapshot } from './fsrs'
+import { computeSurahSuggestions, getVersesInRange, applyRevisionToSnapshot, rebuildSnapshot } from './fsrs'
 import { mergeByPage, resolvePartialVerses, getPagesForEntry, getPageBounds } from './pageMerge'
 import { useQuranData } from './hooks/useQuranData'
 import { useDebouncedWrite } from './hooks/useDebounce'
@@ -115,19 +115,49 @@ function App() {
     return { newEntries: newE, oldEntries: oldE, mergedOldEntries: merged }
   }, [entries, verseData, pageMap])
 
-  const fsrsSuggestions = useMemo(
-    () => computeSuggestions(mergedOldEntries, verseSnapshot, verseData),
-    [mergedOldEntries, verseSnapshot, verseData]
+  const surahSuggestions = useMemo(
+    () => computeSurahSuggestions(oldEntries, verseSnapshot, verseData, pageMap),
+    [oldEntries, verseSnapshot, verseData, pageMap]
   )
 
-  const dueFsrs = useMemo(
-    () => fsrsSuggestions.filter(s => s.dueIn <= 0),
-    [fsrsSuggestions]
+  // Surahs that have at least one memorized verse (for revision form scoping)
+  const memorizedSurahNums = useMemo(() => {
+    const nums = new Set()
+    for (const entry of entries) {
+      for (let s = Number(entry.startSurah); s <= Number(entry.endSurah); s++) {
+        nums.add(s)
+      }
+    }
+    return nums
+  }, [entries])
+
+  // Surahs fully memorized (for memorization form scoping)
+  const fullyMemorizedSurahNums = useMemo(() => {
+    if (!verseData || !surahs.length || !entries.length) return new Set()
+    const memorizedBySurah = {}
+    for (const entry of entries) {
+      const verses = getVersesInRange(entry.startSurah, entry.startVerse, entry.endSurah, entry.endVerse, verseData)
+      for (const v of verses) {
+        if (!memorizedBySurah[v.surahNum]) memorizedBySurah[v.surahNum] = new Set()
+        memorizedBySurah[v.surahNum].add(v.verseNum)
+      }
+    }
+    const full = new Set()
+    for (const surah of surahs) {
+      const mem = memorizedBySurah[surah.num]
+      if (mem && mem.size >= surah.numVerses) full.add(surah.num)
+    }
+    return full
+  }, [entries, verseData, surahs])
+
+  const revisionSurahs = useMemo(
+    () => surahs.filter(s => memorizedSurahNums.has(s.num)),
+    [surahs, memorizedSurahNums]
   )
 
-  const upcomingFsrs = useMemo(
-    () => fsrsSuggestions.filter(s => s.dueIn > 0).slice(0, 5),
-    [fsrsSuggestions]
+  const memorizationSurahs = useMemo(
+    () => surahs.filter(s => !fullyMemorizedSurahNums.has(s.num)),
+    [surahs, fullyMemorizedSurahNums]
   )
 
   const sortedRevisions = useMemo(
@@ -317,12 +347,10 @@ function App() {
       <SuggestionsPanel
         entries={entries}
         newEntries={newEntries}
-        mergedOldEntries={mergedOldEntries}
-        dueFsrs={dueFsrs}
-        upcomingFsrs={upcomingFsrs}
+        surahSuggestions={surahSuggestions}
+        revisions={revisions}
         formatEntry={formatEntry}
-        newEntriesByPage={newEntriesByPage}
-        pageMap={pageMap}
+        getSurahName={getSurahName}
         onLogRevision={handleQuickRevision}
       />
 
@@ -330,7 +358,7 @@ function App() {
 
       <RevisionForm
         key={editingRevision ? editingRevision.id : 'new-rev'}
-        surahs={surahs}
+        surahs={editingRevision ? surahs : revisionSurahs}
         getMaxVerses={getMaxVerses}
         editRevision={editingRevision}
         onSubmit={handleRevisionSubmit}
@@ -348,7 +376,7 @@ function App() {
 
       <MemorizationForm
         key={editingEntry ? editingEntry.id : 'new-mem'}
-        surahs={surahs}
+        surahs={editingEntry ? surahs : memorizationSurahs}
         getMaxVerses={getMaxVerses}
         editEntry={editingEntry}
         onSubmit={handleMemorizationSubmit}

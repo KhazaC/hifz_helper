@@ -167,7 +167,7 @@ function comparePositions(surahA, verseA, surahB, verseB) {
  * Get all verses in a surah:verse range by scanning verseData pages.
  * Returns an array of { surahNum, verseNum }.
  */
-function getVersesInRange(startSurah, startVerse, endSurah, endVerse, verseData) {
+export function getVersesInRange(startSurah, startVerse, endSurah, endVerse, verseData) {
   if (!verseData || !verseData.pages) return []
   const s0 = Number(startSurah)
   const v0 = Math.floor(Number(startVerse))
@@ -360,4 +360,176 @@ export function computeSuggestions(memorized, verseSnapshot, verseData) {
   })
 
   return suggestions
+}
+
+// === Surah-based suggestion computation ===
+
+/**
+ * Finalize a verse group with aggregated FSRS stats.
+ */
+function finalizeGroup(group) {
+  const vs = group.verses
+  const totalVerses = vs.length
+  const reviewedVerses = vs.filter(v => v.reviewed).length
+  const avgRetention = vs.reduce((s, v) => s + v.retention, 0) / totalVerses
+  const avgReviews = vs.reduce((s, v) => s + v.reps, 0) / totalVerses
+  const minDueIn = Math.min(...vs.map(v => v.dueIn))
+
+  return {
+    surahNum: group.surahNum,
+    pageNum: group.pageNum,
+    startVerse: group.startVerse,
+    endVerse: group.endVerse,
+    // For InlineRevisionMenu compatibility
+    startSurah: group.surahNum,
+    endSurah: group.surahNum,
+    totalVerses,
+    reviewedVerses,
+    avgRetention,
+    avgReviews: Math.round(avgReviews * 10) / 10,
+    minDueIn: Math.round(minDueIn * 10) / 10,
+    isDue: minDueIn <= 0,
+    overdueDays: Math.max(0, Math.round(-minDueIn * 10) / 10),
+  }
+}
+
+/**
+ * Compute revision suggestions organized by Surah → Page → Verse groups.
+ *
+ * Uses date-only (no time component) for elapsed-day calculations so that
+ * items due "today" (dueIn == 0) correctly appear in the due list.
+ *
+ * @param {Array} oldEntries - Memorized entries >= 21 days old (resolved partial verses)
+ * @param {object} verseSnapshot - Per-verse FSRS snapshot
+ * @param {object} verseData - verse_data.json
+ * @param {object} pageMap - "surah:verse" -> pageNum
+ * @returns {Array} Surah-level suggestion objects sorted by urgency
+ */
+export function computeSurahSuggestions(oldEntries, verseSnapshot, verseData, pageMap) {
+  if (!verseData?.pages || !pageMap) return []
+  if (!verseSnapshot) verseSnapshot = {}
+
+  const now = new Date()
+  const nowDateOnly = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+  const DAY_MS = 1000 * 60 * 60 * 24
+  const MAX_INTERVAL_DAYS = 14
+
+  // Step 1: Collect all memorized verse positions
+  const memorizedVerseSet = new Set()
+  for (const entry of oldEntries) {
+    const verses = getVersesInRange(
+      entry.startSurah, entry.startVerse,
+      entry.endSurah, entry.endVerse, verseData
+    )
+    for (const v of verses) {
+      memorizedVerseSet.add(`${v.surahNum}:${v.verseNum}`)
+    }
+  }
+
+  // Step 2: For each memorized verse, compute FSRS state using date-only math
+  const verseInfos = []
+  for (const key of memorizedVerseSet) {
+    const [surahNum, verseNum] = key.split(':').map(Number)
+    const pageNum = pageMap[key]
+    if (!pageNum) continue
+
+    const card = verseSnapshot[key]
+    let dueIn, retention, reps, reviewed
+
+    if (!card) {
+      dueIn = 0; retention = 0; reps = 0; reviewed = false
+    } else {
+      const lr = new Date(card.lastReview)
+      const lastDateOnly = new Date(lr.getFullYear(), lr.getMonth(), lr.getDate())
+      const d = (nowDateOnly - lastDateOnly) / DAY_MS
+      retention = retrievability(d, card.stability)
+      const interval = Math.min(nextInterval(card.stability), MAX_INTERVAL_DAYS)
+      dueIn = interval - d
+      reps = card.reps
+      reviewed = true
+    }
+
+    verseInfos.push({ surahNum, verseNum, pageNum, dueIn, retention, reps, reviewed })
+  }
+
+  // Step 3: Group by surah -> page
+  const surahPageGroups = {}
+  for (const vi of verseInfos) {
+    if (!surahPageGroups[vi.surahNum]) surahPageGroups[vi.surahNum] = {}
+    if (!surahPageGroups[vi.surahNum][vi.pageNum]) surahPageGroups[vi.surahNum][vi.pageNum] = []
+    surahPageGroups[vi.surahNum][vi.pageNum].push(vi)
+  }
+
+  // Step 4: Build verse groups for each surah
+  const surahSuggestions = []
+
+  for (const [surahNumStr, pages] of Object.entries(surahPageGroups)) {
+    const surahNum = Number(surahNumStr)
+    const allGroups = []
+
+    for (const [pageNumStr, verses] of Object.entries(pages)) {
+      const pageNum = Number(pageNumStr)
+      verses.sort((a, b) => a.verseNum - b.verseNum)
+
+      // Group consecutive verses on the same page into ranges
+      let currentGroup = null
+      for (const v of verses) {
+        if (currentGroup && v.verseNum === currentGroup.endVerse + 1) {
+          currentGroup.endVerse = v.verseNum
+          currentGroup.verses.push(v)
+        } else {
+          if (currentGroup) allGroups.push(finalizeGroup(currentGroup))
+          currentGroup = {
+            surahNum,
+            pageNum,
+            startVerse: v.verseNum,
+            endVerse: v.verseNum,
+            verses: [v],
+          }
+        }
+      }
+      if (currentGroup) allGroups.push(finalizeGroup(currentGroup))
+    }
+
+    // Separate due vs upcoming
+    const dueGroups = allGroups.filter(g => g.isDue)
+    const upcomingGroups = allGroups
+      .filter(g => !g.isDue)
+      .sort((a, b) => a.minDueIn - b.minDueIn)
+
+    // Determine overall surah memorized verse range (for whole-surah quick-log)
+    let minVerse = Infinity, maxVerse = -Infinity
+    for (const g of allGroups) {
+      if (g.startVerse < minVerse) minVerse = g.startVerse
+      if (g.endVerse > maxVerse) maxVerse = g.endVerse
+    }
+
+    surahSuggestions.push({
+      surahNum,
+      startSurah: surahNum,
+      endSurah: surahNum,
+      startVerse: String(minVerse),
+      endVerse: String(maxVerse),
+      allGroups,
+      dueGroups,
+      upcomingGroups,
+      totalDueGroups: dueGroups.length,
+      totalGroups: allGroups.length,
+      isDue: dueGroups.length > 0,
+      minDueIn: allGroups.length > 0
+        ? Math.round(Math.min(...allGroups.map(g => g.minDueIn)) * 10) / 10
+        : Infinity,
+      avgRetention: allGroups.length > 0
+        ? allGroups.reduce((s, g) => s + g.avgRetention, 0) / allGroups.length
+        : 0,
+    })
+  }
+
+  // Sort: most urgent first (due surahs first, then by earliest dueIn)
+  surahSuggestions.sort((a, b) => {
+    if (a.isDue !== b.isDue) return a.isDue ? -1 : 1
+    return a.minDueIn - b.minDueIn
+  })
+
+  return surahSuggestions
 }
