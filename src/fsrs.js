@@ -145,92 +145,391 @@ export function sectionKey(entry) {
 }
 
 /**
- * Given all memorization entries and all revision logs,
- * compute FSRS state for each memorized section and return
- * suggestions sorted by urgency.
- *
- * @param {Array} memorized - Memorization entries
- * @param {Array} revisions - Revision log entries (with quality 1-5)
- * @returns {Array} Suggestions sorted by most overdue first
+ * Parse a verse string like "5" or "5.2" into a comparable number.
+ * "5.2" → 5.2 so fractional positions sort correctly.
  */
-export function computeSuggestions(memorized, revisions) {
-  const now = new Date()
-  const MAX_INTERVAL_DAYS = 14 // all old memorization must be revised at least every 14 days
+function verseNum(v) {
+  return Number(v)
+}
 
-  // Group revisions by section key, sorted by date
-  const revsBySection = {}
-  for (const rev of revisions) {
-    const key = sectionKey(rev)
-    if (!revsBySection[key]) revsBySection[key] = []
-    revsBySection[key].push(rev)
+/**
+ * Compare two (surah, verse) positions.
+ * Returns negative if a < b, 0 if equal, positive if a > b.
+ */
+function comparePositions(surahA, verseA, surahB, verseB) {
+  const sA = Number(surahA)
+  const sB = Number(surahB)
+  if (sA !== sB) return sA - sB
+  return verseNum(verseA) - verseNum(verseB)
+}
+
+/**
+ * Get all verses in a surah:verse range by scanning verseData pages.
+ * Returns an array of { surahNum, verseNum }.
+ */
+export function getVersesInRange(startSurah, startVerse, endSurah, endVerse, verseData) {
+  if (!verseData || !verseData.pages) return []
+  const s0 = Number(startSurah)
+  const v0 = Math.floor(Number(startVerse))
+  const s1 = Number(endSurah)
+  const v1 = Math.floor(Number(endVerse))
+  const result = []
+  for (const page of Object.values(verseData.pages)) {
+    if (!page.verses) continue
+    for (const v of page.verses) {
+      if (
+        comparePositions(s0, v0, v.surahNum, v.verseNum) <= 0 &&
+        comparePositions(v.surahNum, v.verseNum, s1, v1) <= 0
+      ) {
+        result.push(v)
+      }
+    }
   }
-  // Sort each section's revisions chronologically
-  for (const key of Object.keys(revsBySection)) {
-    revsBySection[key].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+  return result
+}
+
+/**
+ * Get individual verses for a memorized entry from verseData.
+ * Full-page entries use the page's verse list; partial entries scan by range.
+ * Returns an array of { surahNum, verseNum }.
+ */
+function getEntryVerses(entry, verseData) {
+  if (!verseData || !verseData.pages) return []
+  if (entry.pageNum) {
+    const page = verseData.pages[String(entry.pageNum)]
+    if (!page || !page.verses) return []
+    return page.verses
   }
+  return getVersesInRange(entry.startSurah, entry.startVerse, entry.endSurah, entry.endVerse, verseData)
+}
+
+// === Per-verse FSRS snapshot management ===
+
+/**
+ * Apply a single revision to the verse FSRS snapshot (mutates snapshot).
+ * Updates the FSRS card state for each verse in the revision's range.
+ *
+ * @param {object} snapshot - Map of "surahNum:verseNum" → { stability, difficulty, lastReview, reps }
+ * @param {object} revision - Revision with startSurah, startVerse, endSurah, endVerse, quality, createdAt
+ * @param {object} verseData - verse_data.json
+ */
+export function applyRevisionToSnapshot(snapshot, revision, verseData) {
+  if (!verseData || !verseData.pages) return
+  const grade = qualityToGrade(revision.quality)
+  const verses = getVersesInRange(
+    revision.startSurah, revision.startVerse,
+    revision.endSurah, revision.endVerse, verseData
+  )
+  for (const v of verses) {
+    const key = `${v.surahNum}:${v.verseNum}`
+    const card = snapshot[key] || null
+    snapshot[key] = processReview(card, grade, revision.createdAt)
+  }
+}
+
+/**
+ * Rebuild the entire verse FSRS snapshot from scratch by replaying all
+ * revisions in chronological order. Use after edit/delete of past revisions
+ * or data import.
+ *
+ * @param {Array} revisions - All revision entries
+ * @param {object} verseData - verse_data.json
+ * @returns {object} Fresh snapshot: "surahNum:verseNum" → card state
+ */
+export function rebuildSnapshot(revisions, verseData) {
+  if (!verseData || !verseData.pages) return {}
+  const snapshot = {}
+  const sorted = [...revisions].sort(
+    (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+  )
+  for (const rev of sorted) {
+    applyRevisionToSnapshot(snapshot, rev, verseData)
+  }
+  return snapshot
+}
+
+// === Suggestion computation (reads from snapshot) ===
+
+/**
+ * Compute FSRS suggestions from the pre-built per-verse snapshot.
+ * Reads card states directly — no revision replay needed.
+ *
+ * Each verse on a page is tracked independently. A page is "due" when any
+ * of its verses has dueIn ≤ 0. Displayed retention and review counts are
+ * averages across all verses on the page.
+ *
+ * @param {Array} memorized - Page-level memorization entries (from mergeByPage)
+ * @param {object} verseSnapshot - Pre-built snapshot: "surahNum:verseNum" → card state
+ * @param {object|null} verseData - verse_data.json (pages → verses)
+ * @returns {Array} Suggestions sorted by most urgent first
+ */
+export function computeSuggestions(memorized, verseSnapshot, verseData) {
+  const now = new Date()
+  const MAX_INTERVAL_DAYS = 14
+  const DAY_MS = 1000 * 60 * 60 * 24
+  if (!verseSnapshot) verseSnapshot = {}
 
   const suggestions = []
 
   for (const entry of memorized) {
     const key = sectionKey(entry)
-    const sectionRevs = revsBySection[key] || []
+    const verses = getEntryVerses(entry, verseData)
 
-    // Replay all reviews through FSRS
-    let card = null
-    for (const rev of sectionRevs) {
-      const grade = qualityToGrade(rev.quality)
-      card = processReview(card, grade, rev.createdAt)
-    }
-
-    if (!card) {
-      // Never revised → treat as brand new, due immediately
-      suggestions.push({
-        ...entry,
-        key,
-        stability: 0,
-        difficulty: 5,
-        retrievability: 0,
-        daysSinceReview: null,
-        dueIn: 0, // due now
-        overdueDays: Infinity,
-        totalReviews: 0,
-        lastQuality: null,
-      })
+    // ---- Fallback: no verse data → look up start verse in snapshot ----
+    if (verses.length === 0) {
+      const vKey = `${entry.startSurah}:${Math.floor(Number(entry.startVerse))}`
+      const card = verseSnapshot[vKey]
+      if (!card) {
+        suggestions.push({
+          ...entry, key, stability: 0, difficulty: 5, retrievability: 0,
+          daysSinceReview: null, dueIn: 0, overdueDays: Infinity,
+          totalReviews: 0, lastQuality: null, reviewedVerses: 0, totalVerses: 1,
+        })
+      } else {
+        const d = (now - new Date(card.lastReview)) / DAY_MS
+        const R = retrievability(d, card.stability)
+        const interval = Math.min(nextInterval(card.stability), MAX_INTERVAL_DAYS)
+        suggestions.push({
+          ...entry, key,
+          stability: card.stability, difficulty: card.difficulty, retrievability: R,
+          daysSinceReview: Math.round(d * 10) / 10,
+          dueIn: Math.round((interval - d) * 10) / 10,
+          overdueDays: Math.round(-(interval - d) * 10) / 10,
+          totalReviews: card.reps, lastQuality: null,
+          reviewedVerses: 1, totalVerses: 1,
+        })
+      }
       continue
     }
 
-    const daysSinceReview = (now - new Date(card.lastReview)) / (1000 * 60 * 60 * 24)
-    const R = retrievability(daysSinceReview, card.stability)
-    const fsrsInterval = nextInterval(card.stability)
-    // Hard cap: every section must be revised at least every 14 days
-    const interval = Math.min(fsrsInterval, MAX_INTERVAL_DAYS)
-    const daysUntilDue = interval - daysSinceReview
-    const lastRev = sectionRevs[sectionRevs.length - 1]
+    // ---- Per-verse: look up card states from snapshot (O(1) per verse) ----
+    const verseStates = verses.map(v => {
+      const vKey = `${v.surahNum}:${v.verseNum}`
+      const card = verseSnapshot[vKey]
+      if (!card) {
+        return { reviewed: false, retrievability: 0, dueIn: 0, totalReviews: 0, lastReviewDate: null, stability: 0 }
+      }
+      const d = (now - new Date(card.lastReview)) / DAY_MS
+      const R = retrievability(d, card.stability)
+      const interval = Math.min(nextInterval(card.stability), MAX_INTERVAL_DAYS)
+      return {
+        reviewed: true, retrievability: R,
+        dueIn: interval - d,
+        totalReviews: card.reps,
+        lastReviewDate: card.lastReview,
+        stability: card.stability,
+      }
+    })
+
+    // ---- Aggregate to page level ----
+    const totalVerses   = verseStates.length
+    const reviewedVerses = verseStates.filter(vs => vs.reviewed).length
+    const avgRetention   = verseStates.reduce((s, vs) => s + vs.retrievability, 0) / totalVerses
+    const avgReviews     = verseStates.reduce((s, vs) => s + vs.totalReviews, 0) / totalVerses
+    const avgStability   = verseStates.reduce((s, vs) => s + vs.stability, 0) / totalVerses
+    const minDueIn       = Math.min(...verseStates.map(vs => vs.dueIn))
+
+    // daysSinceReview = time since the most-stale reviewed verse
+    const reviewedOnly = verseStates.filter(vs => vs.reviewed)
+    const daysSinceReview = reviewedOnly.length > 0
+      ? Math.max(...reviewedOnly.map(vs => (now - new Date(vs.lastReviewDate)) / DAY_MS))
+      : null
 
     suggestions.push({
       ...entry,
       key,
-      stability: card.stability,
-      difficulty: card.difficulty,
-      retrievability: R,
-      daysSinceReview: Math.round(daysSinceReview * 10) / 10,
-      dueIn: Math.round(daysUntilDue * 10) / 10,
-      overdueDays: -daysUntilDue, // positive = overdue
-      totalReviews: card.reps,
-      lastQuality: lastRev?.quality ?? null,
+      stability: avgStability,
+      difficulty: 5,
+      retrievability: avgRetention,
+      daysSinceReview: daysSinceReview !== null ? Math.round(daysSinceReview * 10) / 10 : null,
+      dueIn: Math.round(minDueIn * 10) / 10,
+      overdueDays: Math.round(-minDueIn * 10) / 10,
+      totalReviews: Math.round(avgReviews * 10) / 10,
+      lastQuality: null,
+      reviewedVerses,
+      totalVerses,
     })
   }
 
-  // Sort: retention ASC, then overdue DESC, never-reviewed first
+  // Sort: never-reviewed first, then lowest retention, then most overdue
   suggestions.sort((a, b) => {
-    // Never-reviewed items first
-    if (a.totalReviews === 0 && b.totalReviews > 0) return -1
-    if (b.totalReviews === 0 && a.totalReviews > 0) return 1
-    // Lowest retention first
+    if (a.reviewedVerses === 0 && b.reviewedVerses > 0) return -1
+    if (b.reviewedVerses === 0 && a.reviewedVerses > 0) return 1
     if (a.retrievability !== b.retrievability) return a.retrievability - b.retrievability
-    // Then most overdue first
     return b.overdueDays - a.overdueDays
   })
 
   return suggestions
+}
+
+// === Surah-based suggestion computation ===
+
+/**
+ * Finalize a verse group with aggregated FSRS stats.
+ */
+function finalizeGroup(group) {
+  const vs = group.verses
+  const totalVerses = vs.length
+  const reviewedVerses = vs.filter(v => v.reviewed).length
+  const avgRetention = vs.reduce((s, v) => s + v.retention, 0) / totalVerses
+  const avgReviews = vs.reduce((s, v) => s + v.reps, 0) / totalVerses
+  const minDueIn = Math.min(...vs.map(v => v.dueIn))
+
+  return {
+    surahNum: group.surahNum,
+    pageNum: group.pageNum,
+    startVerse: group.startVerse,
+    endVerse: group.endVerse,
+    // For InlineRevisionMenu compatibility
+    startSurah: group.surahNum,
+    endSurah: group.surahNum,
+    totalVerses,
+    reviewedVerses,
+    avgRetention,
+    avgReviews: Math.round(avgReviews * 10) / 10,
+    minDueIn: Math.round(minDueIn * 10) / 10,
+    isDue: minDueIn <= 0,
+    overdueDays: Math.max(0, Math.round(-minDueIn * 10) / 10),
+  }
+}
+
+/**
+ * Compute revision suggestions organized by Surah → Page → Verse groups.
+ *
+ * Uses date-only (no time component) for elapsed-day calculations so that
+ * items due "today" (dueIn == 0) correctly appear in the due list.
+ *
+ * @param {Array} oldEntries - Memorized entries >= 21 days old (resolved partial verses)
+ * @param {object} verseSnapshot - Per-verse FSRS snapshot
+ * @param {object} verseData - verse_data.json
+ * @param {object} pageMap - "surah:verse" -> pageNum
+ * @returns {Array} Surah-level suggestion objects sorted by urgency
+ */
+export function computeSurahSuggestions(oldEntries, verseSnapshot, verseData, pageMap) {
+  if (!verseData?.pages || !pageMap) return []
+  if (!verseSnapshot) verseSnapshot = {}
+
+  const now = new Date()
+  const nowDateOnly = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+  const DAY_MS = 1000 * 60 * 60 * 24
+  const MAX_INTERVAL_DAYS = 14
+
+  // Step 1: Collect all memorized verse positions
+  const memorizedVerseSet = new Set()
+  for (const entry of oldEntries) {
+    const verses = getVersesInRange(
+      entry.startSurah, entry.startVerse,
+      entry.endSurah, entry.endVerse, verseData
+    )
+    for (const v of verses) {
+      memorizedVerseSet.add(`${v.surahNum}:${v.verseNum}`)
+    }
+  }
+
+  // Step 2: For each memorized verse, compute FSRS state using date-only math
+  const verseInfos = []
+  for (const key of memorizedVerseSet) {
+    const [surahNum, verseNum] = key.split(':').map(Number)
+    const pageNum = pageMap[key]
+    if (!pageNum) continue
+
+    const card = verseSnapshot[key]
+    let dueIn, retention, reps, reviewed
+
+    if (!card) {
+      dueIn = 0; retention = 0; reps = 0; reviewed = false
+    } else {
+      const lr = new Date(card.lastReview)
+      const lastDateOnly = new Date(lr.getFullYear(), lr.getMonth(), lr.getDate())
+      const d = (nowDateOnly - lastDateOnly) / DAY_MS
+      retention = retrievability(d, card.stability)
+      const interval = Math.min(nextInterval(card.stability), MAX_INTERVAL_DAYS)
+      dueIn = interval - d
+      reps = card.reps
+      reviewed = true
+    }
+
+    verseInfos.push({ surahNum, verseNum, pageNum, dueIn, retention, reps, reviewed })
+  }
+
+  // Step 3: Group by surah -> page
+  const surahPageGroups = {}
+  for (const vi of verseInfos) {
+    if (!surahPageGroups[vi.surahNum]) surahPageGroups[vi.surahNum] = {}
+    if (!surahPageGroups[vi.surahNum][vi.pageNum]) surahPageGroups[vi.surahNum][vi.pageNum] = []
+    surahPageGroups[vi.surahNum][vi.pageNum].push(vi)
+  }
+
+  // Step 4: Build verse groups for each surah
+  const surahSuggestions = []
+
+  for (const [surahNumStr, pages] of Object.entries(surahPageGroups)) {
+    const surahNum = Number(surahNumStr)
+    const allGroups = []
+
+    for (const [pageNumStr, verses] of Object.entries(pages)) {
+      const pageNum = Number(pageNumStr)
+      verses.sort((a, b) => a.verseNum - b.verseNum)
+
+      // Group consecutive verses on the same page into ranges
+      let currentGroup = null
+      for (const v of verses) {
+        if (currentGroup && v.verseNum === currentGroup.endVerse + 1) {
+          currentGroup.endVerse = v.verseNum
+          currentGroup.verses.push(v)
+        } else {
+          if (currentGroup) allGroups.push(finalizeGroup(currentGroup))
+          currentGroup = {
+            surahNum,
+            pageNum,
+            startVerse: v.verseNum,
+            endVerse: v.verseNum,
+            verses: [v],
+          }
+        }
+      }
+      if (currentGroup) allGroups.push(finalizeGroup(currentGroup))
+    }
+
+    // Separate due vs upcoming
+    const dueGroups = allGroups.filter(g => g.isDue)
+    const upcomingGroups = allGroups
+      .filter(g => !g.isDue)
+      .sort((a, b) => a.minDueIn - b.minDueIn)
+
+    // Determine overall surah memorized verse range (for whole-surah quick-log)
+    let minVerse = Infinity, maxVerse = -Infinity
+    for (const g of allGroups) {
+      if (g.startVerse < minVerse) minVerse = g.startVerse
+      if (g.endVerse > maxVerse) maxVerse = g.endVerse
+    }
+
+    surahSuggestions.push({
+      surahNum,
+      startSurah: surahNum,
+      endSurah: surahNum,
+      startVerse: String(minVerse),
+      endVerse: String(maxVerse),
+      allGroups,
+      dueGroups,
+      upcomingGroups,
+      totalDueGroups: dueGroups.length,
+      totalGroups: allGroups.length,
+      isDue: dueGroups.length > 0,
+      minDueIn: allGroups.length > 0
+        ? Math.round(Math.min(...allGroups.map(g => g.minDueIn)) * 10) / 10
+        : Infinity,
+      avgRetention: allGroups.length > 0
+        ? allGroups.reduce((s, g) => s + g.avgRetention, 0) / allGroups.length
+        : 0,
+    })
+  }
+
+  // Sort: most urgent first (due surahs first, then by earliest dueIn)
+  surahSuggestions.sort((a, b) => {
+    if (a.isDue !== b.isDue) return a.isDue ? -1 : 1
+    return a.minDueIn - b.minDueIn
+  })
+
+  return surahSuggestions
 }
