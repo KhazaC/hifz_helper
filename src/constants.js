@@ -1,4 +1,4 @@
-export const NEW_PERIOD_DAYS = 21
+export const NEW_PERIOD_REVISIONS = 21
 
 export const SCHEMA_VERSION = 2
 

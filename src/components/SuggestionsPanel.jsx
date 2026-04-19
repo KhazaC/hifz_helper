@@ -1,5 +1,5 @@
 import { useState, useMemo, memo } from 'react'
-import { NEW_PERIOD_DAYS, qualityLabels } from '../constants'
+import { NEW_PERIOD_REVISIONS, qualityLabels } from '../constants'
 
 /** Helper: keyboard handler for Enter/Space on clickable non-button elements */
 function handleKeyActivate(handler) {
@@ -142,8 +142,8 @@ const SuggestionsPanel = memo(function SuggestionsPanel({
         const surahNum = Number(surahNumStr)
         // Sort chunks by start verse
         entries.sort((a, b) => Number(a.startVerse) - Number(b.startVerse))
-        const minDays = Math.min(...entries.map(e => e.daysRemaining))
-        const maxDays = Math.max(...entries.map(e => e.daysRemaining))
+        const minDays = Math.min(...entries.map(e => e.revisionsRemaining))
+        const maxDays = Math.max(...entries.map(e => e.revisionsRemaining))
         // Compute whole-surah bounds (min start → max end across all chunks)
         const minStart = entries.reduce((m, e) => Math.min(m, Number(e.startVerse)), Infinity)
         const maxEnd = entries.reduce((m, e) => Math.max(m, Number(e.endVerse)), -Infinity)
@@ -190,6 +190,16 @@ const SuggestionsPanel = memo(function SuggestionsPanel({
     [dueSurahs]
   )
 
+  const totalDuePages = useMemo(() => {
+    const pages = new Set()
+    for (const surah of dueSurahs) {
+      for (const g of surah.dueGroups) {
+        if (g.pageNum) pages.add(g.pageNum)
+      }
+    }
+    return pages.size
+  }, [dueSurahs])
+
   return (
     <div className="suggestions-panel">
       <h2>Today&apos;s Revision Suggestions</h2>
@@ -207,7 +217,7 @@ const SuggestionsPanel = memo(function SuggestionsPanel({
             onKeyDown={handleKeyActivate(() => toggle('new'))}
           >
             <span className="expand-icon">{sectionOpen.new ? '▾' : '▸'}</span>
-            New Memorization (daily for {NEW_PERIOD_DAYS} days) — {visibleNewEntryCount} entries
+            New Memorization (daily for {NEW_PERIOD_REVISIONS} revisions) — {visibleNewEntryCount} entries
           </h3>
           {sectionOpen.new && newEntriesBySurah.map(surahGroup => {
             const isExpanded = expandedSurahs[`new-${surahGroup.surahNum}`]
@@ -227,7 +237,7 @@ const SuggestionsPanel = memo(function SuggestionsPanel({
                     <strong>{getSurahName(surahGroup.surahNum)}</strong>
                     <span className="surah-group-meta">
                       {surahGroup.entries.length} section{surahGroup.entries.length !== 1 ? 's' : ''}
-                      {' · '}{surahGroup.minDays === surahGroup.maxDays ? `${surahGroup.minDays}d left` : `${surahGroup.minDays}–${surahGroup.maxDays}d left`}
+                      {' · '}{surahGroup.minDays === surahGroup.maxDays ? `${surahGroup.minDays} rev left` : `${surahGroup.minDays}–${surahGroup.maxDays} rev left`}
                     </span>
                   </div>
                   <button className="revise-btn" onClick={(e) => { e.stopPropagation(); handleLogClick(surahMenuKey) }}>
@@ -249,9 +259,9 @@ const SuggestionsPanel = memo(function SuggestionsPanel({
                             <strong>{formatEntry(entry)}</strong>
                             <div className="suggestion-meta">
                               <span className="tag new-period-tag">
-                                Day {Math.ceil(entry.ageDays) || 1} of {NEW_PERIOD_DAYS}
+                                Revision {entry.revisionCount} of {NEW_PERIOD_REVISIONS}
                               </span>
-                              <span>{entry.daysRemaining}d remaining</span>
+                              <span>{entry.revisionsRemaining} remaining</span>
                             </div>
                           </div>
                           <button className="revise-btn" onClick={(e) => { e.stopPropagation(); handleLogClick(ek) }}>
@@ -283,7 +293,7 @@ const SuggestionsPanel = memo(function SuggestionsPanel({
             onKeyDown={handleKeyActivate(() => toggle('old'))}
           >
             <span className="expand-icon">{sectionOpen.old ? '▾' : '▸'}</span>
-            Old Memorization (FSRS) — {totalDueGroups} due across {dueSurahs.length} surah{dueSurahs.length !== 1 ? 's' : ''}
+            Old Memorization (FSRS) — {totalDueGroups} due across {totalDuePages} page{totalDuePages !== 1 ? 's' : ''}, {dueSurahs.length} surah{dueSurahs.length !== 1 ? 's' : ''}
           </h3>
           {sectionOpen.old && (
             <>

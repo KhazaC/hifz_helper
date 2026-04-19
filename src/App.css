@@ -5,7 +5,33 @@
 }
 
 h1 {
+  margin-bottom: 1rem;
+}
+
+.app-nav {
+  display: flex;
+  gap: 0;
   margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.app-nav a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #6b7280;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.app-nav a:hover {
+  color: #111827;
+}
+
+.app-nav a.active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
 }
 
 h2 {

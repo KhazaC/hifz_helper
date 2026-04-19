@@ -74,7 +74,7 @@ const MemorizedSections = memo(function MemorizedSections({
                         <span className="entry-date">
                           {new Date(entry.createdAt).toLocaleDateString()}
                           {' · '}
-                          <span className="new-badge">{entry.daysRemaining}d left</span>
+                          <span className="new-badge">{entry.revisionsRemaining} rev left</span>
                         </span>
                       </div>
                       <div className="entry-actions">

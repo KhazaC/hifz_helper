@@ -1,15 +1,23 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react'
 import { computeSurahSuggestions, getVersesInRange, applyRevisionToSnapshot, rebuildSnapshot } from './fsrs'
-import { mergeByPage, resolvePartialVerses, getPagesForEntry, getPageBounds } from './pageMerge'
+import { mergeByPage, resolvePartialVerses } from './pageMerge'
 import { useQuranData } from './hooks/useQuranData'
 import { useDebouncedWrite } from './hooks/useDebounce'
-import { NEW_PERIOD_DAYS, SCHEMA_VERSION, STORAGE_KEYS } from './constants'
-import SuggestionsPanel from './components/SuggestionsPanel'
-import RevisionForm from './components/RevisionForm'
-import RevisionLog from './components/RevisionLog'
-import MemorizationForm from './components/MemorizationForm'
-import MemorizedSections from './components/MemorizedSections'
+import { NEW_PERIOD_REVISIONS, SCHEMA_VERSION, STORAGE_KEYS } from './constants'
+import SuggestionsPage from './pages/SuggestionsPage'
+import RevisionsPage from './pages/RevisionsPage'
+import MemorizationsPage from './pages/MemorizationsPage'
 import './App.css'
+
+function useHashRoute(defaultRoute = 'suggestions') {
+  const [page, setPage] = useState(() => window.location.hash.slice(1) || defaultRoute)
+  useEffect(() => {
+    const onHash = () => setPage(window.location.hash.slice(1) || defaultRoute)
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [defaultRoute])
+  return page
+}
 
 /** Crash-safe JSON parse with fallback */
 function safeParse(raw, fallback = []) {
@@ -45,6 +53,7 @@ function migrateIfNeeded() {
 
 function App() {
   const { surahs, verseData, pageMap, isLoading, error, getSurahName, getMaxVerses } = useQuranData()
+  const page = useHashRoute('suggestions')
 
   const [entries, setEntries] = useState(() => {
     migrateIfNeeded()
@@ -98,13 +107,23 @@ function App() {
   const { newEntries, oldEntries, mergedOldEntries } = useMemo(() => {
     // Resolve fractional-verse overlaps before splitting into new/old
     const resolved = resolvePartialVerses(entries)
-    const now = new Date()
     const newE = []
     const oldE = []
     for (const entry of resolved) {
-      const ageDays = (now - new Date(entry.createdAt)) / (1000 * 60 * 60 * 24)
-      if (ageDays < NEW_PERIOD_DAYS) {
-        newE.push({ ...entry, ageDays, daysRemaining: Math.ceil(NEW_PERIOD_DAYS - ageDays) })
+      // Use minimum reps across all verses in the entry's range from the FSRS state
+      let minReps = Infinity
+      if (verseData) {
+        const verses = getVersesInRange(entry.startSurah, entry.startVerse, entry.endSurah, entry.endVerse, verseData)
+        for (const v of verses) {
+          const key = `${v.surahNum}:${v.verseNum}`
+          const card = verseSnapshot[key]
+          const reps = card ? card.reps : 0
+          if (reps < minReps) minReps = reps
+        }
+      }
+      if (minReps === Infinity) minReps = 0
+      if (minReps < NEW_PERIOD_REVISIONS) {
+        newE.push({ ...entry, revisionCount: minReps, revisionsRemaining: NEW_PERIOD_REVISIONS - minReps })
       } else {
         oldE.push(entry)
       }
@@ -113,7 +132,7 @@ function App() {
     const merged = (verseData && pageMap) ? mergeByPage(oldE, verseData, pageMap) : oldE
     merged.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     return { newEntries: newE, oldEntries: oldE, mergedOldEntries: merged }
-  }, [entries, verseData, pageMap])
+  }, [entries, verseSnapshot, verseData, pageMap])
 
   const surahSuggestions = useMemo(
     () => computeSurahSuggestions(oldEntries, verseSnapshot, verseData, pageMap),
@@ -161,30 +180,9 @@ function App() {
   )
 
   const sortedRevisions = useMemo(
-    () => [...revisions].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)),
+    () => [...revisions].sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
     [revisions]
   )
-
-  const newEntriesByPage = useMemo(() => {
-    if (!pageMap || !verseData) return []
-    const groups = {} // pageNum → { pageNum, entries: [], bounds }
-    for (const entry of newEntries) {
-      const pages = getPagesForEntry(entry, pageMap)
-      // Attribute entry to its start page
-      const pg = pages[0]
-      if (!pg) continue
-      if (!groups[pg]) {
-        const bounds = getPageBounds(pg, verseData)
-        groups[pg] = {
-          pageNum: pg,
-          bounds,
-          entries: [],
-        }
-      }
-      groups[pg].entries.push(entry)
-    }
-    return Object.values(groups).sort((a, b) => a.pageNum - b.pageNum)
-  }, [newEntries, pageMap, verseData, getSurahName])
 
   // --- Memorization handlers ---
 
@@ -288,6 +286,7 @@ function App() {
     const data = {
       'quran-memorization-entries': entries,
       'quran-revision-entries': revisions,
+      'quran-verse-fsrs-state': verseSnapshot,
       exportedAt: new Date().toISOString(),
       schemaVersion: SCHEMA_VERSION,
     }
@@ -313,13 +312,18 @@ function App() {
           const data = JSON.parse(ev.target.result)
           const importedEntries = data['quran-memorization-entries']
           const importedRevisions = data['quran-revision-entries']
+          const importedVerseState = data['quran-verse-fsrs-state']
           if (!Array.isArray(importedEntries) || !Array.isArray(importedRevisions)) {
             throw new Error('Invalid data format')
           }
           if (window.confirm(`Import ${importedEntries.length} entries and ${importedRevisions.length} revisions? This will replace current data.`)) {
             setEntries(importedEntries)
             setRevisions(importedRevisions)
-            if (verseData) setVerseSnapshot(rebuildSnapshot(importedRevisions, verseData))
+            if (importedVerseState && typeof importedVerseState === 'object' && !Array.isArray(importedVerseState)) {
+              setVerseSnapshot(importedVerseState)
+            } else if (verseData) {
+              setVerseSnapshot(rebuildSnapshot(importedRevisions, verseData))
+            }
           }
         } catch (err) {
           alert('Failed to import: ' + err.message)
@@ -344,54 +348,56 @@ function App() {
     <div className="app">
       <h1>Quran Memorization Tracker</h1>
 
-      <SuggestionsPanel
-        entries={entries}
-        newEntries={newEntries}
-        surahSuggestions={surahSuggestions}
-        revisions={revisions}
-        formatEntry={formatEntry}
-        getSurahName={getSurahName}
-        onLogRevision={handleQuickRevision}
-      />
+      <nav className="app-nav">
+        <a href="#suggestions" className={page === 'suggestions' ? 'active' : ''}>Suggestions</a>
+        <a href="#revisions" className={page === 'revisions' ? 'active' : ''}>Revisions</a>
+        <a href="#memorizations" className={page === 'memorizations' ? 'active' : ''}>Memorizations</a>
+      </nav>
 
-      <hr className="section-divider" />
+      {page === 'suggestions' && (
+        <SuggestionsPage
+          entries={entries}
+          newEntries={newEntries}
+          surahSuggestions={surahSuggestions}
+          revisions={revisions}
+          formatEntry={formatEntry}
+          getSurahName={getSurahName}
+          onLogRevision={handleQuickRevision}
+        />
+      )}
 
-      <RevisionForm
-        key={editingRevision ? editingRevision.id : 'new-rev'}
-        surahs={editingRevision ? surahs : revisionSurahs}
-        getMaxVerses={getMaxVerses}
-        editRevision={editingRevision}
-        onSubmit={handleRevisionSubmit}
-        onCancel={handleRevisionCancel}
-      />
+      {page === 'revisions' && (
+        <RevisionsPage
+          surahs={surahs}
+          revisionSurahs={revisionSurahs}
+          getMaxVerses={getMaxVerses}
+          editingRevision={editingRevision}
+          sortedRevisions={sortedRevisions}
+          formatEntry={formatEntry}
+          onSubmit={handleRevisionSubmit}
+          onEdit={handleRevisionEdit}
+          onDelete={handleRevisionDelete}
+          onCancel={handleRevisionCancel}
+        />
+      )}
 
-      <RevisionLog
-        revisions={sortedRevisions}
-        formatEntry={formatEntry}
-        onEdit={handleRevisionEdit}
-        onDelete={handleRevisionDelete}
-      />
-
-      <hr className="section-divider" />
-
-      <MemorizationForm
-        key={editingEntry ? editingEntry.id : 'new-mem'}
-        surahs={editingEntry ? surahs : memorizationSurahs}
-        getMaxVerses={getMaxVerses}
-        editEntry={editingEntry}
-        onSubmit={handleMemorizationSubmit}
-        onCancel={handleMemorizationCancel}
-      />
-
-      <MemorizedSections
-        entries={entries}
-        newEntries={newEntries}
-        oldEntries={oldEntries}
-        mergedOldEntries={mergedOldEntries}
-        formatEntry={formatEntry}
-        onEdit={handleMemorizationEdit}
-        onDelete={handleMemorizationDelete}
-      />
+      {page === 'memorizations' && (
+        <MemorizationsPage
+          surahs={surahs}
+          memorizationSurahs={memorizationSurahs}
+          getMaxVerses={getMaxVerses}
+          editingEntry={editingEntry}
+          entries={entries}
+          newEntries={newEntries}
+          oldEntries={oldEntries}
+          mergedOldEntries={mergedOldEntries}
+          formatEntry={formatEntry}
+          onSubmit={handleMemorizationSubmit}
+          onEdit={handleMemorizationEdit}
+          onDelete={handleMemorizationDelete}
+          onCancel={handleMemorizationCancel}
+        />
+      )}
 
       <hr className="section-divider" />
       <div className="test-data-controls">
