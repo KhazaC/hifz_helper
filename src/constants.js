@@ -1,4 +1,4 @@
-export const NEW_PERIOD_DAYS = 21
+export const NEW_PERIOD_REVISIONS = 21
 
 export const SCHEMA_VERSION = 2
 
@@ -15,4 +15,15 @@ export const qualityLabels = {
   3: 'Okay',
   4: 'Good',
   5: 'Solid',
+}
+
+/** Get today's date as "YYYY-MM-DD" in the user's local timezone. */
+export function localDateStr(d = new Date()) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
+/** Extract the local date portion "YYYY-MM-DD" from an ISO datetime string. */
+export function isoToLocalDate(isoStr) {
+  const d = new Date(isoStr)
+  return localDateStr(d)
 }

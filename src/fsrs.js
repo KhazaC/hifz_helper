@@ -145,44 +145,50 @@ export function sectionKey(entry) {
 }
 
 /**
- * Parse a verse string like "5" or "5.2" into a comparable number.
- * "5.2" → 5.2 so fractional positions sort correctly.
+ * Lazily build a surah-indexed verse lookup from verseData.
+ * Cached on the verseData object so it's built at most once.
+ * Returns { surahNum → { verseNum → verseObj } }
  */
-function verseNum(v) {
-  return Number(v)
+function getVerseIndex(verseData) {
+  if (verseData._verseIndex) return verseData._verseIndex
+  const index = {}
+  for (const page of Object.values(verseData.pages)) {
+    if (!page.verses) continue
+    for (const v of page.verses) {
+      if (!index[v.surahNum]) index[v.surahNum] = {}
+      index[v.surahNum][v.verseNum] = v
+    }
+  }
+  // Also store max verse per surah for range iteration
+  const maxVerse = {}
+  for (const s of Object.keys(index)) {
+    maxVerse[s] = Math.max(...Object.keys(index[s]).map(Number))
+  }
+  verseData._verseIndex = index
+  verseData._maxVerse = maxVerse
+  return index
 }
 
 /**
- * Compare two (surah, verse) positions.
- * Returns negative if a < b, 0 if equal, positive if a > b.
- */
-function comparePositions(surahA, verseA, surahB, verseB) {
-  const sA = Number(surahA)
-  const sB = Number(surahB)
-  if (sA !== sB) return sA - sB
-  return verseNum(verseA) - verseNum(verseB)
-}
-
-/**
- * Get all verses in a surah:verse range by scanning verseData pages.
+ * Get all verses in a surah:verse range using the surah-indexed lookup.
+ * O(output size) instead of O(all verses across all pages).
  * Returns an array of { surahNum, verseNum }.
  */
 export function getVersesInRange(startSurah, startVerse, endSurah, endVerse, verseData) {
   if (!verseData || !verseData.pages) return []
+  const index = getVerseIndex(verseData)
   const s0 = Number(startSurah)
   const v0 = Math.floor(Number(startVerse))
   const s1 = Number(endSurah)
   const v1 = Math.floor(Number(endVerse))
   const result = []
-  for (const page of Object.values(verseData.pages)) {
-    if (!page.verses) continue
-    for (const v of page.verses) {
-      if (
-        comparePositions(s0, v0, v.surahNum, v.verseNum) <= 0 &&
-        comparePositions(v.surahNum, v.verseNum, s1, v1) <= 0
-      ) {
-        result.push(v)
-      }
+  for (let s = s0; s <= s1; s++) {
+    const surahVerses = index[s]
+    if (!surahVerses) continue
+    const vStart = s === s0 ? v0 : 1
+    const vEnd = s === s1 ? v1 : (verseData._maxVerse[s] || 0)
+    for (let v = vStart; v <= vEnd; v++) {
+      if (surahVerses[v]) result.push(surahVerses[v])
     }
   }
   return result

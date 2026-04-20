@@ -1,5 +1,5 @@
 import { useState, useMemo, memo } from 'react'
-import { NEW_PERIOD_DAYS, qualityLabels } from '../constants'
+import { NEW_PERIOD_REVISIONS, qualityLabels, localDateStr, isoToLocalDate } from '../constants'
 
 /** Helper: keyboard handler for Enter/Space on clickable non-button elements */
 function handleKeyActivate(handler) {
@@ -16,11 +16,11 @@ function handleKeyActivate(handler) {
  * Uses range overlap: if ANY revision from today overlaps the entry's range, consider it done.
  */
 function hasRevisionToday(entry, revisions) {
-  const today = new Date().toISOString().slice(0, 10)
+  const today = localDateStr()
   const eStart = { s: Number(entry.startSurah), v: Math.floor(Number(entry.startVerse)) }
   const eEnd = { s: Number(entry.endSurah), v: Math.floor(Number(entry.endVerse)) }
   return revisions.some(r => {
-    if (r.createdAt.slice(0, 10) !== today) return false
+    if (isoToLocalDate(r.createdAt) !== today) return false
     const rStart = { s: Number(r.startSurah), v: Math.floor(Number(r.startVerse)) }
     const rEnd = { s: Number(r.endSurah), v: Math.floor(Number(r.endVerse)) }
     // Overlap: not (rEnd < eStart or rStart > eEnd)
@@ -34,7 +34,7 @@ function hasRevisionToday(entry, revisions) {
  * Inline quick-log menu — quality + optional date, rendered inside a suggestion card.
  */
 function InlineRevisionMenu({ entry, onSubmit, onCancel }) {
-  const todayStr = new Date().toISOString().slice(0, 10)
+  const todayStr = localDateStr()
   const [quality, setQuality] = useState('3')
   const [date, setDate] = useState(todayStr)
   const [showDate, setShowDate] = useState(false)
@@ -142,8 +142,8 @@ const SuggestionsPanel = memo(function SuggestionsPanel({
         const surahNum = Number(surahNumStr)
         // Sort chunks by start verse
         entries.sort((a, b) => Number(a.startVerse) - Number(b.startVerse))
-        const minDays = Math.min(...entries.map(e => e.daysRemaining))
-        const maxDays = Math.max(...entries.map(e => e.daysRemaining))
+        const minDays = Math.min(...entries.map(e => e.revisionsRemaining))
+        const maxDays = Math.max(...entries.map(e => e.revisionsRemaining))
         // Compute whole-surah bounds (min start → max end across all chunks)
         const minStart = entries.reduce((m, e) => Math.min(m, Number(e.startVerse)), Infinity)
         const maxEnd = entries.reduce((m, e) => Math.max(m, Number(e.endVerse)), -Infinity)
@@ -190,6 +190,16 @@ const SuggestionsPanel = memo(function SuggestionsPanel({
     [dueSurahs]
   )
 
+  const totalDuePages = useMemo(() => {
+    const pages = new Set()
+    for (const surah of dueSurahs) {
+      for (const g of surah.dueGroups) {
+        if (g.pageNum) pages.add(g.pageNum)
+      }
+    }
+    return pages.size
+  }, [dueSurahs])
+
   return (
     <div className="suggestions-panel">
       <h2>Today&apos;s Revision Suggestions</h2>
@@ -207,7 +217,7 @@ const SuggestionsPanel = memo(function SuggestionsPanel({
             onKeyDown={handleKeyActivate(() => toggle('new'))}
           >
             <span className="expand-icon">{sectionOpen.new ? '▾' : '▸'}</span>
-            New Memorization (daily for {NEW_PERIOD_DAYS} days) — {visibleNewEntryCount} entries
+            New Memorization (daily for {NEW_PERIOD_REVISIONS} revisions) — {visibleNewEntryCount} entries
           </h3>
           {sectionOpen.new && newEntriesBySurah.map(surahGroup => {
             const isExpanded = expandedSurahs[`new-${surahGroup.surahNum}`]
@@ -227,7 +237,7 @@ const SuggestionsPanel = memo(function SuggestionsPanel({
                     <strong>{getSurahName(surahGroup.surahNum)}</strong>
                     <span className="surah-group-meta">
                       {surahGroup.entries.length} section{surahGroup.entries.length !== 1 ? 's' : ''}
-                      {' · '}{surahGroup.minDays === surahGroup.maxDays ? `${surahGroup.minDays}d left` : `${surahGroup.minDays}–${surahGroup.maxDays}d left`}
+                      {' · '}{surahGroup.minDays === surahGroup.maxDays ? `${surahGroup.minDays} rev left` : `${surahGroup.minDays}–${surahGroup.maxDays} rev left`}
                     </span>
                   </div>
                   <button className="revise-btn" onClick={(e) => { e.stopPropagation(); handleLogClick(surahMenuKey) }}>
@@ -249,9 +259,9 @@ const SuggestionsPanel = memo(function SuggestionsPanel({
                             <strong>{formatEntry(entry)}</strong>
                             <div className="suggestion-meta">
                               <span className="tag new-period-tag">
-                                Day {Math.ceil(entry.ageDays) || 1} of {NEW_PERIOD_DAYS}
+                                Revision {entry.revisionCount} of {NEW_PERIOD_REVISIONS}
                               </span>
-                              <span>{entry.daysRemaining}d remaining</span>
+                              <span>{entry.revisionsRemaining} remaining</span>
                             </div>
                           </div>
                           <button className="revise-btn" onClick={(e) => { e.stopPropagation(); handleLogClick(ek) }}>
@@ -283,7 +293,7 @@ const SuggestionsPanel = memo(function SuggestionsPanel({
             onKeyDown={handleKeyActivate(() => toggle('old'))}
           >
             <span className="expand-icon">{sectionOpen.old ? '▾' : '▸'}</span>
-            Old Memorization (FSRS) — {totalDueGroups} due across {dueSurahs.length} surah{dueSurahs.length !== 1 ? 's' : ''}
+            Old Memorization (FSRS) — {totalDueGroups} due across {totalDuePages} page{totalDuePages !== 1 ? 's' : ''}, {dueSurahs.length} surah{dueSurahs.length !== 1 ? 's' : ''}
           </h3>
           {sectionOpen.old && (
             <>
