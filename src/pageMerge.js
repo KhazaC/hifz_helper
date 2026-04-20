@@ -49,21 +49,28 @@ export function resolvePartialVerses(entries) {
     return new Date(a.createdAt) - new Date(b.createdAt)
   })
 
-  // For each pair of adjacent-in-order entries, resolve fractional overlaps
+  // Build index: "surah:verseInt" → array of item indices with that start position
+  const startIndex = {}
+  for (let j = 0; j < items.length; j++) {
+    const key = `${Number(items[j].startSurah)}:${verseInt(items[j].startVerse)}`
+    if (!startIndex[key]) startIndex[key] = []
+    startIndex[key].push(j)
+  }
+
+  // For each entry with fractional endVerse, find matching starts via the index
   for (let i = 0; i < items.length; i++) {
     const a = items[i]
     if (!isFractional(a.endVerse)) continue
 
     const aEndInt = verseInt(a.endVerse)
     const aEndSurah = Number(a.endSurah)
+    const key = `${aEndSurah}:${aEndInt}`
+    const candidates = startIndex[key]
+    if (!candidates) continue
 
-    // Find the next entry that starts at the same integer verse in the same surah
-    for (let j = i + 1; j < items.length; j++) {
+    for (const j of candidates) {
+      if (j <= i) continue
       const b = items[j]
-      const bStartInt = verseInt(b.startVerse)
-      const bStartSurah = Number(b.startSurah)
-
-      if (bStartSurah !== aEndSurah || bStartInt !== aEndInt) continue
 
       // Found a match — attribute the partial verse to the later entry
       // Trim A's end to the previous whole verse

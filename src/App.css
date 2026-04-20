@@ -34,6 +34,23 @@ h1 {
   border-bottom-color: #2563eb;
 }
 
+.nav-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  margin-left: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: white;
+  background: #dc2626;
+  border-radius: 9px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
 h2 {
   margin-top: 0;
 }
@@ -648,4 +665,236 @@ h2 {
 
 .clear-btn:hover {
   background: #fecaca;
+}
+
+/* === Stats Panel === */
+
+.stats-panel {
+  padding: 0;
+}
+
+.stats-section {
+  margin-bottom: 1.5rem;
+}
+
+.stats-section h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  color: #374151;
+}
+
+/* Progress bar */
+.progress-bar-container {
+  position: relative;
+  background: #e5e7eb;
+  border-radius: 8px;
+  height: 28px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  border-radius: 8px;
+  transition: width 0.4s ease;
+  min-width: 2px;
+}
+
+.progress-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1f2937;
+  white-space: nowrap;
+}
+
+/* Surah breakdown */
+.surah-breakdown {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 0.5rem;
+}
+
+.surah-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0;
+  font-size: 0.8rem;
+}
+
+.surah-progress-name {
+  width: 120px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #374151;
+}
+
+.surah-progress-bar-wrap {
+  flex: 1;
+  background: #e5e7eb;
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.surah-progress-bar {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 4px;
+  min-width: 1px;
+}
+
+.surah-progress-count {
+  font-size: 0.72rem;
+  color: #6b7280;
+  white-space: nowrap;
+  width: 90px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.5rem;
+}
+
+.stat-card {
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 0.6rem;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: #6b7280;
+  margin-top: 0.15rem;
+}
+
+/* Calendar heatmap */
+.calendar-heatmap {
+  position: relative;
+  overflow-x: auto;
+}
+
+.calendar-heatmap svg rect {
+  cursor: pointer;
+}
+
+.calendar-tooltip {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f2937;
+  color: white;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* === Revision Log Filters === */
+
+.log-filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.filter-toggle-btn {
+  position: relative;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #374151;
+}
+
+.filter-toggle-btn:hover {
+  background: #e5e7eb;
+}
+
+.filter-active-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #2563eb;
+  border-radius: 50%;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.filter-clear-btn {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.72rem;
+  background: none;
+  border: none;
+  color: #dc2626;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.filter-count {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.log-filters {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.filter-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.filter-row:last-child {
+  margin-bottom: 0;
+}
+
+.filter-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.filter-group label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.filter-group select,
+.filter-group input {
+  padding: 0.3rem 0.4rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.8rem;
 }

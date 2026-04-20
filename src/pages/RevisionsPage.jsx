@@ -21,6 +21,7 @@ export default function RevisionsPage({
         formatEntry={formatEntry}
         onEdit={onEdit}
         onDelete={onDelete}
+        surahs={surahs}
       />
     </>
   )

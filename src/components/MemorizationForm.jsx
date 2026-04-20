@@ -1,5 +1,6 @@
 import { useState, memo } from 'react'
 import SurahVerseFields from './SurahVerseFields'
+import { localDateStr, isoToLocalDate } from '../constants'
 
 /**
  * Form for logging / editing memorization entries.
@@ -12,12 +13,12 @@ const MemorizationForm = memo(function MemorizationForm({
   onSubmit,
   onCancel,
 }) {
-  const todayStr = new Date().toISOString().slice(0, 10)
+  const todayStr = localDateStr()
   const [startSurah, setStartSurah] = useState(editEntry ? String(editEntry.startSurah) : '')
   const [startVerse, setStartVerse] = useState(editEntry ? editEntry.startVerse : '')
   const [endSurah, setEndSurah] = useState(editEntry ? String(editEntry.endSurah) : '')
   const [endVerse, setEndVerse] = useState(editEntry ? editEntry.endVerse : '')
-  const [date, setDate] = useState(editEntry ? editEntry.createdAt.slice(0, 10) : todayStr)
+  const [date, setDate] = useState(editEntry ? isoToLocalDate(editEntry.createdAt) : todayStr)
 
   const clearFields = () => {
     setStartSurah('')

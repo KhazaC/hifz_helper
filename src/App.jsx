@@ -3,10 +3,11 @@ import { computeSurahSuggestions, getVersesInRange, applyRevisionToSnapshot, reb
 import { mergeByPage, resolvePartialVerses } from './pageMerge'
 import { useQuranData } from './hooks/useQuranData'
 import { useDebouncedWrite } from './hooks/useDebounce'
-import { NEW_PERIOD_REVISIONS, SCHEMA_VERSION, STORAGE_KEYS } from './constants'
+import { NEW_PERIOD_REVISIONS, SCHEMA_VERSION, STORAGE_KEYS, localDateStr, isoToLocalDate } from './constants'
 import SuggestionsPage from './pages/SuggestionsPage'
 import RevisionsPage from './pages/RevisionsPage'
 import MemorizationsPage from './pages/MemorizationsPage'
+import StatsPage from './pages/StatsPage'
 import './App.css'
 
 function useHashRoute(defaultRoute = 'suggestions') {
@@ -138,6 +139,25 @@ function App() {
     () => computeSurahSuggestions(oldEntries, verseSnapshot, verseData, pageMap),
     [oldEntries, verseSnapshot, verseData, pageMap]
   )
+
+  // Due count for nav badge (new entries not revised today + old due groups)
+  const dueCount = useMemo(() => {
+    const today = localDateStr()
+    const newDue = newEntries.filter(e => {
+      return !revisions.some(r => {
+        if (isoToLocalDate(r.createdAt) !== today) return false
+        const eS = { s: Number(e.startSurah), v: Math.floor(Number(e.startVerse)) }
+        const eE = { s: Number(e.endSurah), v: Math.floor(Number(e.endVerse)) }
+        const rS = { s: Number(r.startSurah), v: Math.floor(Number(r.startVerse)) }
+        const rE = { s: Number(r.endSurah), v: Math.floor(Number(r.endVerse)) }
+        const rEndBefore = rE.s < eS.s || (rE.s === eS.s && rE.v < eS.v)
+        const rStartAfter = rS.s > eE.s || (rS.s === eE.s && rS.v > eE.v)
+        return !(rEndBefore || rStartAfter)
+      })
+    }).length
+    const oldDue = surahSuggestions.reduce((sum, s) => sum + s.totalDueGroups, 0)
+    return newDue + oldDue
+  }, [newEntries, surahSuggestions, revisions])
 
   // Surahs that have at least one memorized verse (for revision form scoping)
   const memorizedSurahNums = useMemo(() => {
@@ -294,7 +314,7 @@ function App() {
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `quran-tracker-backup-${new Date().toISOString().slice(0, 10)}.json`
+    a.download = `quran-tracker-backup-${localDateStr()}.json`
     a.click()
     URL.revokeObjectURL(url)
   }
@@ -349,9 +369,12 @@ function App() {
       <h1>Quran Memorization Tracker</h1>
 
       <nav className="app-nav">
-        <a href="#suggestions" className={page === 'suggestions' ? 'active' : ''}>Suggestions</a>
+        <a href="#suggestions" className={page === 'suggestions' ? 'active' : ''}>
+          Suggestions{dueCount > 0 && <span className="nav-badge">{dueCount}</span>}
+        </a>
         <a href="#revisions" className={page === 'revisions' ? 'active' : ''}>Revisions</a>
         <a href="#memorizations" className={page === 'memorizations' ? 'active' : ''}>Memorizations</a>
+        <a href="#stats" className={page === 'stats' ? 'active' : ''}>Stats</a>
       </nav>
 
       {page === 'suggestions' && (
@@ -396,6 +419,15 @@ function App() {
           onEdit={handleMemorizationEdit}
           onDelete={handleMemorizationDelete}
           onCancel={handleMemorizationCancel}
+        />
+      )}
+
+      {page === 'stats' && (
+        <StatsPage
+          entries={entries}
+          revisions={revisions}
+          verseData={verseData}
+          surahs={surahs}
         />
       )}
 

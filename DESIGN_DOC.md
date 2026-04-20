@@ -387,15 +387,16 @@ For entries spanning multiple surahs, find the start page and end page, then inc
 
 ## 8. User Interface & Navigation
 
-### 8.1 Three-Page Layout
+### 8.1 Four-Page Layout
 
 | Page | Route | Content |
 |---|---|---|
 | **Suggestions** | default/home | Today's revision suggestions (new + old memorization) |
 | **Revisions** | revisions | Log/edit revision form + revision history log |
 | **Memorizations** | memorizations | Log/edit memorization form + memorized sections list |
+| **Stats** | stats | Progress overview, statistics, and activity calendar |
 
-A persistent navigation bar allows switching between pages.
+A persistent navigation bar allows switching between pages. The **Suggestions** tab displays a red badge with the count of items due today (new entries not yet revised today + overdue old groups).
 
 ### 8.2 Suggestions Page
 
@@ -440,6 +441,12 @@ Three collapsible sections:
 - Each entry shows: verse range, quality badge (color-coded), date
 - Edit and Delete actions per entry
 - Paginated: shows 5 initially, then "Show more" in increments of 10
+- **Filters** (collapsible panel):
+  - Surah dropdown: show only revisions for a specific surah
+  - Quality dropdown: show only revisions with a specific quality rating
+  - Date range: from-date and to-date inputs to narrow by revision date
+  - Active filter indicator (dot) and result count shown when filters are active
+  - "Clear filters" button to reset all filters
 
 ### 8.4 Memorizations Page
 
@@ -456,7 +463,29 @@ Three collapsible sections:
 - Edit and Delete actions per entry
 - Paginated with "Show more"
 
-### 8.5 Data Management Controls
+### 8.5 Stats Page
+
+Three sections:
+
+**Progress Overview:**
+- Total verses memorized out of 6236, shown as a progress bar with percentage
+- Expandable surah-by-surah breakdown: for each surah with memorized content, show verses memorized vs. total verses with a progress bar
+
+**Statistics Grid:**
+- Total revisions
+- Revisions today / this week / this month
+- Average quality (across all revisions)
+- Current streak (consecutive days with at least one revision, counting back from today or yesterday)
+- Best streak (longest consecutive-day run in history)
+
+**Activity Calendar (Heatmap):**
+- 13-week (91-day) GitHub-style grid rendered as SVG
+- Rows = days of the week (Mon–Sun), columns = weeks
+- Cell color intensity based on revision count for that day (4 levels)
+- Hover tooltip shows date and revision count
+- Month labels along the top
+
+### 8.6 Data Management Controls
 
 Always visible at the bottom of every page:
 - **Export Data**: Downloads a JSON backup file
@@ -464,7 +493,7 @@ Always visible at the bottom of every page:
 - **Load Test Data**: Loads sample data (development aid)
 - **Clear All Data**: Erases everything (with confirmation)
 
-### 8.6 Surah/Verse Input Component
+### 8.7 Surah/Verse Input Component
 
 Shared between memorization and revision forms:
 - Surah dropdown (filterable list of surahs)
@@ -547,6 +576,8 @@ Generates a JSON file named `quran-tracker-backup-YYYY-MM-DD.json`:
 5. **Date-only math for suggestions**: When computing whether a verse is due today, time-of-day is stripped from both "now" and "last review" dates. This ensures that items due "today" always appear in the due list regardless of what time it is.
 
 6. **Today filter for new entries**: New memorization entries that have already been revised today (any overlapping revision from today) are hidden from the suggestions.
+
+9. **Local timezone for date comparisons**: All "today" comparisons and date-string extractions use the user's local timezone (via `getFullYear/getMonth/getDate`), not UTC. This prevents mismatches where a late-evening local revision appears as "tomorrow" in UTC.
 
 7. **Incremental vs full rebuild**:
    - Adding a revision → incremental snapshot update (fast)

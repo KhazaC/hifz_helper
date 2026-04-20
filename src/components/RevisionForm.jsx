@@ -1,6 +1,6 @@
 import { useState, memo } from 'react'
 import SurahVerseFields from './SurahVerseFields'
-import { qualityLabels } from '../constants'
+import { qualityLabels, localDateStr, isoToLocalDate } from '../constants'
 
 /**
  * Form for logging / editing revision entries.
@@ -13,13 +13,13 @@ const RevisionForm = memo(function RevisionForm({
   onSubmit,
   onCancel,
 }) {
-  const todayStr = new Date().toISOString().slice(0, 10)
+  const todayStr = localDateStr()
   const [startSurah, setStartSurah] = useState(editRevision ? String(editRevision.startSurah) : '')
   const [startVerse, setStartVerse] = useState(editRevision ? editRevision.startVerse : '')
   const [endSurah, setEndSurah] = useState(editRevision ? String(editRevision.endSurah) : '')
   const [endVerse, setEndVerse] = useState(editRevision ? editRevision.endVerse : '')
   const [quality, setQuality] = useState(editRevision ? String(editRevision.quality) : '3')
-  const [date, setDate] = useState(editRevision ? editRevision.createdAt.slice(0, 10) : todayStr)
+  const [date, setDate] = useState(editRevision ? isoToLocalDate(editRevision.createdAt) : todayStr)
 
   const clearFields = () => {
     setStartSurah('')

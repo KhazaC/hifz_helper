@@ -1,5 +1,5 @@
 import { useState, useMemo, memo } from 'react'
-import { NEW_PERIOD_REVISIONS, qualityLabels } from '../constants'
+import { NEW_PERIOD_REVISIONS, qualityLabels, localDateStr, isoToLocalDate } from '../constants'
 
 /** Helper: keyboard handler for Enter/Space on clickable non-button elements */
 function handleKeyActivate(handler) {
@@ -16,11 +16,11 @@ function handleKeyActivate(handler) {
  * Uses range overlap: if ANY revision from today overlaps the entry's range, consider it done.
  */
 function hasRevisionToday(entry, revisions) {
-  const today = new Date().toISOString().slice(0, 10)
+  const today = localDateStr()
   const eStart = { s: Number(entry.startSurah), v: Math.floor(Number(entry.startVerse)) }
   const eEnd = { s: Number(entry.endSurah), v: Math.floor(Number(entry.endVerse)) }
   return revisions.some(r => {
-    if (r.createdAt.slice(0, 10) !== today) return false
+    if (isoToLocalDate(r.createdAt) !== today) return false
     const rStart = { s: Number(r.startSurah), v: Math.floor(Number(r.startVerse)) }
     const rEnd = { s: Number(r.endSurah), v: Math.floor(Number(r.endVerse)) }
     // Overlap: not (rEnd < eStart or rStart > eEnd)
@@ -34,7 +34,7 @@ function hasRevisionToday(entry, revisions) {
  * Inline quick-log menu — quality + optional date, rendered inside a suggestion card.
  */
 function InlineRevisionMenu({ entry, onSubmit, onCancel }) {
-  const todayStr = new Date().toISOString().slice(0, 10)
+  const todayStr = localDateStr()
   const [quality, setQuality] = useState('3')
   const [date, setDate] = useState(todayStr)
   const [showDate, setShowDate] = useState(false)
